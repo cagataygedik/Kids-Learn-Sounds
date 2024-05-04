@@ -11,10 +11,25 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+//I was getting warning so I came up an with solution. If this encounter something in the future I will change that.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        DispatchQueue.global().async {
+                    let fileManager = FileManager.default
+                    do {
+                        // Get the documents directory
+                        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                        
+                        // Append the directory name to the documents path
+                        let directoryPath = documentsPath.appendingPathComponent("MyDirectory").path
+                        
+                        // Create the directory if it doesn't exist
+                        try fileManager.createDirectory(atPath: directoryPath, withIntermediateDirectories: true, attributes: nil)
+                    } catch {
+                        print("Error creating directory: \(error)")
+                    }
+                }
+                
+                return true
     }
 
     // MARK: UISceneSession Lifecycle
