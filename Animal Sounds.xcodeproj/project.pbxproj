@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A25F6A112BE79D7200B1B877 /* ASAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* ASAnimalCell.swift */; };
+		A25F6A132BE79D8400B1B877 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A122BE79D8400B1B877 /* FavoritesCell.swift */; };
+		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
+		A25F6A192BE7A04700B1B877 /* ASNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* ASNameLabel.swift */; };
+		A25F6A1B2BE7A12600B1B877 /* ASAnimalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* ASAnimalImageView.swift */; };
 		A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* ASAnimal.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
@@ -18,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A25F6A102BE79D7200B1B877 /* ASAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimalCell.swift; sourceTree = "<group>"; };
+		A25F6A122BE79D8400B1B877 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		A25F6A182BE7A04700B1B877 /* ASNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNameLabel.swift; sourceTree = "<group>"; };
+		A25F6A1A2BE7A12600B1B877 /* ASAnimalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimalImageView.swift; sourceTree = "<group>"; };
 		A2887FDC2BE799C1001DA96A /* ASAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimal.swift; sourceTree = "<group>"; };
 		A29F61062BE6733F00165F0F /* Animal Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,12 +44,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A25F6A0F2BE79D4900B1B877 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A25F6A102BE79D7200B1B877 /* ASAnimalCell.swift */,
+				A25F6A122BE79D8400B1B877 /* FavoritesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A25F6A172BE7A00800B1B877 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				A25F6A182BE7A04700B1B877 /* ASNameLabel.swift */,
+				A25F6A1A2BE7A12600B1B877 /* ASAnimalImageView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +96,8 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A25F6A172BE7A00800B1B877 /* Custom Views */,
+				A25F6A0F2BE79D4900B1B877 /* Cells */,
 				A2887FDB2BE799B6001DA96A /* Models */,
 				A29F61222BE676BE00165F0F /* ViewControllers */,
 				A29F61212BE674B100165F0F /* Resources */,
@@ -113,6 +143,9 @@
 			dependencies = (
 			);
 			name = "Animal Sounds";
+			packageProductDependencies = (
+				A25F6A152BE79DAB00B1B877 /* SnapKit */,
+			);
 			productName = "Animal Sounds";
 			productReference = A29F61062BE6733F00165F0F /* Animal Sounds.app */;
 			productType = "com.apple.product-type.application";
@@ -141,6 +174,9 @@
 				Base,
 			);
 			mainGroup = A29F60FD2BE6733F00165F0F;
+			packageReferences = (
+				A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = A29F61072BE6733F00165F0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -168,9 +204,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A29F61202BE6749A00165F0F /* ASFavoritesListViewController.swift in Sources */,
+				A25F6A132BE79D8400B1B877 /* FavoritesCell.swift in Sources */,
+				A25F6A1B2BE7A12600B1B877 /* ASAnimalImageView.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* ASAnimalListViewController.swift in Sources */,
+				A25F6A112BE79D7200B1B877 /* ASAnimalCell.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
 				A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */,
+				A25F6A192BE7A04700B1B877 /* ASNameLabel.swift in Sources */,
 				A29F611E2BE6746600165F0F /* ASTabBarController.swift in Sources */,
 				A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */,
 			);
@@ -242,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -299,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -393,6 +433,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A25F6A152BE79DAB00B1B877 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A29F60FE2BE6733F00165F0F /* Project object */;
 }

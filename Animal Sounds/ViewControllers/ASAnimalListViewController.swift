@@ -11,7 +11,8 @@ final class ASAnimalListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
