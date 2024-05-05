@@ -7,25 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* ASAnimal.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
-		A29F610E2BE6733F00165F0F /* AnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610D2BE6733F00165F0F /* AnimalListViewController.swift */; };
+		A29F610E2BE6733F00165F0F /* ASAnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610D2BE6733F00165F0F /* ASAnimalListViewController.swift */; };
 		A29F61132BE6734000165F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A29F61122BE6734000165F0F /* Assets.xcassets */; };
 		A29F61162BE6734000165F0F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A29F61152BE6734000165F0F /* Base */; };
 		A29F611E2BE6746600165F0F /* ASTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611D2BE6746600165F0F /* ASTabBarController.swift */; };
-		A29F61202BE6749A00165F0F /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611F2BE6749A00165F0F /* FavoritesListViewController.swift */; };
+		A29F61202BE6749A00165F0F /* ASFavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2887FDC2BE799C1001DA96A /* ASAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimal.swift; sourceTree = "<group>"; };
 		A29F61062BE6733F00165F0F /* Animal Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29F610B2BE6733F00165F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A29F610D2BE6733F00165F0F /* AnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewController.swift; sourceTree = "<group>"; };
+		A29F610D2BE6733F00165F0F /* ASAnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimalListViewController.swift; sourceTree = "<group>"; };
 		A29F61122BE6734000165F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A29F61152BE6734000165F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A29F61172BE6734000165F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29F611D2BE6746600165F0F /* ASTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTabBarController.swift; sourceTree = "<group>"; };
-		A29F611F2BE6749A00165F0F /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASFavoritesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2887FDB2BE799B6001DA96A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2887FDC2BE799C1001DA96A /* ASAnimal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A29F60FD2BE6733F00165F0F = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A2887FDB2BE799B6001DA96A /* Models */,
 				A29F61222BE676BE00165F0F /* ViewControllers */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
@@ -80,8 +91,8 @@
 		A29F61222BE676BE00165F0F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A29F610D2BE6733F00165F0F /* AnimalListViewController.swift */,
-				A29F611F2BE6749A00165F0F /* FavoritesListViewController.swift */,
+				A29F610D2BE6733F00165F0F /* ASAnimalListViewController.swift */,
+				A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,11 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A29F61202BE6749A00165F0F /* FavoritesListViewController.swift in Sources */,
-				A29F610E2BE6733F00165F0F /* AnimalListViewController.swift in Sources */,
+				A29F61202BE6749A00165F0F /* ASFavoritesListViewController.swift in Sources */,
+				A29F610E2BE6733F00165F0F /* ASAnimalListViewController.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
 				A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */,
 				A29F611E2BE6746600165F0F /* ASTabBarController.swift in Sources */,
+				A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ASTabBarController: UITabBarController {
+final class ASTabBarController: UITabBarController {
 
     override func viewDidLoad() {
             super.viewDidLoad()
@@ -21,7 +21,7 @@ class ASTabBarController: UITabBarController {
         }
         
         func createAnimalListController() -> UINavigationController {
-            let animalsListViewController = AnimalListViewController()
+            let animalsListViewController = ASAnimalListViewController()
             animalsListViewController.title = "Animals"
             let tabBarItem = UITabBarItem(title: "Animals", image: UIImage(systemName: "pawprint.fill"), tag: 0)
             animalsListViewController.tabBarItem = tabBarItem
@@ -30,7 +30,7 @@ class ASTabBarController: UITabBarController {
         }
         
         func createFavoritesListNavigationController() -> UINavigationController {
-            let favoritesListViewController = FavoritesListViewController()
+            let favoritesListViewController = ASFavoritesListViewController()
             favoritesListViewController.title = "Favorites"
             favoritesListViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
             
