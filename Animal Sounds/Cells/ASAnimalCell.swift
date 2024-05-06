@@ -24,7 +24,7 @@ final class ASAnimalCell: UICollectionViewCell {
     }
     
     func set(animal: ASAnimal) {
-        animalImageView.image = UIImage(named: animal.imageName)
+        animalImageView.image = animal.image
         nameLabel.text = animal.name
     }
     
