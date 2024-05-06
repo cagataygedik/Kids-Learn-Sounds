@@ -20,6 +20,7 @@
 		A29F61162BE6734000165F0F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A29F61152BE6734000165F0F /* Base */; };
 		A29F611E2BE6746600165F0F /* ASTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611D2BE6746600165F0F /* ASTabBarController.swift */; };
 		A29F61202BE6749A00165F0F /* ASFavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */; };
+		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A29F61172BE6734000165F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29F611D2BE6746600165F0F /* ASTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTabBarController.swift; sourceTree = "<group>"; };
 		A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASFavoritesListViewController.swift; sourceTree = "<group>"; };
+		A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A2BE9E432BE8EEF1004B28FE /* Helpers */,
 				A25F6A172BE7A00800B1B877 /* Custom Views */,
 				A25F6A0F2BE79D4900B1B877 /* Cells */,
 				A2887FDB2BE799B6001DA96A /* Models */,
@@ -125,6 +128,14 @@
 				A29F611F2BE6749A00165F0F /* ASFavoritesListViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A2BE9E432BE8EEF1004B28FE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				A29F61202BE6749A00165F0F /* ASFavoritesListViewController.swift in Sources */,
 				A25F6A132BE79D8400B1B877 /* FavoritesCell.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* ASAnimalImageView.swift in Sources */,
+				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* ASAnimalListViewController.swift in Sources */,
 				A25F6A112BE79D7200B1B877 /* ASAnimalCell.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
