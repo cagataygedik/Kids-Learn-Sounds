@@ -15,8 +15,8 @@ final class ASTabBarController: UITabBarController {
         }
         
         func configureTabBar() {
-            UITabBar.appearance().tintColor = .systemGreen
-            UINavigationBar.appearance().tintColor = .systemGreen
+            UITabBar.appearance().tintColor = .systemCyan
+            UINavigationBar.appearance().tintColor = .systemCyan
             viewControllers = [createAnimalListController(), createFavoritesListNavigationController()]
         }
         

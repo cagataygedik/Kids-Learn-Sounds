@@ -11,4 +11,10 @@ struct ASAnimal {
     let name: String
     let image: UIImage
     let soundFileName: String
+    
+    init(name: String, image: UIImage, soundFileName: String) {
+        self.name = name
+        self.image = image
+        self.soundFileName = soundFileName
+    }
 }

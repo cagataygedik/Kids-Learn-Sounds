@@ -20,6 +20,12 @@ final class ASAnimalListViewController: UIViewController, UICollectionViewDataSo
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        let removeAdsButton = UIBarButtonItem(title: "Remove Ads", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
+        navigationItem.rightBarButtonItem = removeAdsButton
+    }
+    
+    @objc private func removeAdsButtonTapped() {
+        print("test")
     }
     
     private func configureCollectionView() {
