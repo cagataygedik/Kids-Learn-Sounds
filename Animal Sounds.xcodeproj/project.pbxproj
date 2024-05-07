@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A25F6A112BE79D7200B1B877 /* KLSAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* KLSAnimalCell.swift */; };
-		A25F6A132BE79D8400B1B877 /* KLSInsturmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A122BE79D8400B1B877 /* KLSInsturmentsCell.swift */; };
+		A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
-		A25F6A1B2BE7A12600B1B877 /* KLSavatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSavatarImageView.swift */; };
+		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
 		A27B86282BEA3182008CE005 /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B86272BEA3182008CE005 /* dog.mp3 */; };
 		A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B862A2BEA369F008CE005 /* SoundManager.swift */; };
 		A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B862E2BEA3819008CE005 /* sheep.mp3 */; };
@@ -29,7 +28,7 @@
 		A27B864C2BEA4001008CE005 /* elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B863E2BEA4001008CE005 /* elephant.mp3 */; };
 		A27B864D2BEA4001008CE005 /* monkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B863F2BEA4001008CE005 /* monkey.mp3 */; };
 		A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */; };
-		A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* ASAnimal.swift */; };
+		A2887FDD2BE799C1001DA96A /* KLSAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
 		A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */; };
@@ -42,10 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A25F6A102BE79D7200B1B877 /* KLSAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimalCell.swift; sourceTree = "<group>"; };
-		A25F6A122BE79D8400B1B877 /* KLSInsturmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSInsturmentsCell.swift; sourceTree = "<group>"; };
+		A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
-		A25F6A1A2BE7A12600B1B877 /* KLSavatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSavatarImageView.swift; sourceTree = "<group>"; };
+		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
 		A27B86272BEA3182008CE005 /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
 		A27B862A2BEA369F008CE005 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A27B862E2BEA3819008CE005 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
@@ -63,8 +61,8 @@
 		A27B863E2BEA4001008CE005 /* elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = elephant.mp3; sourceTree = "<group>"; };
 		A27B863F2BEA4001008CE005 /* monkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey.mp3; sourceTree = "<group>"; };
 		A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSWeatherListViewController.swift; sourceTree = "<group>"; };
-		A2887FDC2BE799C1001DA96A /* ASAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimal.swift; sourceTree = "<group>"; };
-		A29F61062BE6733F00165F0F /* Animal Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimal.swift; sourceTree = "<group>"; };
+		A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Learn Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29F610B2BE6733F00165F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimalListViewController.swift; sourceTree = "<group>"; };
@@ -92,8 +90,7 @@
 		A25F6A0F2BE79D4900B1B877 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				A25F6A102BE79D7200B1B877 /* KLSAnimalCell.swift */,
-				A25F6A122BE79D8400B1B877 /* KLSInsturmentsCell.swift */,
+				A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -102,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */,
-				A25F6A1A2BE7A12600B1B877 /* KLSavatarImageView.swift */,
+				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -148,7 +145,7 @@
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2887FDC2BE799C1001DA96A /* ASAnimal.swift */,
+				A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,7 +161,7 @@
 		A29F61072BE6733F00165F0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A29F61062BE6733F00165F0F /* Animal Sounds.app */,
+				A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,7 +249,7 @@
 				A25F6A152BE79DAB00B1B877 /* SnapKit */,
 			);
 			productName = "Animal Sounds";
-			productReference = A29F61062BE6733F00165F0F /* Animal Sounds.app */;
+			productReference = A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -324,19 +321,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */,
-				A25F6A132BE79D8400B1B877 /* KLSInsturmentsCell.swift in Sources */,
-				A25F6A1B2BE7A12600B1B877 /* KLSavatarImageView.swift in Sources */,
+				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
 				A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */,
-				A25F6A112BE79D7200B1B877 /* KLSAnimalCell.swift in Sources */,
+				A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
 				A2BE9E452BE8F0CA004B28FE /* KLSAnimalData.swift in Sources */,
 				A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */,
 				A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */,
 				A29F611E2BE6746600165F0F /* KLSTabBarController.swift in Sources */,
 				A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */,
-				A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */,
+				A2887FDD2BE799C1001DA96A /* KLSAnimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,15 +481,14 @@
 				INFOPLIST_FILE = "Animal Sounds/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Animal-Sounds";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -516,15 +511,14 @@
 				INFOPLIST_FILE = "Animal Sounds/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Animal-Sounds";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

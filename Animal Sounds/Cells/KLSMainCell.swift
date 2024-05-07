@@ -8,10 +8,10 @@
 import UIKit
 import SnapKit
 
-final class KLSAnimalCell: UICollectionViewCell {
-    static let reuseID = "AnimalCell"
+final class KLSMainCell: UICollectionViewCell {
+    static let reuseID = "MainCell"
     
-    let animalImageView = KLSavatarImageView(frame: .zero)
+    let avatarImageView = KLSAvatarImageView(frame: .zero)
     let nameLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
     
     override init(frame: CGRect) {
@@ -23,25 +23,25 @@ final class KLSAnimalCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(animal: ASAnimal) {
-        animalImageView.image = animal.image
+    func set(animal: KLSAnimal) {
+        avatarImageView.image = animal.image
         nameLabel.text = animal.name
     }
     
     private func configure() {
-        addSubview(animalImageView)
+        addSubview(avatarImageView)
         addSubview(nameLabel)
-        animalImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        animalImageView.snp.makeConstraints { make in
+        avatarImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
-            make.height.equalTo(animalImageView.snp.width)
+            make.height.equalTo(avatarImageView.snp.width)
             
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(animalImageView.snp.bottom).offset(12)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(12)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
             make.height.equalTo(20)

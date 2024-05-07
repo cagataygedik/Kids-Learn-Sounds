@@ -34,7 +34,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(KLSAnimalCell.self, forCellWithReuseIdentifier: KLSAnimalCell.reuseID)
+        collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +42,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSAnimalCell.reuseID, for: indexPath) as! KLSAnimalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
         let animal = animals[indexPath.item]
         cell.set(animal: animal)
         return cell

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ASAnimal {
+struct KLSAnimal {
     let name: String
     let image: UIImage
     let soundFileName: String
