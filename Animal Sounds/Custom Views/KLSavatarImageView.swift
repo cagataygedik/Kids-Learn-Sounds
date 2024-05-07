@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ASAnimalImageView: UIImageView {
+final class KLSavatarImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()

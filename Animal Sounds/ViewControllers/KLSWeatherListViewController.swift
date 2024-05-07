@@ -1,13 +1,13 @@
 //
-//  FavoritesListViewController.swift
+//  KLSWeatherListViewController.swift
 //  Animal Sounds
 //
-//  Created by Celil Çağatay Gedik on 4.05.2024.
+//  Created by Celil Çağatay Gedik on 7.05.2024.
 //
 
 import UIKit
 
-final class ASFavoritesListViewController: UIViewController {
+class KLSWeatherListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

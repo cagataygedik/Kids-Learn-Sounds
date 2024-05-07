@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-final class ASAnimalCell: UICollectionViewCell {
+final class KLSAnimalCell: UICollectionViewCell {
     static let reuseID = "AnimalCell"
     
-    let animalImageView = ASAnimalImageView(frame: .zero)
-    let nameLabel = ASNameLabel(textAlignment: .center, fontSize: 16)
+    let animalImageView = KLSavatarImageView(frame: .zero)
+    let nameLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

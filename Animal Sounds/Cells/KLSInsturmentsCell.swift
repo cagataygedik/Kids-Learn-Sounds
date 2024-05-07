@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FavoritesCell: UITableViewCell {
+final class KLSInsturmentsCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

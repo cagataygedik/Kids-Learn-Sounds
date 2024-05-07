@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ASAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class KLSAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     private var collectionView: UICollectionView!
-    private let animals = ASAnimalData.animals.sorted { $0.name < $1.name }
+    private let animals = KLSAnimalData.animals.sorted { $0.name < $1.name }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ final class ASAnimalListViewController: UIViewController, UICollectionViewDataSo
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(ASAnimalCell.self, forCellWithReuseIdentifier: ASAnimalCell.reuseID)
+        collectionView.register(KLSAnimalCell.self, forCellWithReuseIdentifier: KLSAnimalCell.reuseID)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -42,7 +42,7 @@ final class ASAnimalListViewController: UIViewController, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ASAnimalCell.reuseID, for: indexPath) as! ASAnimalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSAnimalCell.reuseID, for: indexPath) as! KLSAnimalCell
         let animal = animals[indexPath.item]
         cell.set(animal: animal)
         return cell
@@ -53,4 +53,3 @@ final class ASAnimalListViewController: UIViewController, UICollectionViewDataSo
         SoundManager.shared.playSound(soundFileName: selectedAnimal.soundFileName)
     }
 }
-
