@@ -12,6 +12,9 @@
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* ASNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* ASNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* ASAnimalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* ASAnimalImageView.swift */; };
+		A27B86282BEA3182008CE005 /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B86272BEA3182008CE005 /* dog.mp3 */; };
+		A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B862A2BEA369F008CE005 /* SoundManager.swift */; };
+		A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B862E2BEA3819008CE005 /* sheep.mp3 */; };
 		A2887FDD2BE799C1001DA96A /* ASAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* ASAnimal.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
@@ -29,6 +32,9 @@
 		A25F6A122BE79D8400B1B877 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* ASNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* ASAnimalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimalImageView.swift; sourceTree = "<group>"; };
+		A27B86272BEA3182008CE005 /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
+		A27B862A2BEA369F008CE005 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A27B862E2BEA3819008CE005 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
 		A2887FDC2BE799C1001DA96A /* ASAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASAnimal.swift; sourceTree = "<group>"; };
 		A29F61062BE6733F00165F0F /* Animal Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +79,23 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		A27B86292BEA3342008CE005 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A27B862E2BEA3819008CE005 /* sheep.mp3 */,
+				A27B86272BEA3182008CE005 /* dog.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		A27B86302BEA3972008CE005 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A27B862A2BEA369F008CE005 /* SoundManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +123,8 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A27B86302BEA3972008CE005 /* Manager */,
+				A2BE9E472BE908E0004B28FE /* TabBar */,
 				A2BE9E462BE8F0CD004B28FE /* Data */,
 				A2BE9E432BE8EEF1004B28FE /* Helpers */,
 				A25F6A172BE7A00800B1B877 /* Custom Views */,
@@ -108,7 +133,6 @@
 				A29F61222BE676BE00165F0F /* ViewControllers */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
-				A29F611D2BE6746600165F0F /* ASTabBarController.swift */,
 			);
 			path = "Animal Sounds";
 			sourceTree = "<group>";
@@ -145,8 +169,17 @@
 			isa = PBXGroup;
 			children = (
 				A2BE9E442BE8F0CA004B28FE /* ASAnimalData.swift */,
+				A27B86292BEA3342008CE005 /* Sounds */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A2BE9E472BE908E0004B28FE /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A29F611D2BE6746600165F0F /* ASTabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */,
+				A27B86282BEA3182008CE005 /* dog.mp3 in Resources */,
 				A29F61132BE6734000165F0F /* Assets.xcassets in Resources */,
 				A29F61162BE6734000165F0F /* Base in Resources */,
 			);
@@ -229,6 +264,7 @@
 				A25F6A132BE79D8400B1B877 /* FavoritesCell.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* ASAnimalImageView.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
+				A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* ASAnimalListViewController.swift in Sources */,
 				A25F6A112BE79D7200B1B877 /* ASAnimalCell.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,

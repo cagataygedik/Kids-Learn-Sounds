@@ -9,7 +9,7 @@ import UIKit
 
 struct ASAnimalData {
     static let animals: [ASAnimal] = [
-        ASAnimal(name: "Dog", image: UIImage(named: "dog") ?? UIImage(), soundFileName: ""),
+        ASAnimal(name: "Dog", image: UIImage(named: "dog") ?? UIImage(), soundFileName: "dog"),
         ASAnimal(name: "Cat", image: UIImage(named: "cat") ?? UIImage(), soundFileName: ""),
         ASAnimal(name: "Monkey", image: UIImage(named: "monkey") ?? UIImage(), soundFileName: ""),
         ASAnimal(name: "Chicken", image: UIImage(named: "chicken") ?? UIImage(), soundFileName: ""),
@@ -26,7 +26,7 @@ struct ASAnimalData {
         ASAnimal(name: "Pig", image: UIImage(named: "pig") ?? UIImage(), soundFileName: ""),
         ASAnimal(name: "Rabbit", image: UIImage(named: "rabbit") ?? UIImage(), soundFileName: ""),
         ASAnimal(name: "Shark", image: UIImage(named: "shark") ?? UIImage(), soundFileName: ""),
-        ASAnimal(name: "Sheep", image: UIImage(named: "sheep") ?? UIImage(), soundFileName: ""),
+        ASAnimal(name: "Sheep", image: UIImage(named: "sheep") ?? UIImage(), soundFileName: "sheep"),
         ASAnimal(name: "Snake", image: UIImage(named: "snake") ?? UIImage(), soundFileName: ""),
         ASAnimal(name: "Spider", image: UIImage(named: "spider") ?? UIImage(), soundFileName: ""),
     ]

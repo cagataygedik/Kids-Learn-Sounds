@@ -8,8 +8,8 @@
 import UIKit
 
 final class ASAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var collectionView: UICollectionView!
-    let animals = ASAnimalData.animals
+    private var collectionView: UICollectionView!
+    private let animals = ASAnimalData.animals.sorted { $0.name < $1.name }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +46,11 @@ final class ASAnimalListViewController: UIViewController, UICollectionViewDataSo
         let animal = animals[indexPath.item]
         cell.set(animal: animal)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAnimal = animals[indexPath.item]
+        SoundManager.shared.playSound(soundFileName: selectedAnimal.soundFileName)
     }
 }
 
