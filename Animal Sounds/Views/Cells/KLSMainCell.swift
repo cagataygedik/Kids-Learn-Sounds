@@ -23,7 +23,7 @@ final class KLSMainCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(animal: KLSAnimal) {
+    func set(animal: KLSMainModel) {
         avatarImageView.image = animal.image
         nameLabel.text = animal.name
     }

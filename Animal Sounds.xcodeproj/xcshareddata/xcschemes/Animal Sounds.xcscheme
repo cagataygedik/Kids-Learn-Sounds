@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A29F61052BE6733F00165F0F"
-               BuildableName = "Animal Sounds.app"
+               BuildableName = "Kids Learn Sounds.app"
                BlueprintName = "Animal Sounds"
                ReferencedContainer = "container:Animal Sounds.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A29F61052BE6733F00165F0F"
-            BuildableName = "Animal Sounds.app"
+            BuildableName = "Kids Learn Sounds.app"
             BlueprintName = "Animal Sounds"
             ReferencedContainer = "container:Animal Sounds.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A29F61052BE6733F00165F0F"
-            BuildableName = "Animal Sounds.app"
+            BuildableName = "Kids Learn Sounds.app"
             BlueprintName = "Animal Sounds"
             ReferencedContainer = "container:Animal Sounds.xcodeproj">
          </BuildableReference>

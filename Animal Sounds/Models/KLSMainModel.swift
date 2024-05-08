@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct KLSAnimal {
+struct KLSMainModel {
     let name: String
     let image: UIImage
     let soundFileName: String

@@ -28,7 +28,7 @@
 		A27B864C2BEA4001008CE005 /* elephant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B863E2BEA4001008CE005 /* elephant.mp3 */; };
 		A27B864D2BEA4001008CE005 /* monkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B863F2BEA4001008CE005 /* monkey.mp3 */; };
 		A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */; };
-		A2887FDD2BE799C1001DA96A /* KLSAnimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */; };
+		A2887FDD2BE799C1001DA96A /* KLSMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* KLSMainModel.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
 		A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */; };
@@ -61,7 +61,7 @@
 		A27B863E2BEA4001008CE005 /* elephant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = elephant.mp3; sourceTree = "<group>"; };
 		A27B863F2BEA4001008CE005 /* monkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey.mp3; sourceTree = "<group>"; };
 		A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSWeatherListViewController.swift; sourceTree = "<group>"; };
-		A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimal.swift; sourceTree = "<group>"; };
+		A2887FDC2BE799C1001DA96A /* KLSMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainModel.swift; sourceTree = "<group>"; };
 		A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Learn Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29F610B2BE6733F00165F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,13 +95,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		A25F6A172BE7A00800B1B877 /* Custom Views */ = {
+		A25F6A172BE7A00800B1B877 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
 				A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */,
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 			);
-			path = "Custom Views";
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		A27B86292BEA3342008CE005 /* Sound Data */ = {
@@ -134,18 +134,19 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		A27B86312BEA3A1F008CE005 /* Animal Data */ = {
+		A27B86312BEA3A1F008CE005 /* AnimalData */ = {
 			isa = PBXGroup;
 			children = (
+				A27B86292BEA3342008CE005 /* Sound Data */,
 				A2BE9E442BE8F0CA004B28FE /* KLSAnimalData.swift */,
 			);
-			path = "Animal Data";
+			path = AnimalData;
 			sourceTree = "<group>";
 		};
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2887FDC2BE799C1001DA96A /* KLSAnimal.swift */,
+				A2887FDC2BE799C1001DA96A /* KLSMainModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,14 +170,12 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A2C5026E2BEB586F008FAC3C /* Views */,
 				A27B86302BEA3972008CE005 /* Manager */,
-				A2BE9E472BE908E0004B28FE /* TabBar */,
 				A2BE9E462BE8F0CD004B28FE /* Data */,
 				A2BE9E432BE8EEF1004B28FE /* Helpers */,
-				A25F6A172BE7A00800B1B877 /* Custom Views */,
-				A25F6A0F2BE79D4900B1B877 /* Cells */,
 				A2887FDB2BE799B6001DA96A /* Models */,
-				A29F61222BE676BE00165F0F /* ViewControllers */,
+				A29F61222BE676BE00165F0F /* Controllers */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
 			);
@@ -194,14 +193,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A29F61222BE676BE00165F0F /* ViewControllers */ = {
+		A29F61222BE676BE00165F0F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */,
-				A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */,
-				A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */,
+				A2C502742BEB5B7E008FAC3C /* ViewControllers */,
+				A2BE9E472BE908E0004B28FE /* TabBar */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A2BE9E432BE8EEF1004B28FE /* Helpers */ = {
@@ -215,8 +213,9 @@
 		A2BE9E462BE8F0CD004B28FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A27B86312BEA3A1F008CE005 /* Animal Data */,
-				A27B86292BEA3342008CE005 /* Sound Data */,
+				A2C502702BEB59B8008FAC3C /* WeatherData */,
+				A2C5026F2BEB59A9008FAC3C /* InstrumentsData */,
+				A27B86312BEA3A1F008CE005 /* AnimalData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -227,6 +226,63 @@
 				A29F611D2BE6746600165F0F /* KLSTabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A2C5026E2BEB586F008FAC3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A25F6A172BE7A00800B1B877 /* ReusableViews */,
+				A25F6A0F2BE79D4900B1B877 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A2C5026F2BEB59A9008FAC3C /* InstrumentsData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InstrumentsData;
+			sourceTree = "<group>";
+		};
+		A2C502702BEB59B8008FAC3C /* WeatherData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WeatherData;
+			sourceTree = "<group>";
+		};
+		A2C502712BEB5A1C008FAC3C /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		A2C502722BEB5A24008FAC3C /* Instruments */ = {
+			isa = PBXGroup;
+			children = (
+				A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */,
+			);
+			path = Instruments;
+			sourceTree = "<group>";
+		};
+		A2C502732BEB5A2D008FAC3C /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		A2C502742BEB5B7E008FAC3C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2C502732BEB5A2D008FAC3C /* Weather */,
+				A2C502722BEB5A24008FAC3C /* Instruments */,
+				A2C502712BEB5A1C008FAC3C /* Animal */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,7 +388,7 @@
 				A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */,
 				A29F611E2BE6746600165F0F /* KLSTabBarController.swift in Sources */,
 				A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */,
-				A2887FDD2BE799C1001DA96A /* KLSAnimal.swift in Sources */,
+				A2887FDD2BE799C1001DA96A /* KLSMainModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +543,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Animal-Sounds";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -517,7 +573,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Animal-Sounds";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
