@@ -23,9 +23,9 @@ final class KLSMainCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(animal: KLSMainModel) {
-        avatarImageView.image = animal.image
-        nameLabel.text = animal.name
+    func set(item: KLSMainModel) {
+        avatarImageView.image = item.image
+        nameLabel.text = item.name
     }
     
     private func configure() {

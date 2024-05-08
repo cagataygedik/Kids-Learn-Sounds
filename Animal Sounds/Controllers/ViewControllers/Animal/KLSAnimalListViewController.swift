@@ -44,7 +44,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
         let animal = animals[indexPath.item]
-        cell.set(animal: animal)
+        cell.set(item: animal)
         return cell
     }
     
