@@ -29,6 +29,7 @@
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
+		A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */; };
 		A27B86282BEA3182008CE005 /* dog.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B86272BEA3182008CE005 /* dog.mp3 */; };
 		A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B862A2BEA369F008CE005 /* SoundManager.swift */; };
 		A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B862E2BEA3819008CE005 /* sheep.mp3 */; };
@@ -80,6 +81,7 @@
 		A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
+		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A27B86272BEA3182008CE005 /* dog.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dog.mp3; sourceTree = "<group>"; };
 		A27B862A2BEA369F008CE005 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A27B862E2BEA3819008CE005 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */,
+				A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A202F23B2BEB801000DA11A4 /* KLSInstrumentsData.swift in Sources */,
+				A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */,
 				A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,

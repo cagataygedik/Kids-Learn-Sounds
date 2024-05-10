@@ -7,14 +7,17 @@
 
 import UIKit
 
-final class KLSAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class KLSAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
     private var collectionView: UICollectionView!
     private let animals = KLSAnimalData.animals.sorted { $0.name < $1.name }
+    private var filteredAnimals: [KLSMainModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        addSearchController()
         configureCollectionView()
+        filteredAnimals = animals
     }
     
     private func configureViewController() {
@@ -37,19 +40,37 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
         collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     
+    private func addSearchController() {
+        let searchController = setupSearchController(searchBarPlaceholder: "Search for an animal", searchResultsUpdater: self)
+        navigationItem.searchController = searchController
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return animals.count
+        return filteredAnimals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
-        let animal = animals[indexPath.item]
+        let animal = filteredAnimals[indexPath.item]
         cell.set(item: animal)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedAnimal = animals[indexPath.item]
+        let selectedAnimal = filteredAnimals[indexPath.item]
         SoundManager.shared.playSound(soundFileName: selectedAnimal.soundFileName)
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        if searchText.isEmpty {
+            filteredAnimals = animals
+        } else {
+            filteredAnimals = animals.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+        }
+        UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.collectionView.reloadData()
+        }, completion: nil)
+    }
 }
+

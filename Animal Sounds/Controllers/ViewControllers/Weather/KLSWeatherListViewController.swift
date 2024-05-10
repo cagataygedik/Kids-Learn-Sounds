@@ -7,14 +7,17 @@
 
 import UIKit
 
-final class KLSWeatherListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class KLSWeatherListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
     private var collectionView: UICollectionView!
     private let weather = KLSWeatherData.weather.sorted { $0.name < $1.name }
-
+    private var filteredWeather: [KLSMainModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureCollectionView()
+        addSearchController()
+        filteredWeather = weather
     }
     
     private func configureViewController() {
@@ -37,19 +40,36 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
         collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weather.count
+    private func addSearchController() {
+        let searchController = setupSearchController(searchBarPlaceholder: "Search for a weather", searchResultsUpdater: self)
+        navigationItem.searchController = searchController
     }
-        
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return filteredWeather.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
-        let weather = weather[indexPath.item]
+        let weather = filteredWeather[indexPath.item]
         cell.set(item: weather)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedWeather = weather[indexPath.item]
+        let selectedWeather = filteredWeather[indexPath.item]
         SoundManager.shared.playSound(soundFileName: selectedWeather.soundFileName)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        if searchText.isEmpty {
+            filteredWeather = weather
+        } else {
+            filteredWeather = weather.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
+        }
+        UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.collectionView.reloadData()
+        }, completion: nil)
     }
 }
