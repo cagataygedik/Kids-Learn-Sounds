@@ -23,12 +23,23 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        addNavigationItems()
+    }
+    
+    private func addNavigationItems() {
         let removeAdsButton = UIBarButtonItem(title: "Remove Ads", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
-        navigationItem.rightBarButtonItem = removeAdsButton
+        
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        
+        navigationItem.rightBarButtonItems = [settingsButton, removeAdsButton]
     }
     
     @objc private func removeAdsButtonTapped() {
         print("test")
+    }
+    
+    @objc private func settingsButtonTapped() {
+        print("settings")
     }
     
     private func configureCollectionView() {
