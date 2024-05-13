@@ -39,13 +39,13 @@ final class KLSMainCell: UICollectionViewCell {
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
             make.height.equalTo(avatarImageView.snp.width)
-            
+        }
+        
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(avatarImageView.snp.bottom).offset(12)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
             make.height.equalTo(20)
-            }
         }
     }
 }
