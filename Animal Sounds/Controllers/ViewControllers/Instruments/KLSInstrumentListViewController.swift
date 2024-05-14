@@ -39,7 +39,8 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     }
     
     @objc private func settingsButtonTapped() {
-        print("settings")
+        let settingsViewController = KLSSettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     private func configureCollectionView() {

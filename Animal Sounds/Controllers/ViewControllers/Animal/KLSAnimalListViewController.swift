@@ -39,7 +39,8 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     }
     
     @objc private func settingsButtonTapped() {
-        print("settings")
+        let settingsViewController = KLSSettingsViewController()
+        navigationController?.pushViewController(settingsViewController, animated: true)
     }
     
     private func configureCollectionView() {

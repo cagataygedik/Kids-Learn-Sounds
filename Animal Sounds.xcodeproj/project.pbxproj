@@ -48,6 +48,12 @@
 		A27B864D2BEA4001008CE005 /* monkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A27B863F2BEA4001008CE005 /* monkey.mp3 */; };
 		A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */; };
 		A2887FDD2BE799C1001DA96A /* KLSMainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2887FDC2BE799C1001DA96A /* KLSMainModel.swift */; };
+		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
+		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
+		A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */; };
+		A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5602BF28757000105A3 /* KLSSettingsViewModel.swift */; };
+		A28BD5642BF28980000105A3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5632BF28980000105A3 /* Constants.swift */; };
+		A28BD5662BF28A2F000105A3 /* KLSSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5652BF28A2F000105A3 /* KLSSettingsViewController.swift */; };
 		A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F61092BE6733F00165F0F /* AppDelegate.swift */; };
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
 		A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610D2BE6733F00165F0F /* KLSAnimalListViewController.swift */; };
@@ -100,6 +106,12 @@
 		A27B863F2BEA4001008CE005 /* monkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monkey.mp3; sourceTree = "<group>"; };
 		A27B864E2BEA457A008CE005 /* KLSWeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSWeatherListViewController.swift; sourceTree = "<group>"; };
 		A2887FDC2BE799C1001DA96A /* KLSMainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainModel.swift; sourceTree = "<group>"; };
+		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
+		A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsOption.swift; sourceTree = "<group>"; };
+		A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsCellViewModel.swift; sourceTree = "<group>"; };
+		A28BD5602BF28757000105A3 /* KLSSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsViewModel.swift; sourceTree = "<group>"; };
+		A28BD5632BF28980000105A3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A28BD5652BF28A2F000105A3 /* KLSSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsViewController.swift; sourceTree = "<group>"; };
 		A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Learn Sounds.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29F61092BE6733F00165F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A29F610B2BE6733F00165F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +231,58 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A28BD5552BF285B9000105A3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD55B2BF2868C000105A3 /* Model */,
+				A28BD55A2BF28685000105A3 /* View */,
+				A28BD5592BF2866C000105A3 /* ViewModel */,
+				A28BD5672BF28A69000105A3 /* Controllers */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A28BD5592BF2866C000105A3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */,
+				A28BD5602BF28757000105A3 /* KLSSettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A28BD55A2BF28685000105A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A28BD55B2BF2868C000105A3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A28BD5622BF28973000105A3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD5632BF28980000105A3 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A28BD5672BF28A69000105A3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A28BD5652BF28A2F000105A3 /* KLSSettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A29F60FD2BE6733F00165F0F = {
 			isa = PBXGroup;
 			children = (
@@ -238,13 +302,15 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A2C5026E2BEB586F008FAC3C /* Views */,
-				A27B86302BEA3972008CE005 /* Manager */,
-				A2BE9E462BE8F0CD004B28FE /* Data */,
-				A2BE9E432BE8EEF1004B28FE /* Helpers */,
 				A2887FDB2BE799B6001DA96A /* Models */,
+				A2C5026E2BEB586F008FAC3C /* Views */,
 				A29F61222BE676BE00165F0F /* Controllers */,
+				A2BE9E462BE8F0CD004B28FE /* Data */,
+				A27B86302BEA3972008CE005 /* Manager */,
+				A2BE9E432BE8EEF1004B28FE /* Helpers */,
+				A28BD5552BF285B9000105A3 /* Settings */,
 				A29F61212BE674B100165F0F /* Resources */,
+				A28BD5622BF28973000105A3 /* Utilities */,
 				A29F61172BE6734000165F0F /* Info.plist */,
 			);
 			path = "Animal Sounds";
@@ -282,9 +348,9 @@
 		A2BE9E462BE8F0CD004B28FE /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A2C502702BEB59B8008FAC3C /* WeatherData */,
-				A2C5026F2BEB59A9008FAC3C /* InstrumentsData */,
 				A27B86312BEA3A1F008CE005 /* AnimalData */,
+				A2C5026F2BEB59A9008FAC3C /* InstrumentsData */,
+				A2C502702BEB59B8008FAC3C /* WeatherData */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -351,9 +417,9 @@
 		A2C502742BEB5B7E008FAC3C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A2C502732BEB5A2D008FAC3C /* Weather */,
-				A2C502722BEB5A24008FAC3C /* Instruments */,
 				A2C502712BEB5A1C008FAC3C /* Animal */,
+				A2C502722BEB5A24008FAC3C /* Instruments */,
+				A2C502732BEB5A2D008FAC3C /* Weather */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,11 +535,17 @@
 				A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */,
 				A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
+				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
+				A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
 				A27B862B2BEA369F008CE005 /* SoundManager.swift in Sources */,
+				A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */,
 				A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */,
+				A28BD5642BF28980000105A3 /* Constants.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
+				A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */,
+				A28BD5662BF28A2F000105A3 /* KLSSettingsViewController.swift in Sources */,
 				A2BE9E452BE8F0CA004B28FE /* KLSAnimalData.swift in Sources */,
 				A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */,
 				A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */,
