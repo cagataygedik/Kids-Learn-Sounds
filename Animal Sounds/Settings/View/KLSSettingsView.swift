@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct KLSSettingsView: View {
+    @State private var selectedOption: KLSSettingsOption? = nil
+    
     let viewModel: KLSSettingsViewModel
     
     init(viewModel: KLSSettingsViewModel) {
@@ -15,32 +17,52 @@ struct KLSSettingsView: View {
     }
     
     var body: some View {
-        List(viewModel.cellViewModels) { viewModel in
-            HStack {
-                if let image = viewModel.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundColor(Color.white)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(Color.red)
-                        .padding(8)
-                        .background(Color(viewModel.iconContainerColor))
-                        .cornerRadius(6)
-                }
-                Text(viewModel.title)
-                    .padding(.leading, 10)
-                
-                Spacer()
+        List {
+            ForEach(viewModel.cellViewModels) { cellViewModel in
+                KLSSettingsRowView(cellViewModel: cellViewModel, isSelected: self.selectedOption == cellViewModel.type)
+                    .onTapGesture {
+                        self.selectedOption = cellViewModel.type
+                        cellViewModel.onTapHandler(cellViewModel.type)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            self.selectedOption = nil
+                        }
+                    }
             }
-            .padding(.bottom, 3)
-            .onTapGesture {
-                viewModel.onTapHandler(viewModel.type)
-            }
+            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
+        .listStyle(PlainListStyle())
+        .background(Color(.systemBackground))
     }
 }
+
+struct KLSSettingsRowView: View {
+    let cellViewModel: KLSSettingsCellViewModel
+    let isSelected: Bool
+    
+    var body: some View {
+        HStack {
+            if let image = cellViewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(Color.white)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .padding(8)
+                    .background(Color(.systemCyan))
+                    .cornerRadius(8)
+            }
+            Text(cellViewModel.title)
+                .padding(.leading, 10)
+            Spacer()
+        }
+        .padding(.vertical, 15)
+        .padding(.horizontal, 15)
+        .background(isSelected ? Color.gray.opacity(0.3) : Color.clear)
+        .cornerRadius(8)
+    }
+}
+
 
 #Preview {
     KLSSettingsView(viewModel: .init(cellViewModels: KLSSettingsOption.allCases.compactMap({
@@ -49,3 +71,4 @@ struct KLSSettingsView: View {
         }
     })))
 }
+
