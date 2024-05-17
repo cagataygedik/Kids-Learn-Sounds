@@ -71,6 +71,10 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedAnimal = filteredAnimals[indexPath.item]
         SoundManager.shared.playSound(soundFileName: selectedAnimal.soundFileName)
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
+            cell.showProgress()
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {

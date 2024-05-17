@@ -25,6 +25,7 @@
 		A202F25B2BEB896A00DA11A4 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A202F25A2BEB896A00DA11A4 /* rain.mp3 */; };
 		A202F25D2BEB89F600DA11A4 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A202F25C2BEB89F600DA11A4 /* wind.mp3 */; };
 		A202F25F2BEB8B2000DA11A4 /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A202F25E2BEB8B1F00DA11A4 /* forest.mp3 */; };
+		A20A74272BF745B900679788 /* KLSCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A74262BF745B900679788 /* KLSCircularProgressView.swift */; };
 		A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
@@ -84,6 +85,7 @@
 		A202F25A2BEB896A00DA11A4 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		A202F25C2BEB89F600DA11A4 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		A202F25E2BEB8B1F00DA11A4 /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
+		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
 		A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
@@ -309,8 +311,8 @@
 				A27B86302BEA3972008CE005 /* Manager */,
 				A2BE9E432BE8EEF1004B28FE /* Helpers */,
 				A28BD5552BF285B9000105A3 /* Settings */,
-				A29F61212BE674B100165F0F /* Resources */,
 				A28BD5622BF28973000105A3 /* Utilities */,
+				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
 			);
 			path = "Animal Sounds";
@@ -341,6 +343,7 @@
 			children = (
 				A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */,
 				A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */,
+				A20A74262BF745B900679788 /* KLSCircularProgressView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				A29F611E2BE6746600165F0F /* KLSTabBarController.swift in Sources */,
 				A27B864F2BEA457A008CE005 /* KLSWeatherListViewController.swift in Sources */,
 				A202F2542BEB84C500DA11A4 /* KLSWeatherData.swift in Sources */,
+				A20A74272BF745B900679788 /* KLSCircularProgressView.swift in Sources */,
 				A2887FDD2BE799C1001DA96A /* KLSMainModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

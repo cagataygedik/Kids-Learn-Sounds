@@ -29,5 +29,6 @@ struct KLSAnimalData {
         KLSMainModel(name: "Sheep", image: UIImage(named: "sheep") ?? UIImage(), soundFileName: "sheep"),
         KLSMainModel(name: "Snake", image: UIImage(named: "snake") ?? UIImage(), soundFileName: "snake"),
         KLSMainModel(name: "Spider", image: UIImage(named: "spider") ?? UIImage(), soundFileName: "spider"),
+        KLSMainModel(name: "Rat", image: UIImage(named: "rat") ?? UIImage(), soundFileName: "spider"),
     ]
 }
