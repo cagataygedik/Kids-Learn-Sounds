@@ -74,6 +74,9 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
         
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
             cell.showProgress()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                cell.hideProgress()
+            }
         }
     }
     

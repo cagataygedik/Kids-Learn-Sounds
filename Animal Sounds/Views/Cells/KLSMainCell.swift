@@ -82,4 +82,9 @@ final class KLSMainCell: UICollectionViewCell {
         progressAnimation.isRemovedOnCompletion = false
         progressView.progressLayer.add(progressAnimation, forKey: "progressAnim")
     }
+    
+    func hideProgress() {
+        progressView.isHidden = true
+        darkenAvatarImageView.isHidden = true
+    }
 }
