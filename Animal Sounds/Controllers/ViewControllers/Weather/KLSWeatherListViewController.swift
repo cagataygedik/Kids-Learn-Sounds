@@ -11,6 +11,9 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     private var collectionView: UICollectionView!
     private let weather = KLSWeatherData.weather.sorted { $0.name < $1.name }
     private var filteredWeather: [KLSMainModel] = []
+    private var activeCell: KLSMainCell?
+    private var activeWeather: KLSMainModel?
+    private var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,7 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     private func addSearchController() {
         let searchController = setupSearchController(searchBarPlaceholder: "Search for a weather", searchResultsUpdater: self)
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,12 +69,34 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
         let weather = filteredWeather[indexPath.item]
         cell.set(item: weather)
+        
+        if let activeWeather = activeWeather, activeWeather.name == weather.name {
+            cell.showProgress(duration: SoundManager.shared.getSoundDuration(soundFileName: weather.soundFileName))
+            activeCell = cell
+        } else {
+            cell.hideProgress()
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedWeather = filteredWeather[indexPath.item]
         SoundManager.shared.playSound(soundFileName: selectedWeather.soundFileName)
+        let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: selectedWeather.soundFileName)
+        activeCell?.hideProgress()
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
+            activeCell = cell
+            activeWeather = selectedWeather
+            cell.showProgress(duration: soundDuration)
+            DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
+                if self.activeWeather == selectedWeather {
+                    cell.hideProgress()
+                    self.activeCell = nil
+                    self.activeWeather = nil
+                }
+            }
+        }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -85,3 +111,28 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
         }, completion: nil)
     }
 }
+
+extension KLSWeatherListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filteredWeather = weather
+        collectionView.reloadData()
+        
+        if let activeWeather = activeWeather, let activeIndex = weather.firstIndex(where: { $0.name == activeWeather.name }) {
+            let indexPath = IndexPath(item: activeIndex, section: 0)
+            if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
+                let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: activeWeather.soundFileName)
+                cell.showProgress(duration: soundDuration)
+                activeCell = cell
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
+                    if self.activeWeather == activeWeather {
+                        cell.hideProgress()
+                        self.activeCell = nil
+                        self.activeWeather = nil
+                    }
+                }
+            }
+        }
+    }
+}
+

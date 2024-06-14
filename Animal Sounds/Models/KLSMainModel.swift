@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct KLSMainModel {
+struct KLSMainModel: Equatable {
     let name: String
     let image: UIImage
     let soundFileName: String

@@ -11,6 +11,9 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     private var collectionView: UICollectionView!
     private let animals = KLSAnimalData.animals.sorted { $0.name < $1.name }
     private var filteredAnimals: [KLSMainModel] = []
+    private var activeCell: KLSMainCell?
+    private var activeAnimal: KLSMainModel?
+    private var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     private func addSearchController() {
         let searchController = setupSearchController(searchBarPlaceholder: "Search for an animal", searchResultsUpdater: self)
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,17 +69,32 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
         let animal = filteredAnimals[indexPath.item]
         cell.set(item: animal)
+        
+        if let activeAnimal = activeAnimal, activeAnimal.name == animal.name {
+            cell.showProgress(duration: SoundManager.shared.getSoundDuration(soundFileName: animal.soundFileName))
+            activeCell = cell
+        } else {
+            cell.hideProgress()
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedAnimal = filteredAnimals[indexPath.item]
         SoundManager.shared.playSound(soundFileName: selectedAnimal.soundFileName)
+        let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: selectedAnimal.soundFileName)
+        activeCell?.hideProgress()
         
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
-            cell.showProgress()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                cell.hideProgress()
+            activeCell = cell
+            activeAnimal = selectedAnimal
+            cell.showProgress(duration: soundDuration)
+            DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
+                if self.activeAnimal == selectedAnimal {
+                    cell.hideProgress()
+                    self.activeCell = nil
+                    self.activeAnimal = nil
+                }
             }
         }
     }
@@ -93,3 +112,26 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     }
 }
 
+extension KLSAnimalListViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filteredAnimals = animals
+        collectionView.reloadData()
+        
+        if let activeAnimal = activeAnimal, let activeIndex = animals.firstIndex(where: { $0.name == activeAnimal.name }) {
+            let indexPath = IndexPath(item: activeIndex, section: 0)
+            if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
+                let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: activeAnimal.soundFileName)
+                cell.showProgress(duration: soundDuration)
+                activeCell = cell
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
+                    if self.activeAnimal == activeAnimal {
+                        cell.hideProgress()
+                        self.activeCell = nil
+                        self.activeAnimal = nil
+                    }
+                }
+            }
+        }
+    }
+}

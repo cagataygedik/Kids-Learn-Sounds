@@ -70,21 +70,23 @@ final class KLSMainCell: UICollectionViewCell {
         darkenAvatarImageView.isHidden = true
     }
     
-    func showProgress() {
+    func showProgress(duration: TimeInterval) {
         progressView.isHidden = false
         darkenAvatarImageView.isHidden = false
         progressView.setProgress(0)
         
         let progressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         progressAnimation.toValue = 1
-        progressAnimation.duration = 2
+        progressAnimation.duration = duration
         progressAnimation.fillMode = .forwards
         progressAnimation.isRemovedOnCompletion = false
         progressView.progressLayer.add(progressAnimation, forKey: "progressAnim")
     }
     
     func hideProgress() {
+        progressView.layer.removeAllAnimations()
         progressView.isHidden = true
         darkenAvatarImageView.isHidden = true
+        progressView.setProgress(0)
     }
 }

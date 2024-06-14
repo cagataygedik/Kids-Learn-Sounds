@@ -26,4 +26,18 @@ class SoundManager {
             print("catch error")
         }
     }
+    
+    func getSoundDuration(soundFileName: String) -> TimeInterval {
+        guard let soundURL = Bundle.main.url(forResource: soundFileName, withExtension: "mp3") else {
+            print("Error")
+            return 0
+        }
+        do {
+            let audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            return audioPlayer.duration
+        } catch {
+            print("could not get sound duration")
+            return 0
+        }
+    }
 }
