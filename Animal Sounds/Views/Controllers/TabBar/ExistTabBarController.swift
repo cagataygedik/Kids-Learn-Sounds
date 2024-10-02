@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class KLSTabBarController: UITabBarController {
+/*
+final class OldTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,4 +48,4 @@ final class KLSTabBarController: UITabBarController {
         return UINavigationController(rootViewController: weatherListViewController)
     }
     
-}
+ }*/
