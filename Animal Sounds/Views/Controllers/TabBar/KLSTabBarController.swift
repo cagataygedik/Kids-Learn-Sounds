@@ -1,50 +1,112 @@
 //
-//  ASTabBarController.swift
+//  KLSTabBarController.swift
 //  Animal Sounds
 //
-//  Created by Celil Çağatay Gedik on 4.05.2024.
+//  Created by Celil Çağatay Gedik on 2.10.2024.
 //
 
 import UIKit
 
 final class KLSTabBarController: UITabBarController {
-    
+    let tabbarView = UIView()
+    var buttons: [UIButton] = []
+    let tabbarItemBackgroundView = UIView()
+    var centerConstraint: NSLayoutConstraint?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTabBar()
+        tabBar.isHidden = true
+        setView()
+        setInitialTabState()
     }
-    
-    func configureTabBar() {
-        UITabBar.appearance().tintColor = .systemCyan
-        UINavigationBar.appearance().tintColor = .systemCyan
-        viewControllers = [createAnimalListController(), createInstrumentsListNavigationController(), createWeatherListNavigationController()]
+
+    private func setView() {
+        view.addSubview(tabbarView)
+        tabbarView.backgroundColor = Constants.tabBarBackgroundColor
+        tabbarView.translatesAutoresizingMaskIntoConstraints = false
+        tabbarView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        tabbarView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60).isActive = true
+        tabbarView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        tabbarView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        tabbarView.layer.cornerRadius = 30
+
+        generateControllers()
+
+        for x in 0..<buttons.count {
+            tabbarView.addSubview(buttons[x])
+            buttons[x].tag = x
+            buttons[x].centerYAnchor.constraint(equalTo: tabbarView.centerYAnchor).isActive = true
+            buttons[x].widthAnchor.constraint(equalTo: tabbarView.widthAnchor, multiplier: 1/CGFloat(buttons.count)).isActive = true
+            buttons[x].heightAnchor.constraint(equalTo: tabbarView.heightAnchor).isActive = true
+            buttons[x].addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
+            if x == 0 {
+                buttons[x].leftAnchor.constraint(equalTo: tabbarView.leftAnchor).isActive = true
+            } else {
+                buttons[x].leftAnchor.constraint(equalTo: buttons[x-1].rightAnchor).isActive = true
+            }
+        }
+
+        tabbarView.addSubview(tabbarItemBackgroundView)
+        tabbarItemBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        tabbarItemBackgroundView.widthAnchor.constraint(equalTo: tabbarView.widthAnchor, multiplier: 1/CGFloat(buttons.count), constant: -10).isActive = true
+        tabbarItemBackgroundView.heightAnchor.constraint(equalTo: tabbarView.heightAnchor, constant: -10).isActive = true
+        tabbarItemBackgroundView.centerYAnchor.constraint(equalTo: tabbarView.centerYAnchor).isActive = true
+        tabbarItemBackgroundView.layer.cornerRadius = 25
+        tabbarItemBackgroundView.backgroundColor = .systemCyan
+
+        centerConstraint = tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: buttons[0].centerXAnchor)
+        centerConstraint?.isActive = true
     }
-    
-    func createAnimalListController() -> UINavigationController {
-        let animalsListViewController = KLSAnimalListViewController()
-        animalsListViewController.title = "Animals"
-        let tabBarItem = UITabBarItem(title: "Animals", image: UIImage(systemName: "pawprint.fill"), tag: 0)
-        animalsListViewController.tabBarItem = tabBarItem
+
+    @objc private func buttonTapped(sender: UIButton) {
+        selectedIndex = sender.tag
+
+        for button in buttons {
+            button.tintColor = .systemGray2
+        }
         
-        return UINavigationController(rootViewController: animalsListViewController)
+        tabbarView.bringSubviewToFront(sender)
+
+        UIView.animate(withDuration: 0.5, delay: 0, options: .beginFromCurrentState) {
+            self.centerConstraint?.isActive = false
+            self.centerConstraint = self.tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: self.buttons[sender.tag].centerXAnchor)
+            self.centerConstraint?.isActive = true
+            self.buttons[sender.tag].tintColor = .black
+            self.tabbarView.layoutIfNeeded()
+        }
     }
     
-    func createInstrumentsListNavigationController() -> UINavigationController {
-        let instrumentsListViewController = KLSInstrumentListViewController()
-        instrumentsListViewController.title = "Instruments"
-        let tabBarItem = UITabBarItem(title: "Instruments", image: UIImage(systemName: "music.note"), tag: 1)
-        instrumentsListViewController.tabBarItem = tabBarItem
+    private func setInitialTabState() {
+        buttons[0].tintColor = .black
         
-        return UINavigationController(rootViewController: instrumentsListViewController)
+        tabbarView.bringSubviewToFront(buttons[0])
+        self.centerConstraint?.isActive = false
+        self.centerConstraint = self.tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: self.buttons[0].centerXAnchor)
+        self.centerConstraint?.isActive = true
+        self.tabbarView.layoutIfNeeded()
     }
-    
-    func createWeatherListNavigationController() -> UINavigationController {
-        let weatherListViewController = KLSWeatherListViewController()
-        weatherListViewController.title = "Weather"
-        let tabBarItem = UITabBarItem(title: "Weather", image: UIImage(systemName: "cloud.sun.fill"), tag: 2)
-        weatherListViewController.tabBarItem = tabBarItem
+
+    private func generateControllers() {
+        let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSAnimalListViewController(), title: "Animals")
+        let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSInstrumentListViewController(), title: "Instruments")
+        let weathers = generateViewControllers(image: UIImage(systemName: "cloud.sun.fill")!, viewController: KLSWeatherListViewController(), title: "Weather")
+        let settings = generateViewControllers(image: UIImage(systemName: "gear")!, viewController: KLSSettingsViewController(), title: "Settings")
+        viewControllers = [animals, instruments, weathers, settings]
+    }
+
+    private func generateViewControllers(image: UIImage, viewController: UIViewController, title: String) -> UIViewController {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .systemGray2
+        let resizedImage = image.resize(targetSize: CGSize(width: 25, height: 25)).withRenderingMode(.alwaysTemplate)
+        button.setImage(resizedImage, for: .normal)
+        buttons.append(button)
+        viewController.title = title
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.tabBarItem = UITabBarItem(title: title, image: resizedImage, tag: buttons.count - 1)
         
-        return UINavigationController(rootViewController: weatherListViewController)
+        return navigationController
     }
-    
 }
+

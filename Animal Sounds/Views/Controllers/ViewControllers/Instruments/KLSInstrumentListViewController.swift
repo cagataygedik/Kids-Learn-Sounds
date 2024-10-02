@@ -38,9 +38,7 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     
     private func addNavigationItems() {
         let removeAdsButton = UIBarButtonItem(title: "Go Premium", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
-        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
-        
-        navigationItem.rightBarButtonItems = [settingsButton, removeAdsButton]
+        navigationItem.rightBarButtonItem = removeAdsButton
     }
     
     @objc private func removeAdsButtonTapped() {
