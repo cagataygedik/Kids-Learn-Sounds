@@ -1,26 +1,29 @@
 //
-//  KLSWeatherListViewController.swift
+//  ViewController.swift
 //  Animal Sounds
 //
-//  Created by Celil Çağatay Gedik on 7.05.2024.
+//  Created by Celil Çağatay Gedik on 4.05.2024.
 //
 
 import UIKit
 
-final class KLSWeatherListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
+final class KLSAnimalListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
     private var collectionView: UICollectionView!
-    private let weather = KLSWeatherData.weather.sorted { $0.name < $1.name }
-    private var filteredWeather: [KLSMainModel] = []
+    private var viewModel: KLSAnimalListViewModel!
     private var activeCell: KLSMainCell?
-    private var activeWeather: KLSMainModel?
+    
     private var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = KLSAnimalListViewModel(animals: KLSAnimalData.animals)
         configureViewController()
-        configureCollectionView()
         addSearchController()
-        filteredWeather = weather
+        configureCollectionView()
+        
+        viewModel.onAnimalsUpdated = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
     private func configureViewController() {
@@ -30,7 +33,7 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     }
     
     private func addNavigationItems() {
-        let removeAdsButton = UIBarButtonItem(title: "Remove Ads", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
+        let removeAdsButton = UIBarButtonItem(title: "Go Premium", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
         
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
@@ -56,22 +59,22 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     }
     
     private func addSearchController() {
-        let searchController = setupSearchController(searchBarPlaceholder: "Search for a weather", searchResultsUpdater: self)
+        let searchController = setupSearchController(searchBarPlaceholder: "Search for an animal", searchResultsUpdater: self)
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredWeather.count
+        return viewModel.filteredAnimals.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
-        let weather = filteredWeather[indexPath.item]
-        cell.set(item: weather)
+        let animal = viewModel.filteredAnimals[indexPath.item]
+        cell.set(item: animal)
         
-        if let activeWeather = activeWeather, activeWeather.name == weather.name {
-            cell.showProgress(duration: SoundManager.shared.getSoundDuration(soundFileName: weather.soundFileName))
+        if let activeAnimal = viewModel.activeAnimal, activeAnimal.name == animal.name {
+            cell.showProgress(duration: SoundManager.shared.getSoundDuration(soundFileName: animal.soundFileName))
             activeCell = cell
         } else {
             cell.hideProgress()
@@ -80,20 +83,18 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedWeather = filteredWeather[indexPath.item]
-        SoundManager.shared.playSound(soundFileName: selectedWeather.soundFileName)
-        let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: selectedWeather.soundFileName)
-        activeCell?.hideProgress()
+        let soundDuration = viewModel.selectAnimal(at: indexPath.item)
+        SoundManager.shared.playSound(soundFileName: viewModel.filteredAnimals[indexPath.item].soundFileName)
         
+        activeCell?.hideProgress()
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
             activeCell = cell
-            activeWeather = selectedWeather
             cell.showProgress(duration: soundDuration)
             DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
-                if self.activeWeather == selectedWeather {
+                if self.viewModel.activeAnimal == self.viewModel.filteredAnimals[indexPath.item] {
                     cell.hideProgress()
                     self.activeCell = nil
-                    self.activeWeather = nil
+                    self.viewModel.resetActiveAnimal()
                 }
             }
         }
@@ -101,38 +102,30 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        if searchText.isEmpty {
-            filteredWeather = weather
-        } else {
-            filteredWeather = weather.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
-        }
-        UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.collectionView.reloadData()
-        }, completion: nil)
+        viewModel.filterAnimals(with: searchText)
     }
 }
 
-extension KLSWeatherListViewController: UISearchBarDelegate {
+extension KLSAnimalListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        filteredWeather = weather
+        viewModel.filterAnimals(with: "")
         collectionView.reloadData()
         
-        if let activeWeather = activeWeather, let activeIndex = weather.firstIndex(where: { $0.name == activeWeather.name }) {
+        if let activeAnimal = viewModel.activeAnimal, let activeIndex = viewModel.filteredAnimals.firstIndex(where: { $0.name == activeAnimal.name }) {
             let indexPath = IndexPath(item: activeIndex, section: 0)
             if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
-                let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: activeWeather.soundFileName)
+                let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: activeAnimal.soundFileName)
                 cell.showProgress(duration: soundDuration)
                 activeCell = cell
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
-                    if self.activeWeather == activeWeather {
+                    if self.viewModel.activeAnimal == activeAnimal {
                         cell.hideProgress()
                         self.activeCell = nil
-                        self.activeWeather = nil
+                        self.viewModel.resetActiveAnimal()
                     }
                 }
             }
         }
     }
 }
-

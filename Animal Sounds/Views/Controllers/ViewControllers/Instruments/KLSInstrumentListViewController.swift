@@ -7,20 +7,27 @@
 
 import UIKit
 
+import UIKit
+
 final class KLSInstrumentListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
+    
     private var collectionView: UICollectionView!
-    private let instruments = KLSInstrumentsData.instruments.sorted { $0.name < $1.name }
-    private var filteredInstruments: [KLSMainModel] = []
+    private var viewModel: KLSInstrumentListViewModel!
     private var activeCell: KLSMainCell?
-    private var activeInstrument: KLSMainModel?
+    
     private var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = KLSInstrumentListViewModel(instruments: KLSInstrumentsData.instruments)
         configureViewController()
         addSearchController()
         configureCollectionView()
-        filteredInstruments = instruments
+        
+        // Bind the ViewModel to UI updates
+        viewModel.onInstrumentsUpdated = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
     private func configureViewController() {
@@ -30,8 +37,7 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     }
     
     private func addNavigationItems() {
-        let removeAdsButton = UIBarButtonItem(title: "Remove Ads", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
-        
+        let removeAdsButton = UIBarButtonItem(title: "Go Premium", style: .plain, target: self, action: #selector(removeAdsButtonTapped))
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
         
         navigationItem.rightBarButtonItems = [settingsButton, removeAdsButton]
@@ -56,21 +62,21 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     }
     
     private func addSearchController() {
-        let searchController = setupSearchController(searchBarPlaceholder: "Search for a instrument", searchResultsUpdater: self)
+        let searchController = setupSearchController(searchBarPlaceholder: "Search for an instrument", searchResultsUpdater: self)
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredInstruments.count
+        return viewModel.filteredInstruments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSMainCell.reuseID, for: indexPath) as! KLSMainCell
-        let instrument = filteredInstruments[indexPath.item]
+        let instrument = viewModel.filteredInstruments[indexPath.item]
         cell.set(item: instrument)
         
-        if let activeInstrument = activeInstrument, activeInstrument.name == instrument.name {
+        if let activeInstrument = viewModel.activeInstrument, activeInstrument.name == instrument.name {
             cell.showProgress(duration: SoundManager.shared.getSoundDuration(soundFileName: instrument.soundFileName))
             activeCell = cell
         } else {
@@ -80,20 +86,18 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedInstrument = filteredInstruments[indexPath.item]
-        SoundManager.shared.playSound(soundFileName: selectedInstrument.soundFileName)
-        let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: selectedInstrument.soundFileName)
-        activeCell?.hideProgress()
+        let soundDuration = viewModel.selectInstrument(at: indexPath.item)
+        SoundManager.shared.playSound(soundFileName: viewModel.filteredInstruments[indexPath.item].soundFileName)
         
+        activeCell?.hideProgress()
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
             activeCell = cell
-            activeInstrument = selectedInstrument
             cell.showProgress(duration: soundDuration)
             DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
-                if self.activeInstrument == selectedInstrument {
+                if self.viewModel.activeInstrument == self.viewModel.filteredInstruments[indexPath.item] {
                     cell.hideProgress()
                     self.activeCell = nil
-                    self.activeInstrument = nil
+                    self.viewModel.resetActiveInstrument()
                 }
             }
         }
@@ -101,22 +105,16 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        if searchText.isEmpty {
-            filteredInstruments = instruments
-        } else {
-            filteredInstruments = instruments.filter({ $0.name.lowercased().contains(searchText.lowercased()) })
-        }
-        UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.collectionView.reloadData()
-        }, completion: nil)
+        viewModel.filterInstruments(with: searchText)
     }
 }
+
 extension KLSInstrumentListViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        filteredInstruments = instruments
+        viewModel.filterInstruments(with: "")
         collectionView.reloadData()
         
-        if let activeInstrument = activeInstrument, let activeIndex = instruments.firstIndex(where: { $0.name == activeInstrument.name }) {
+        if let activeInstrument = viewModel.activeInstrument, let activeIndex = viewModel.filteredInstruments.firstIndex(where: { $0.name == activeInstrument.name }) {
             let indexPath = IndexPath(item: activeIndex, section: 0)
             if let cell = collectionView.cellForItem(at: indexPath) as? KLSMainCell {
                 let soundDuration = SoundManager.shared.getSoundDuration(soundFileName: activeInstrument.soundFileName)
@@ -124,13 +122,14 @@ extension KLSInstrumentListViewController: UISearchBarDelegate {
                 activeCell = cell
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + soundDuration) {
-                    if self.activeInstrument == activeInstrument {
+                    if self.viewModel.activeInstrument == activeInstrument {
                         cell.hideProgress()
                         self.activeCell = nil
-                        self.activeInstrument = nil
+                        self.viewModel.resetActiveInstrument()
                     }
                 }
             }
         }
     }
 }
+

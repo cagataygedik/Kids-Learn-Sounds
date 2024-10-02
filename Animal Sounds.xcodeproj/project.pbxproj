@@ -64,6 +64,11 @@
 		A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */; };
 		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
 		A2BE9E452BE8F0CA004B28FE /* KLSAnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E442BE8F0CA004B28FE /* KLSAnimalData.swift */; };
+		A2E79E262C60CA770019B514 /* pinguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A2E79E252C60CA770019B514 /* pinguin.mp3 */; };
+		A2E79E282C60CD100019B514 /* fox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A2E79E272C60CD100019B514 /* fox.mp3 */; };
+		A2F59A5D2CAD216800CCEB05 /* KLSAnimalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A5C2CAD216800CCEB05 /* KLSAnimalListViewModel.swift */; };
+		A2F59A5F2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A5E2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift */; };
+		A2F59A612CAD278C00CCEB05 /* KLSWeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A602CAD278C00CCEB05 /* KLSWeatherListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +130,11 @@
 		A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSInstrumentListViewController.swift; sourceTree = "<group>"; };
 		A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		A2BE9E442BE8F0CA004B28FE /* KLSAnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimalData.swift; sourceTree = "<group>"; };
+		A2E79E252C60CA770019B514 /* pinguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pinguin.mp3; sourceTree = "<group>"; };
+		A2E79E272C60CD100019B514 /* fox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fox.mp3; sourceTree = "<group>"; };
+		A2F59A5C2CAD216800CCEB05 /* KLSAnimalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimalListViewModel.swift; sourceTree = "<group>"; };
+		A2F59A5E2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSInstrumentListViewModel.swift; sourceTree = "<group>"; };
+		A2F59A602CAD278C00CCEB05 /* KLSWeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSWeatherListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +199,8 @@
 		A27B86292BEA3342008CE005 /* AnimalSounds */ = {
 			isa = PBXGroup;
 			children = (
+				A2E79E272C60CD100019B514 /* fox.mp3 */,
+				A2E79E252C60CA770019B514 /* pinguin.mp3 */,
 				A27B863D2BEA4001008CE005 /* bird.mp3 */,
 				A27B863A2BEA4001008CE005 /* cat.mp3 */,
 				A27B86352BEA4001008CE005 /* chicken.mp3 */,
@@ -305,8 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				A2887FDB2BE799B6001DA96A /* Models */,
+				A2F59A5B2CAD214400CCEB05 /* ViewModels */,
 				A2C5026E2BEB586F008FAC3C /* Views */,
-				A29F61222BE676BE00165F0F /* Controllers */,
 				A2BE9E462BE8F0CD004B28FE /* Data */,
 				A27B86302BEA3972008CE005 /* Manager */,
 				A2BE9E432BE8EEF1004B28FE /* Helpers */,
@@ -371,6 +383,7 @@
 			children = (
 				A25F6A172BE7A00800B1B877 /* ReusableViews */,
 				A25F6A0F2BE79D4900B1B877 /* Cells */,
+				A29F61222BE676BE00165F0F /* Controllers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,6 +438,16 @@
 				A2C502732BEB5A2D008FAC3C /* Weather */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A2F59A5B2CAD214400CCEB05 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A2F59A5C2CAD216800CCEB05 /* KLSAnimalListViewModel.swift */,
+				A2F59A5E2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift */,
+				A2F59A602CAD278C00CCEB05 /* KLSWeatherListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,7 +523,9 @@
 				A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */,
 				A202F2492BEB83E000DA11A4 /* zampona.mp3 in Resources */,
 				A202F2572BEB881200DA11A4 /* fire.mp3 in Resources */,
+				A2E79E262C60CA770019B514 /* pinguin.mp3 in Resources */,
 				A27B86402BEA4001008CE005 /* owl.mp3 in Resources */,
+				A2E79E282C60CD100019B514 /* fox.mp3 in Resources */,
 				A27B86282BEA3182008CE005 /* dog.mp3 in Resources */,
 				A27B86442BEA4001008CE005 /* spider.mp3 in Resources */,
 				A202F2592BEB88E600DA11A4 /* lightning.mp3 in Resources */,
@@ -537,6 +562,7 @@
 				A202F23B2BEB801000DA11A4 /* KLSInstrumentsData.swift in Sources */,
 				A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */,
 				A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */,
+				A2F59A5F2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */,
@@ -545,6 +571,8 @@
 				A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */,
 				A29F610E2BE6733F00165F0F /* KLSAnimalListViewController.swift in Sources */,
 				A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */,
+				A2F59A612CAD278C00CCEB05 /* KLSWeatherListViewModel.swift in Sources */,
+				A2F59A5D2CAD216800CCEB05 /* KLSAnimalListViewModel.swift in Sources */,
 				A28BD5642BF28980000105A3 /* Constants.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
 				A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */,
