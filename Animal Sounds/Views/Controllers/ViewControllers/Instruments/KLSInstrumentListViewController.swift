@@ -19,6 +19,7 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         viewModel = KLSInstrumentListViewModel(instruments: KLSInstrumentsData.instruments)
         configureViewController()
         addSearchController()
@@ -31,7 +32,7 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
     }
     
     private func configureViewController() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Constants.mainBackgroundColor
         navigationController?.navigationBar.prefersLargeTitles = true
         addNavigationItems()
     }
@@ -55,7 +56,7 @@ final class KLSInstrumentListViewController: UIViewController, UICollectionViewD
         view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = Constants.mainBackgroundColor
         collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     

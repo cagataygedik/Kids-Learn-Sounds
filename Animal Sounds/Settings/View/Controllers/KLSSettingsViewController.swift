@@ -17,7 +17,7 @@ final class KLSSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Constants.mainBackgroundColor
         title = "Settings"
         addSwiftUIController()
     }

@@ -26,6 +26,11 @@
 		A202F25D2BEB89F600DA11A4 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A202F25C2BEB89F600DA11A4 /* wind.mp3 */; };
 		A202F25F2BEB8B2000DA11A4 /* forest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A202F25E2BEB8B1F00DA11A4 /* forest.mp3 */; };
 		A20A74272BF745B900679788 /* KLSCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A74262BF745B900679788 /* KLSCircularProgressView.swift */; };
+		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
+		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
+		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
+		A247A67F2CAEAE0500F6EEEE /* animationOne.json in Resources */ = {isa = PBXBuildFile; fileRef = A247A67E2CAEAE0500F6EEEE /* animationOne.json */; };
+		A247A6812CAEBF0C00F6EEEE /* animationTwo.json in Resources */ = {isa = PBXBuildFile; fileRef = A247A6802CAEBF0C00F6EEEE /* animationTwo.json */; };
 		A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
@@ -93,6 +98,10 @@
 		A202F25C2BEB89F600DA11A4 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
 		A202F25E2BEB8B1F00DA11A4 /* forest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = forest.mp3; sourceTree = "<group>"; };
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
+		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
+		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
+		A247A67E2CAEAE0500F6EEEE /* animationOne.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationOne.json; sourceTree = "<group>"; };
+		A247A6802CAEBF0C00F6EEEE /* animationTwo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationTwo.json; sourceTree = "<group>"; };
 		A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
@@ -147,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */,
+				A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +193,14 @@
 			path = WeatherSound;
 			sourceTree = "<group>";
 		};
+		A247A6792CAEA04000F6EEEE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		A25F6A0F2BE79D4900B1B877 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +214,7 @@
 			children = (
 				A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */,
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
+				A247A67C2CAEA86200F6EEEE /* KLSButton.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -320,6 +339,7 @@
 		A29F61082BE6733F00165F0F /* Animal Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A247A6792CAEA04000F6EEEE /* Onboarding */,
 				A2887FDB2BE799B6001DA96A /* Models */,
 				A2F59A5B2CAD214400CCEB05 /* ViewModels */,
 				A2C5026E2BEB586F008FAC3C /* Views */,
@@ -337,6 +357,8 @@
 		A29F61212BE674B100165F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A247A67E2CAEAE0500F6EEEE /* animationOne.json */,
+				A247A6802CAEBF0C00F6EEEE /* animationTwo.json */,
 				A29F610B2BE6733F00165F0F /* SceneDelegate.swift */,
 				A29F61092BE6733F00165F0F /* AppDelegate.swift */,
 				A29F61122BE6734000165F0F /* Assets.xcassets */,
@@ -474,6 +496,7 @@
 			name = "Animal Sounds";
 			packageProductDependencies = (
 				A25F6A152BE79DAB00B1B877 /* SnapKit */,
+				A247A6772CAEA03A00F6EEEE /* Lottie */,
 			);
 			productName = "Animal Sounds";
 			productReference = A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */;
@@ -505,6 +528,7 @@
 			mainGroup = A29F60FD2BE6733F00165F0F;
 			packageReferences = (
 				A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A247A6762CAEA03A00F6EEEE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A29F61072BE6733F00165F0F /* Products */;
 			projectDirPath = "";
@@ -542,6 +566,7 @@
 				A202F2522BEB83E000DA11A4 /* maracas.mp3 in Resources */,
 				A27B864C2BEA4001008CE005 /* elephant.mp3 in Resources */,
 				A202F2512BEB83E000DA11A4 /* accordion.mp3 in Resources */,
+				A247A6812CAEBF0C00F6EEEE /* animationTwo.json in Resources */,
 				A27B86452BEA4001008CE005 /* pig.mp3 in Resources */,
 				A202F24E2BEB83E000DA11A4 /* french-horn.mp3 in Resources */,
 				A202F24D2BEB83E000DA11A4 /* flute.mp3 in Resources */,
@@ -551,6 +576,7 @@
 				A27B864A2BEA4001008CE005 /* frog.mp3 in Resources */,
 				A202F24F2BEB83E000DA11A4 /* bagpipe.mp3 in Resources */,
 				A27B86412BEA4001008CE005 /* horse.mp3 in Resources */,
+				A247A67F2CAEAE0500F6EEEE /* animationOne.json in Resources */,
 				A27B864D2BEA4001008CE005 /* monkey.mp3 in Resources */,
 				A27B86432BEA4001008CE005 /* chicken.mp3 in Resources */,
 				A202F2502BEB83E000DA11A4 /* conga.mp3 in Resources */,
@@ -566,12 +592,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A202F23B2BEB801000DA11A4 /* KLSInstrumentsData.swift in Sources */,
+				A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */,
 				A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */,
 				A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */,
 				A2F59A5F2CAD26E500CCEB05 /* KLSInstrumentListViewModel.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
+				A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */,
 				A2F59A652CAD339300CCEB05 /* Extension+UIImage.swift in Sources */,
 				A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
@@ -815,6 +843,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A247A6762CAEA03A00F6EEEE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -826,6 +862,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A247A6772CAEA03A00F6EEEE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A247A6762CAEA03A00F6EEEE /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		A25F6A152BE79DAB00B1B877 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */;

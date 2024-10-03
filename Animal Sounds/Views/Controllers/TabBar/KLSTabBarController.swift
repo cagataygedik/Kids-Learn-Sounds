@@ -53,7 +53,7 @@ final class KLSTabBarController: UITabBarController {
         tabbarItemBackgroundView.heightAnchor.constraint(equalTo: tabbarView.heightAnchor, constant: -10).isActive = true
         tabbarItemBackgroundView.centerYAnchor.constraint(equalTo: tabbarView.centerYAnchor).isActive = true
         tabbarItemBackgroundView.layer.cornerRadius = 25
-        tabbarItemBackgroundView.backgroundColor = .systemCyan
+        tabbarItemBackgroundView.backgroundColor = Constants.tabBarSelectedBackgroundColor
 
         centerConstraint = tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: buttons[0].centerXAnchor)
         centerConstraint?.isActive = true

@@ -81,13 +81,13 @@ enum KLSSettingsOption: CaseIterable {
     var iconContainerColor: UIColor {
         switch self {
         case .rateApp:
-            return UIColor.systemCyan
+            return Constants.mainAppColor!
         case .contactUs:
-            return UIColor.systemCyan
+            return Constants.mainAppColor!
         case .developer:
-            return UIColor.systemCyan
+            return Constants.mainAppColor!
         case .privacyPolicy:
-            return UIColor.systemCyan
+            return Constants.mainAppColor!
         }
     }
 }

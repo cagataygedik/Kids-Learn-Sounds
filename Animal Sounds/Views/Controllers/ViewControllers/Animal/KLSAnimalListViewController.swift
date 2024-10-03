@@ -16,6 +16,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         viewModel = KLSAnimalListViewModel(animals: KLSAnimalData.animals)
         configureViewController()
         addSearchController()
@@ -27,7 +28,6 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
     }
     
     private func configureViewController() {
-        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         addNavigationItems()
     }
@@ -52,7 +52,7 @@ final class KLSAnimalListViewController: UIViewController, UICollectionViewDataS
         view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = Constants.mainBackgroundColor
         collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     

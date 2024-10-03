@@ -12,4 +12,7 @@ struct Constants {
     static let privacyPolicyUrl = URL(string: "https://sites.google.com/view/tipbuddy-privacypolicy/ana-sayfa")
     static let rateAppUrl = URL(string: "https://apps.apple.com/us/app/tipbuddy-tip-splitter/id6475352212?action=write-review")
     static let tabBarBackgroundColor = UIColor(named: "TabBarBackgroundColor")
+    static let mainAppColor = UIColor(named: "MainAppColor")
+    static let mainBackgroundColor = UIColor(named: "MainBackgroundColor")
+    static let tabBarSelectedBackgroundColor = UIColor(named: "TabBarSelectedBackgroundColor")
 }

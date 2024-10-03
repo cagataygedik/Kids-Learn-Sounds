@@ -31,7 +31,7 @@ struct KLSSettingsView: View {
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         .listStyle(PlainListStyle())
-        .background(Color(.systemBackground))
+        .background(Color(Constants.mainBackgroundColor!))
     }
 }
 
@@ -49,16 +49,17 @@ struct KLSSettingsRowView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
                     .padding(8)
-                    .background(Color(.systemCyan))
+                    .background(Color(Constants.mainAppColor!))
                     .cornerRadius(8)
             }
             Text(cellViewModel.title)
                 .padding(.leading, 10)
+                .foregroundStyle(.black)
             Spacer()
         }
         .padding(.vertical, 15)
         .padding(.horizontal, 15)
-        .background(isSelected ? Color.gray.opacity(0.3) : Color.clear)
+        .background(isSelected ? Color.gray.opacity(0.3) : Color(Constants.mainBackgroundColor!))
         .cornerRadius(8)
     }
 }

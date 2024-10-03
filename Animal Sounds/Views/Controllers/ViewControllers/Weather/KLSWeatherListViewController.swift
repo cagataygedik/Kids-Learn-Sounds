@@ -17,6 +17,7 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         viewModel = KLSWeatherListViewModel(weather: KLSWeatherData.weather)
         configureViewController()
         addSearchController()
@@ -28,7 +29,6 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
     }
     
     private func configureViewController() {
-        view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         addNavigationItems()
     }
@@ -52,7 +52,7 @@ final class KLSWeatherListViewController: UIViewController, UICollectionViewData
         view.addSubview(collectionView)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = Constants.mainBackgroundColor
         collectionView.register(KLSMainCell.self, forCellWithReuseIdentifier: KLSMainCell.reuseID)
     }
     
