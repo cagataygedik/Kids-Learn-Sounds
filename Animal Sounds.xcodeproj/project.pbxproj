@@ -29,8 +29,6 @@
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
 		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
-		A247A67F2CAEAE0500F6EEEE /* animationOne.json in Resources */ = {isa = PBXBuildFile; fileRef = A247A67E2CAEAE0500F6EEEE /* animationOne.json */; };
-		A247A6812CAEBF0C00F6EEEE /* animationTwo.json in Resources */ = {isa = PBXBuildFile; fileRef = A247A6802CAEBF0C00F6EEEE /* animationTwo.json */; };
 		A25F6A112BE79D7200B1B877 /* KLSMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
@@ -67,6 +65,8 @@
 		A29F61162BE6734000165F0F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A29F61152BE6734000165F0F /* Base */; };
 		A29F611E2BE6746600165F0F /* ExistTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611D2BE6746600165F0F /* ExistTabBarController.swift */; };
 		A29F61202BE6749A00165F0F /* KLSInstrumentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */; };
+		A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C742CAF039F0082E95B /* PenguinMusic.json */; };
+		A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */; };
 		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
 		A2BE9E452BE8F0CA004B28FE /* KLSAnimalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E442BE8F0CA004B28FE /* KLSAnimalData.swift */; };
 		A2E79E262C60CA770019B514 /* pinguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A2E79E252C60CA770019B514 /* pinguin.mp3 */; };
@@ -100,8 +100,6 @@
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
-		A247A67E2CAEAE0500F6EEEE /* animationOne.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationOne.json; sourceTree = "<group>"; };
-		A247A6802CAEBF0C00F6EEEE /* animationTwo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = animationTwo.json; sourceTree = "<group>"; };
 		A25F6A102BE79D7200B1B877 /* KLSMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSMainCell.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
@@ -139,6 +137,8 @@
 		A29F61172BE6734000165F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29F611D2BE6746600165F0F /* ExistTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistTabBarController.swift; sourceTree = "<group>"; };
 		A29F611F2BE6749A00165F0F /* KLSInstrumentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSInstrumentListViewController.swift; sourceTree = "<group>"; };
+		A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimalsAnimation.json; sourceTree = "<group>"; };
+		A2A66C742CAF039F0082E95B /* PenguinMusic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PenguinMusic.json; sourceTree = "<group>"; };
 		A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		A2BE9E442BE8F0CA004B28FE /* KLSAnimalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAnimalData.swift; sourceTree = "<group>"; };
 		A2E79E252C60CA770019B514 /* pinguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pinguin.mp3; sourceTree = "<group>"; };
@@ -357,8 +357,8 @@
 		A29F61212BE674B100165F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A247A67E2CAEAE0500F6EEEE /* animationOne.json */,
-				A247A6802CAEBF0C00F6EEEE /* animationTwo.json */,
+				A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */,
+				A2A66C742CAF039F0082E95B /* PenguinMusic.json */,
 				A29F610B2BE6733F00165F0F /* SceneDelegate.swift */,
 				A29F61092BE6733F00165F0F /* AppDelegate.swift */,
 				A29F61122BE6734000165F0F /* Assets.xcassets */,
@@ -552,6 +552,8 @@
 				A27B86422BEA4001008CE005 /* giraffe.mp3 in Resources */,
 				A27B862F2BEA3819008CE005 /* sheep.mp3 in Resources */,
 				A202F2492BEB83E000DA11A4 /* zampona.mp3 in Resources */,
+				A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */,
+				A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */,
 				A202F2572BEB881200DA11A4 /* fire.mp3 in Resources */,
 				A2E79E262C60CA770019B514 /* pinguin.mp3 in Resources */,
 				A27B86402BEA4001008CE005 /* owl.mp3 in Resources */,
@@ -566,7 +568,6 @@
 				A202F2522BEB83E000DA11A4 /* maracas.mp3 in Resources */,
 				A27B864C2BEA4001008CE005 /* elephant.mp3 in Resources */,
 				A202F2512BEB83E000DA11A4 /* accordion.mp3 in Resources */,
-				A247A6812CAEBF0C00F6EEEE /* animationTwo.json in Resources */,
 				A27B86452BEA4001008CE005 /* pig.mp3 in Resources */,
 				A202F24E2BEB83E000DA11A4 /* french-horn.mp3 in Resources */,
 				A202F24D2BEB83E000DA11A4 /* flute.mp3 in Resources */,
@@ -576,7 +577,6 @@
 				A27B864A2BEA4001008CE005 /* frog.mp3 in Resources */,
 				A202F24F2BEB83E000DA11A4 /* bagpipe.mp3 in Resources */,
 				A27B86412BEA4001008CE005 /* horse.mp3 in Resources */,
-				A247A67F2CAEAE0500F6EEEE /* animationOne.json in Resources */,
 				A27B864D2BEA4001008CE005 /* monkey.mp3 in Resources */,
 				A27B86432BEA4001008CE005 /* chicken.mp3 in Resources */,
 				A202F2502BEB83E000DA11A4 /* conga.mp3 in Resources */,

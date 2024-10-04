@@ -13,7 +13,7 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
     
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
-    private let lottieAnimations = ["animationOne", "animationTwo"]
+    private let lottieAnimations = ["AnimalsAnimation", "PenguinMusic"]
     private let pageLabels = ["Welcome to Kids Learn Sounds. We're here to help you learn hundreds of sounds in the world.", "Come and join us and explore the world of sounds."]
     
     override func viewDidLoad() {
