@@ -88,9 +88,9 @@ final class KLSTabBarController: UITabBarController {
     }
 
     private func generateControllers() {
-        let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSAnimalListViewController(), title: "Animals")
-        let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSInstrumentListViewController(), title: "Instruments")
-        let weathers = generateViewControllers(image: UIImage(systemName: "cloud.sun.fill")!, viewController: KLSWeatherListViewController(), title: "Weather")
+        let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSListViewController(dataType: "animal"), title: "Animals")
+        let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSListViewController(dataType: "instruments"), title: "Instruments")
+        let weathers = generateViewControllers(image: UIImage(systemName: "cloud.sun.fill")!, viewController: KLSListViewController(dataType: "weather"), title: "Weather")
         let settings = generateViewControllers(image: UIImage(systemName: "gear")!, viewController: KLSSettingsViewController(), title: "Settings")
         viewControllers = [animals, instruments, weathers, settings]
     }
