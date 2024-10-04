@@ -18,6 +18,7 @@ final class KLSSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.mainBackgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Settings"
         addSwiftUIController()
     }

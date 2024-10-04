@@ -60,7 +60,7 @@ struct KLSSettingsRowView: View {
         .padding(.vertical, 15)
         .padding(.horizontal, 15)
         .background(isSelected ? Color.gray.opacity(0.3) : Color(Constants.mainBackgroundColor!))
-        .cornerRadius(8)
+        
     }
 }
 
