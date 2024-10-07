@@ -12,10 +12,10 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
     private var activeCell: KLSListCell?
-    private var dataType: String
+    private var endpoint: KLSEndpoint
     
-    init(dataType: String) {
-        self.dataType = dataType
+    init(endpoint: KLSEndpoint) {
+        self.endpoint = endpoint
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,7 +25,7 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadItems(for: dataType)
+        viewModel.loadItems(for: endpoint)
         configureViewController()
         configureCollectionView()
         addSearchController()

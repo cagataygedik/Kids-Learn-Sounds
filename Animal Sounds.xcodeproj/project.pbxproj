@@ -22,6 +22,7 @@
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
 		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
+		A255B9D62CB4392E00C93AB8 /* KLSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
@@ -56,6 +57,7 @@
 		A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCellViewModel.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
+		A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSEndpoint.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */,
+				A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
 				A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */,
 				A28BD5662BF28A2F000105A3 /* KLSSettingsViewController.swift in Sources */,
+				A255B9D62CB4392E00C93AB8 /* KLSEndpoint.swift in Sources */,
 				A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */,
 				A20C57FE2CB008BE000A7659 /* SoundManager.swift in Sources */,
 				A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */,

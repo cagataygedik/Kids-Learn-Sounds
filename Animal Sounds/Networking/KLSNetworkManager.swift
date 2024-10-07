@@ -13,8 +13,8 @@ final class KLSNetworkManager {
     
     private init() {}
     
-    func fetchItems(for endpoint: String, completion: @escaping (Result<[KLSItem], Error>) -> Void) {
-        let url = baseuRL + endpoint
+    func fetchItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSItem], Error>) -> Void) {
+        let url = baseuRL + endpoint.path
         AF.request(url).responseDecodable(of: [KLSItem].self) { response in
             switch response.result {
              case .success(let items):
