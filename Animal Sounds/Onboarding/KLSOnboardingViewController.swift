@@ -73,7 +73,7 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
         animationView.snp.makeConstraints { make in
             make.top.equalTo(pageView)
             make.left.right.equalTo(pageView)
-            make.height.equalTo(view.frame.height * 0.6) // Adjust height proportion as needed
+            make.height.equalTo(view.frame.height * 0.6)
         }
         
         label.snp.makeConstraints { make in
@@ -82,7 +82,7 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
         }
         
         nextButton.snp.makeConstraints { make in
-            make.bottom.equalTo(pageView.safeAreaLayoutGuide.snp.bottom).offset(-40) // Pin to bottom with some padding
+            make.bottom.equalTo(pageView.safeAreaLayoutGuide.snp.bottom).offset(-40)
             make.centerX.equalTo(pageView)
             make.height.equalTo(50)
             make.width.equalTo(350)
@@ -107,10 +107,8 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
         let nextPage = min(currentPage + 1, lottieAnimations.count - 1)
         
         if currentPage == lottieAnimations.count - 1 {
-            // Last page - Navigate to the main app
             navigateToMainApp()
         } else {
-            // Move to the next page
             let offset = CGPoint(x: view.frame.width * CGFloat(nextPage), y: 0)
             scrollView.setContentOffset(offset, animated: true)
             pageControl.currentPage = nextPage
@@ -130,7 +128,6 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
     private func navigateToMainApp() {
         let mainAppViewController = KLSTabBarController()
         
-        // Ensure that you do NOT wrap KLSTabBarController inside another UINavigationController
         if let windowScene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
             

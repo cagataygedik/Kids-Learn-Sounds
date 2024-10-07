@@ -17,7 +17,7 @@
 		A20C57FA2CB0055E000A7659 /* KLSListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F92CB0055E000A7659 /* KLSListViewController.swift */; };
 		A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57FB2CB0057A000A7659 /* KLSListCell.swift */; };
 		A20C57FE2CB008BE000A7659 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57FD2CB008BE000A7659 /* SoundManager.swift */; };
-		A20C58002CB01024000A7659 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = A20C57FF2CB01024000A7659 /* loading.json */; };
+		A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A20C57FF2CB01024000A7659 /* LoadingAnimation.json */; };
 		A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */; };
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
@@ -53,7 +53,7 @@
 		A20C57F92CB0055E000A7659 /* KLSListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListViewController.swift; sourceTree = "<group>"; };
 		A20C57FB2CB0057A000A7659 /* KLSListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCell.swift; sourceTree = "<group>"; };
 		A20C57FD2CB008BE000A7659 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		A20C57FF2CB01024000A7659 /* loading.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		A20C57FF2CB01024000A7659 /* LoadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCellViewModel.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 		A29F61212BE674B100165F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A20C57FF2CB01024000A7659 /* loading.json */,
+				A20C57FF2CB01024000A7659 /* LoadingAnimation.json */,
 				A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */,
 				A2A66C742CAF039F0082E95B /* PenguinMusic.json */,
 				A29F610B2BE6733F00165F0F /* SceneDelegate.swift */,
@@ -375,7 +375,7 @@
 				A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */,
 				A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */,
 				A29F61132BE6734000165F0F /* Assets.xcassets in Resources */,
-				A20C58002CB01024000A7659 /* loading.json in Resources */,
+				A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */,
 				A29F61162BE6734000165F0F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

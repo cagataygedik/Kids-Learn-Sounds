@@ -6,6 +6,8 @@
 //
 
 import Alamofire
+import UIKit
+import Kingfisher
 
 final class KLSNetworkManager {
     static let shared = KLSNetworkManager()
@@ -13,12 +15,27 @@ final class KLSNetworkManager {
     
     private init() {}
     
-    func fetchItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSItem], Error>) -> Void) {
+    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSItem], Error>) -> Void) {
         let url = baseuRL + endpoint.path
         AF.request(url).responseDecodable(of: [KLSItem].self) { response in
             switch response.result {
              case .success(let items):
                 completion(.success(items))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getImages(from path: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        guard let url = URL(string: "https://kids-learn-sounds-api.onrender.com" + path) else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 400, userInfo: nil)))
+            return
+        }
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            switch result {
+            case .success(let imageResult):
+                completion(.success(imageResult.image))
             case .failure(let error):
                 completion(.failure(error))
             }

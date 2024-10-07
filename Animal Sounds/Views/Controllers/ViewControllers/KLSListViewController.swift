@@ -25,7 +25,7 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadItems(for: endpoint)
+        viewModel.fetchItems(for: endpoint)
         configureViewController()
         configureCollectionView()
         addSearchController()

@@ -13,8 +13,8 @@ final class KLSListViewModel {
     
     var onItemsUpdated: (() -> Void)?
     
-    func loadItems(for endpoint: KLSEndpoint) {
-        KLSNetworkManager.shared.fetchItems(for: endpoint) { [weak self] result in
+    func fetchItems(for endpoint: KLSEndpoint) {
+        KLSNetworkManager.shared.getItems(for: endpoint) { [weak self] result in
             switch result {
             case .success(let items):
                 self?.items = items

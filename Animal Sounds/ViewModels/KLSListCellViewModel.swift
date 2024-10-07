@@ -32,12 +32,12 @@ final class KLSListCellViewModel {
                     self?.onImageLoad?(value.image)
                     self?.onAnimationStop?()
                 case .failure:
-                    self?.onImageLoad?(UIImage(named: "dog"))
+                    self?.onImageLoad?(UIImage(systemName: "questionmark.circle.fill"))
                     self?.onAnimationStop?()
                 }
             }
         } else {
-            onImageLoad?(UIImage(named: "dog"))
+            onImageLoad?(UIImage(systemName: "questionmark.circle.fill"))
             onAnimationStop?()
         }
     }

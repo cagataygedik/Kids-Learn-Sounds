@@ -12,11 +12,11 @@ import Lottie
 class KLSListCell: UICollectionViewCell {
     static let reuseID = "ListCell"
     
-    let avatarImageView = KLSAvatarImageView(frame: .zero)
-    let nameLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
-    let progressView = KLSCircularProgressView(frame: .zero)
-    let darkenAvatarImageView = UIView(frame: .zero)
-    var animationView: LottieAnimationView?
+    private let avatarImageView = KLSAvatarImageView(frame: .zero)
+    private let nameLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
+    private let progressView = KLSCircularProgressView(frame: .zero)
+    private let darkenAvatarImageView = UIView(frame: .zero)
+    private var animationView = LottieAnimationView(name: "LoadingAnimation")
     
     var viewModel: KLSListCellViewModel! {
         didSet {
@@ -91,22 +91,20 @@ class KLSListCell: UICollectionViewCell {
     }
     
     private func showLoadingAnimation() {
-        if animationView == nil {
-            animationView = LottieAnimationView(name: "loading")
-            animationView?.loopMode = .loop
-            avatarImageView.addSubview(animationView!)
-            animationView?.translatesAutoresizingMaskIntoConstraints = false
-            animationView?.snp.makeConstraints { make in
-                make.edges.equalTo(avatarImageView)
-            }
+        animationView.loopMode = .loop
+        avatarImageView.addSubview(animationView)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.snp.makeConstraints { make in
+            make.edges.equalTo(avatarImageView)
         }
-        animationView?.isHidden = false
-        animationView?.play()
+        
+        animationView.isHidden = false
+        animationView.play()
     }
     
     private func hideLoadingAnimation() {
-        animationView?.stop()
-        animationView?.isHidden = true
+        animationView.stop()
+        animationView.isHidden = true
     }
     
     func showProgress(duration: TimeInterval) {
