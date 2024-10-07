@@ -9,14 +9,33 @@ import UIKit
 import Kingfisher
 import Lottie
 
-class KLSListCell: UICollectionViewCell {
+final class KLSListCell: UICollectionViewCell {
     static let reuseID = "ListCell"
     
     private let avatarImageView = KLSAvatarImageView(frame: .zero)
     private let nameLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
-    private let progressView = KLSCircularProgressView(frame: .zero)
-    private let darkenAvatarImageView = UIView(frame: .zero)
-    private var animationView = LottieAnimationView(name: "LoadingAnimation")
+    
+    //Using these with lazy,
+    //because they're only requiered only when they called.
+    private lazy var progressView: KLSCircularProgressView = {
+        let progress = KLSCircularProgressView(frame: .zero)
+        progress.isHidden = true
+        return progress
+    }()
+    
+    private lazy var darkenAvatarImageView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var animationView: LottieAnimationView = {
+        let animation = AnimationManager.sharedLoadingAnimation
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        return animation
+    }()
     
     var viewModel: KLSListCellViewModel! {
         didSet {
@@ -33,6 +52,16 @@ class KLSListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImageView.image = nil
+        hideLoadingAnimation()
+        
+        progressView.setProgress(0)
+        progressView.isHidden = true
+        darkenAvatarImageView.isHidden = true
+    }
+    
     private func configure() {
         addSubview(avatarImageView)
         addSubview(nameLabel)
@@ -41,8 +70,6 @@ class KLSListCell: UICollectionViewCell {
         
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        darkenAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
         
         avatarImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
@@ -91,7 +118,6 @@ class KLSListCell: UICollectionViewCell {
     }
     
     private func showLoadingAnimation() {
-        animationView.loopMode = .loop
         avatarImageView.addSubview(animationView)
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.snp.makeConstraints { make in

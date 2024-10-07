@@ -41,14 +41,22 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
     
     private func createOnboardingPage(with animationName: String, labelText: String, index: Int) -> UIView {
         let pageView = UIView()
-        let animationView = LottieAnimationView(name: animationName)
+        
+        let animationView: LottieAnimationView
+        switch animationName {
+        case "AnimalsAnimation":
+            animationView = AnimationManager.sharedOnboardingAnimalsAnimation
+        case "PenguinMusic":
+            animationView = AnimationManager.sharedOnboardingPenguinMusicAnimation
+        default:
+            animationView = LottieAnimationView(name: "LoadingAnimation")
+        }
+        
         let nextButton = KLSButton(backgroundColor: Constants.mainAppColor!, title: "Continue")
         let label = UILabel()
         
         scrollView.addSubview(pageView)
         
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
         animationView.play()
         
         label.text = labelText

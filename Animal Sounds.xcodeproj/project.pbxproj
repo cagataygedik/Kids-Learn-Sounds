@@ -23,6 +23,7 @@
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
 		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
 		A255B9D62CB4392E00C93AB8 /* KLSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */; };
+		A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255B9D72CB447B700C93AB8 /* AnimationManager.swift */; };
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
@@ -58,6 +59,7 @@
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
 		A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSEndpoint.swift; sourceTree = "<group>"; };
+		A255B9D72CB447B700C93AB8 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -130,12 +132,13 @@
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
-		A27B86302BEA3972008CE005 /* SoundManager */ = {
+		A27B86302BEA3972008CE005 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				A20C57FD2CB008BE000A7659 /* SoundManager.swift */,
+				A255B9D72CB447B700C93AB8 /* AnimationManager.swift */,
 			);
-			path = SoundManager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		A2887FDB2BE799B6001DA96A /* Models */ = {
@@ -222,7 +225,7 @@
 				A2887FDB2BE799B6001DA96A /* Models */,
 				A2F59A5B2CAD214400CCEB05 /* ViewModels */,
 				A2C5026E2BEB586F008FAC3C /* Views */,
-				A27B86302BEA3972008CE005 /* SoundManager */,
+				A27B86302BEA3972008CE005 /* Managers */,
 				A2BE9E432BE8EEF1004B28FE /* Helpers */,
 				A28BD5552BF285B9000105A3 /* Settings */,
 				A28BD5622BF28973000105A3 /* Utilities */,
@@ -393,6 +396,7 @@
 				A20C57F62CB0041C000A7659 /* KLSItem.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
+				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,
 				A20C57EB2CAFF8F2000A7659 /* Extension+UISearchBar.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,
