@@ -10,12 +10,12 @@ import Kingfisher
 import Lottie
 
 final class KLSListCellViewModel {
-    private let item: KLSItem
+    private let item: KLSModel
     var onImageLoad: ((UIImage?) -> Void)?
     var onAnimationStart: (() -> Void)?
     var onAnimationStop: (() -> Void)?
     
-    init (item: KLSItem) {
+    init (item: KLSModel) {
         self.item = item
     }
     

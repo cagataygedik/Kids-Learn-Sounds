@@ -12,7 +12,7 @@
 		A20C57EE2CB00382000A7659 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A20C57ED2CB00382000A7659 /* Alamofire */; };
 		A20C57F12CB00395000A7659 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A20C57F02CB00395000A7659 /* Kingfisher */; };
 		A20C57F42CB003D7000A7659 /* KLSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */; };
-		A20C57F62CB0041C000A7659 /* KLSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F52CB0041C000A7659 /* KLSItem.swift */; };
+		A20C57F62CB0041C000A7659 /* KLSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F52CB0041C000A7659 /* KLSModel.swift */; };
 		A20C57F82CB0048D000A7659 /* KLSListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F72CB0048D000A7659 /* KLSListViewModel.swift */; };
 		A20C57FA2CB0055E000A7659 /* KLSListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F92CB0055E000A7659 /* KLSListViewController.swift */; };
 		A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57FB2CB0057A000A7659 /* KLSListCell.swift */; };
@@ -49,7 +49,7 @@
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
 		A20C57EA2CAFF8E5000A7659 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
 		A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNetworkManager.swift; sourceTree = "<group>"; };
-		A20C57F52CB0041C000A7659 /* KLSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSItem.swift; sourceTree = "<group>"; };
+		A20C57F52CB0041C000A7659 /* KLSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSModel.swift; sourceTree = "<group>"; };
 		A20C57F72CB0048D000A7659 /* KLSListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListViewModel.swift; sourceTree = "<group>"; };
 		A20C57F92CB0055E000A7659 /* KLSListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListViewController.swift; sourceTree = "<group>"; };
 		A20C57FB2CB0057A000A7659 /* KLSListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCell.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A20C57F52CB0041C000A7659 /* KLSItem.swift */,
+				A20C57F52CB0041C000A7659 /* KLSModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -393,7 +393,7 @@
 				A20C57F42CB003D7000A7659 /* KLSNetworkManager.swift in Sources */,
 				A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */,
 				A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */,
-				A20C57F62CB0041C000A7659 /* KLSItem.swift in Sources */,
+				A20C57F62CB0041C000A7659 /* KLSModel.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
 				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,

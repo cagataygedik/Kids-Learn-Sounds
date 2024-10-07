@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KLSItem: Decodable {
+struct KLSModel: Decodable {
     let name: String
     let image: String?
     let sound: String?

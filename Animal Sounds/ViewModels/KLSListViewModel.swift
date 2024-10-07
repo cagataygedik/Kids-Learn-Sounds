@@ -8,8 +8,8 @@
 import Foundation
 
 final class KLSListViewModel {
-    private(set) var items: [KLSItem] = []
-    private(set) var filteredItems: [KLSItem] = []
+    private(set) var items: [KLSModel] = []
+    private(set) var filteredItems: [KLSModel] = []
     
     var onItemsUpdated: (() -> Void)?
     

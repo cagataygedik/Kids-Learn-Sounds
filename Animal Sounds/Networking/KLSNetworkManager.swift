@@ -15,9 +15,9 @@ final class KLSNetworkManager {
     
     private init() {}
     
-    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSItem], Error>) -> Void) {
+    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], Error>) -> Void) {
         let url = baseuRL + endpoint.path
-        AF.request(url).responseDecodable(of: [KLSItem].self) { response in
+        AF.request(url).responseDecodable(of: [KLSModel].self) { response in
             switch response.result {
              case .success(let items):
                 completion(.success(items))
