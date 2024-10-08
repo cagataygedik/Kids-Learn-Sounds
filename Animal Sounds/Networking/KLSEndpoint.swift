@@ -10,13 +10,13 @@ import Foundation
 enum KLSEndpoint {
     case animals
     case instruments
-    case weathers
+    case nature
     
     var path: String {
         switch self {
-        case .animals: return "animal"
+        case .animals: return "animals"
         case .instruments: return "instruments"
-        case .weathers: return "weather"
+        case .nature: return "nature"
         }
     }
 }
