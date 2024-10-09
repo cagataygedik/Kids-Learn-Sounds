@@ -26,7 +26,7 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetchItems(for: endpoint)
-        configureViewController()
+        configureNavigationBar()
         configureCollectionView()
         addSearchController()
         
@@ -35,8 +35,15 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    private func configureViewController() {
+    private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let goPremiumButton = UIBarButtonItem(title: "Go Premium", style: .plain, target: self, action: #selector(goPremiumTapped))
+        navigationItem.rightBarButtonItem = goPremiumButton
+    }
+    
+    @objc private func goPremiumTapped() {
+        print("Go Premium Tapped")
     }
     
     private func configureCollectionView() {
