@@ -11,15 +11,15 @@ import Kingfisher
 
 final class KLSNetworkManager {
     static let shared = KLSNetworkManager()
-    private let baseuRL = "https://kids-learn-sounds-api.onrender.com/v1/"
+    private let baseURL = "https://kids-learn-sounds-api.onrender.com"
     
     private init() {}
     
     func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], KLSError>) -> Void) {
-        let url = baseuRL + endpoint.path
+        let url = baseURL + "/v1/" + endpoint.path
         AF.request(url).responseDecodable(of: [KLSModel].self) { response in
             switch response.result {
-             case .success(let items):
+            case .success(let items):
                 completion(.success(items))
             case .failure(let error):
                 if let afError = error.asAFError, afError.isSessionTaskError {
@@ -32,10 +32,13 @@ final class KLSNetworkManager {
     }
     
     func getImages(from path: String, completion: @escaping (Result<UIImage, KLSError>) -> Void) {
-        guard let url = URL(string: "https://kids-learn-sounds-api.onrender.com" + path) else {
+        let fullURL = baseURL + (path.hasPrefix("/") ? path : "/" + path)
+        
+        guard let url = URL(string: fullURL) else {
             completion(.failure(.invalidURL))
             return
         }
+        
         KingfisherManager.shared.retrieveImage(with: url) { result in
             switch result {
             case .success(let imageResult):
