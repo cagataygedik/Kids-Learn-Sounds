@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 import Lottie
+import SkeletonView
 
 final class KLSListCell: UICollectionViewCell {
     static let reuseID = "ListCell"
@@ -31,12 +32,6 @@ final class KLSListCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var animationView: LottieAnimationView = {
-        let animation = AnimationManager.sharedLoadingAnimation
-        animation.translatesAutoresizingMaskIntoConstraints = false
-        return animation
-    }()
-    
     var viewModel: KLSListCellViewModel! {
         didSet {
             bindViewModel()
@@ -46,6 +41,7 @@ final class KLSListCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        showSkeletonLoading()
     }
     
     required init?(coder: NSCoder) {
@@ -55,21 +51,21 @@ final class KLSListCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         avatarImageView.image = nil
-        hideLoadingAnimation()
-        
+        nameLabel.text = nil
+        showSkeletonLoading()
         progressView.setProgress(0)
         progressView.isHidden = true
         darkenAvatarImageView.isHidden = true
     }
     
     private func configure() {
+        avatarImageView.isSkeletonable = true
+        nameLabel.isSkeletonable = true
+        
         addSubview(avatarImageView)
         addSubview(nameLabel)
         avatarImageView.addSubview(darkenAvatarImageView)
         avatarImageView.addSubview(progressView)
-        
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         avatarImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
@@ -101,36 +97,24 @@ final class KLSListCell: UICollectionViewCell {
     }
     
     func bindViewModel() {
-        nameLabel.text = viewModel.name
+        showSkeletonLoading()
         
         viewModel.onImageLoad = { [weak self] image in
             self?.avatarImageView.image = image
-        }
-        
-        viewModel.onAnimationStart = { [weak self] in
-            self?.showLoadingAnimation()
-        }
-        
-        viewModel.onAnimationStop = { [weak self] in
-            self?.hideLoadingAnimation()
+            self?.hideSkeletonLoading()
+            self?.nameLabel.text = self?.viewModel.name
         }
         viewModel.fetchImage()
     }
     
-    private func showLoadingAnimation() {
-        avatarImageView.addSubview(animationView)
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        animationView.snp.makeConstraints { make in
-            make.edges.equalTo(avatarImageView)
-        }
-        
-        animationView.isHidden = false
-        animationView.play()
+    func showSkeletonLoading() {
+        avatarImageView.showAnimatedGradientSkeleton()
+        nameLabel.showAnimatedGradientSkeleton()
     }
     
-    private func hideLoadingAnimation() {
-        animationView.stop()
-        animationView.isHidden = true
+    func hideSkeletonLoading() {
+        avatarImageView.hideSkeleton()
+        nameLabel.hideSkeleton()
     }
     
     func showProgress(duration: TimeInterval) {

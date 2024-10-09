@@ -30,6 +30,7 @@
 		A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */; };
 		A26025B32CB694D3008A8CA2 /* KLSAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */; };
 		A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B62CB69EAD008A8CA2 /* KLSError.swift */; };
+		A26025BA2CB6A862008A8CA2 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A26025B92CB6A862008A8CA2 /* SkeletonView */; };
 		A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
 		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
@@ -97,6 +98,7 @@
 				A20C57EE2CB00382000A7659 /* Alamofire in Frameworks */,
 				A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */,
 				A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */,
+				A26025BA2CB6A862008A8CA2 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +345,7 @@
 				A247A6772CAEA03A00F6EEEE /* Lottie */,
 				A20C57ED2CB00382000A7659 /* Alamofire */,
 				A20C57F02CB00395000A7659 /* Kingfisher */,
+				A26025B92CB6A862008A8CA2 /* SkeletonView */,
 			);
 			productName = "Animal Sounds";
 			productReference = A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */;
@@ -377,6 +380,7 @@
 				A247A6762CAEA03A00F6EEEE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				A20C57EC2CB00382000A7659 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A20C57EF2CB00395000A7659 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A26025B82CB6A862008A8CA2 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = A29F61072BE6733F00165F0F /* Products */;
 			projectDirPath = "";
@@ -691,6 +695,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		A26025B82CB6A862008A8CA2 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -713,6 +725,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A25F6A142BE79DAB00B1B877 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		A26025B92CB6A862008A8CA2 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A26025B82CB6A862008A8CA2 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SkeletonView
 
-final class KLSListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating {
+final class KLSListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating, SkeletonCollectionViewDataSource {
     
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
@@ -27,23 +28,33 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
         super.viewDidLoad()
         setupViewController()
         bindViewModels()
+        startSkeletonLoading()
     }
     
     private func setupViewController() {
-        viewModel.fetchItems(for: endpoint)
         configureNavigationBar()
         configureCollectionView()
         addSearchController()
+        viewModel.fetchItems(for: endpoint)
     }
     
     private func bindViewModels() {
         viewModel.onItemsUpdated = { [weak self] in
+            self?.stopSkeletonLoading()
             self?.collectionView.reloadData()
         }
         
         viewModel.showError = { [weak self] error, endpoint in
             self?.showErrorAlert(with: error, for: endpoint)
         }
+    }
+    
+    func startSkeletonLoading() {
+        collectionView.showAnimatedGradientSkeleton()
+    }
+    
+    private func stopSkeletonLoading() {
+        collectionView.hideSkeleton()
     }
     
     private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
@@ -72,6 +83,7 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.isSkeletonable = true
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
@@ -103,6 +115,14 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
                 
             }
         }
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 15
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return KLSListCell.reuseID
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
