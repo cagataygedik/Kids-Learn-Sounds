@@ -25,13 +25,36 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewController()
+        bindViewModels()
+    }
+    
+    private func setupViewController() {
         viewModel.fetchItems(for: endpoint)
         configureNavigationBar()
         configureCollectionView()
         addSearchController()
-        
+    }
+    
+    private func bindViewModels() {
         viewModel.onItemsUpdated = { [weak self] in
             self?.collectionView.reloadData()
+        }
+        
+        viewModel.showError = { [weak self] error, endpoint in
+            self?.showErrorAlert(with: error, for: endpoint)
+        }
+    }
+    
+    private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
+        DispatchQueue.main.async {
+            let alertViewController = KLSAlertViewController(title: "Oopsie Doopsie 😳", message: error.localizedDescription)
+            alertViewController.retryAction = { [weak self] in
+                self?.viewModel.fetchItems(for: endpoint)
+            }
+            alertViewController.modalPresentationStyle = .overFullScreen
+            alertViewController.modalTransitionStyle = .crossDissolve
+            self.present(alertViewController, animated: true, completion: nil)
         }
     }
     

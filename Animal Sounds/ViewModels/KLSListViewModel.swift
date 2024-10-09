@@ -12,6 +12,7 @@ final class KLSListViewModel {
     private(set) var filteredItems: [KLSModel] = []
     
     var onItemsUpdated: (() -> Void)?
+    var showError: ((KLSError, KLSEndpoint) -> Void)?
     
     func fetchItems(for endpoint: KLSEndpoint) {
         KLSNetworkManager.shared.getItems(for: endpoint) { [weak self] result in
@@ -21,7 +22,7 @@ final class KLSListViewModel {
                 self?.filteredItems = self?.items ?? []
                 self?.onItemsUpdated?()
             case .failure(let error):
-                print("error fetching items: \(error)")
+                self?.showError?(error, endpoint)
             }
         }
     }

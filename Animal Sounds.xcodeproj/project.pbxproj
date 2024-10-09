@@ -27,6 +27,9 @@
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
+		A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */; };
+		A26025B32CB694D3008A8CA2 /* KLSAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */; };
+		A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B62CB69EAD008A8CA2 /* KLSError.swift */; };
 		A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
 		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
@@ -62,6 +65,9 @@
 		A255B9D72CB447B700C93AB8 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
+		A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAlertContainerView.swift; sourceTree = "<group>"; };
+		A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAlertViewController.swift; sourceTree = "<group>"; };
+		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
 		A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsOption.swift; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 			children = (
 				A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */,
 				A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */,
+				A26025B62CB69EAD008A8CA2 /* KLSError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -128,8 +135,17 @@
 				A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */,
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 				A247A67C2CAEA86200F6EEEE /* KLSButton.swift */,
+				A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */,
 			);
 			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		A26025B12CB694B0008A8CA2 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		A27B86302BEA3972008CE005 /* Managers */ = {
@@ -252,6 +268,7 @@
 		A29F61222BE676BE00165F0F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A26025B12CB694B0008A8CA2 /* Alert */,
 				A2C502742BEB5B7E008FAC3C /* ViewControllers */,
 				A2BE9E472BE908E0004B28FE /* TabBar */,
 			);
@@ -400,11 +417,14 @@
 				A20C57EB2CAFF8F2000A7659 /* Extension+UISearchBar.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,
+				A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */,
 				A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */,
 				A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */,
 				A2F59A652CAD339300CCEB05 /* Extension+UIImage.swift in Sources */,
 				A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */,
+				A26025B32CB694D3008A8CA2 /* KLSAlertViewController.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
+				A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */,
 				A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */,
 				A20C57FA2CB0055E000A7659 /* KLSListViewController.swift in Sources */,
 				A20C57F82CB0048D000A7659 /* KLSListViewModel.swift in Sources */,

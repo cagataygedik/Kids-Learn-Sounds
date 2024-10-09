@@ -15,21 +15,25 @@ final class KLSNetworkManager {
     
     private init() {}
     
-    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], Error>) -> Void) {
+    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], KLSError>) -> Void) {
         let url = baseuRL + endpoint.path
         AF.request(url).responseDecodable(of: [KLSModel].self) { response in
             switch response.result {
              case .success(let items):
                 completion(.success(items))
             case .failure(let error):
-                completion(.failure(error))
+                if let afError = error.asAFError, afError.isSessionTaskError {
+                    completion(.failure(.networkUnavailable))
+                } else {
+                    completion(.failure(.requestFailed(description: error.localizedDescription)))
+                }
             }
         }
     }
     
-    func getImages(from path: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    func getImages(from path: String, completion: @escaping (Result<UIImage, KLSError>) -> Void) {
         guard let url = URL(string: "https://kids-learn-sounds-api.onrender.com" + path) else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 400, userInfo: nil)))
+            completion(.failure(.invalidURL))
             return
         }
         KingfisherManager.shared.retrieveImage(with: url) { result in
@@ -37,7 +41,11 @@ final class KLSNetworkManager {
             case .success(let imageResult):
                 completion(.success(imageResult.image))
             case .failure(let error):
-                completion(.failure(error))
+                if (error as NSError).code == NSURLErrorNotConnectedToInternet {
+                    completion(.failure(.networkUnavailable))
+                } else {
+                    completion(.failure(.requestFailed(description: "Failed to load image.")))
+                }
             }
         }
     }
