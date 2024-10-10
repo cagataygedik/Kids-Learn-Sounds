@@ -59,6 +59,7 @@ final class KLSListCell: UICollectionViewCell {
     }
     
     private func configure() {
+//        isSkeletonable = true //ONUR ABIYE SOR
         avatarImageView.isSkeletonable = true
         nameLabel.isSkeletonable = true
         

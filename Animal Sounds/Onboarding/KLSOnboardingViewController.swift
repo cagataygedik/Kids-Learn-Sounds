@@ -14,7 +14,10 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
     private let lottieAnimations = ["AnimalsAnimation", "PenguinMusic"]
-    private let pageLabels = ["Welcome to Kids Learn Sounds. We're here to help you learn hundreds of sounds in the world.", "Come and join us and explore the world of sounds."]
+    private let pageLabels = [
+        NSLocalizedString("onboarding_page_1", comment: "Onboarding first page description"),
+        NSLocalizedString("onboarding_page_2", comment: "Onboarding second page description")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +55,7 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
             animationView = LottieAnimationView(name: "LoadingAnimation")
         }
         
-        let nextButton = KLSButton(backgroundColor: Constants.mainAppColor!, title: "Continue")
+        let nextButton = KLSButton(backgroundColor: Constants.mainAppColor!, title: NSLocalizedString("continue", comment: "Continue Button Text"))
         let label = UILabel()
         
         scrollView.addSubview(pageView)

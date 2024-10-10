@@ -88,10 +88,10 @@ final class KLSTabBarController: UITabBarController {
     }
 
     private func generateControllers() {
-        let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSListViewController(endpoint: .animals), title: "Animals")
-        let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSListViewController(endpoint: .instruments), title: "Instruments")
-        let nature = generateViewControllers(image: UIImage(systemName: "cloud.sun.fill")!, viewController: KLSListViewController(endpoint: .nature), title: "Nature")
-        let settings = generateViewControllers(image: UIImage(systemName: "gear")!, viewController: KLSSettingsViewController(), title: "Settings")
+        let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSListViewController(endpoint: .animals), title: NSLocalizedString("animals", comment: "Animals Tab Title"))
+        let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSListViewController(endpoint: .instruments), title: NSLocalizedString("instruments", comment: "Instruments Tab Title"))
+        let nature = generateViewControllers(image: UIImage(systemName: "cloud.sun.fill")!, viewController: KLSListViewController(endpoint: .nature), title: NSLocalizedString("nature", comment: "Nature Tab Title"))
+        let settings = generateViewControllers(image: UIImage(systemName: "gear")!, viewController: KLSSettingsViewController(), title: NSLocalizedString("settings", comment: "Setting Tab Title"))
         viewControllers = [animals, instruments, nature, settings]
     }
 

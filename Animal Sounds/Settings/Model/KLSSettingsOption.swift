@@ -55,13 +55,13 @@ enum KLSSettingsOption: CaseIterable {
     var displayTitle: String {
         switch self {
         case .rateApp:
-            return "Rate App"
+            return NSLocalizedString("rate_app", comment: "Rate App cell")
         case .contactUs:
-            return "Contact Me on X (Twitter)"
+            return NSLocalizedString("contact_developer", comment: "Contact Developer ce;;")
         case .developer:
-            return "Developer"
+            return NSLocalizedString("developer", comment: "Developer cell")
         case .privacyPolicy:
-            return "Privacy Policy"
+            return NSLocalizedString("privacy_policy", comment: "Privacy Policy cell")
         }
     }
     

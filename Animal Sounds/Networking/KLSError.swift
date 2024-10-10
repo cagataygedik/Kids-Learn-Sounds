@@ -16,13 +16,13 @@ enum KLSError: Error {
     var localizedDescription: String {
         switch self {
         case .networkUnavailable:
-            return "We can not process your request at the moment. Please try again later."
+            return NSLocalizedString("error_network_unavailable", comment: "Network unavailable error")
         case .invalidURL:
-            return "The URL provided was invalid."
+            return NSLocalizedString("error_invalid_url", comment: "Invalid URL error")
         case .requestFailed(let description):
-            return "Request failed: \(description)"
+            return String(format: NSLocalizedString("error_request_failed", comment: "Request failed error"), description)
         case .decodingFailed:
-            return "Failed to decode the response from the server."
+            return NSLocalizedString("error_decoding_failed", comment: "Decoding failed error")
         }
     }
 }

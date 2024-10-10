@@ -19,7 +19,7 @@ final class KLSAlertViewController: UIViewController {
         return image
     }()
     private let messageLabel = KLSNameLabel(textAlignment: .center, fontSize: 16)
-    private let retryButton = KLSButton(backgroundColor: Constants.mainAppColor!, title: "Retry")
+    private let retryButton = KLSButton(backgroundColor: Constants.mainAppColor!, title: NSLocalizedString("retry", comment: "Retry Button Title"))
     
     var retryAction: (() -> Void)?
     

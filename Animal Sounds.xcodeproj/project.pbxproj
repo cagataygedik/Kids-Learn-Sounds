@@ -45,6 +45,7 @@
 		A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C742CAF039F0082E95B /* PenguinMusic.json */; };
 		A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */; };
 		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
+		A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */; };
 		A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A622CAD30A100CCEB05 /* KLSTabBarController.swift */; };
 		A2F59A652CAD339300CCEB05 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A642CAD339300CCEB05 /* Extension+UIImage.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,9 @@
 		A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimalsAnimation.json; sourceTree = "<group>"; };
 		A2A66C742CAF039F0082E95B /* PenguinMusic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PenguinMusic.json; sourceTree = "<group>"; };
 		A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		A2EAAB092CB7BFBB00F87B94 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A2EAAB0B2CB7BFD200F87B94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A2EAAB0D2CB7BFDB00F87B94 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2F59A622CAD30A100CCEB05 /* KLSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSTabBarController.swift; sourceTree = "<group>"; };
 		A2F59A642CAD339300CCEB05 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -249,6 +253,7 @@
 				A28BD5622BF28973000105A3 /* Utilities */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
+				A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */,
 			);
 			path = "Animal Sounds";
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = A29F60FD2BE6733F00165F0F;
 			packageReferences = (
@@ -397,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */,
+				A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */,
 				A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */,
 				A29F61132BE6734000165F0F /* Assets.xcassets in Resources */,
 				A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */,
@@ -451,8 +458,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				A29F61152BE6734000165F0F /* Base */,
+				A2EAAB092CB7BFBB00F87B94 /* tr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2EAAB0B2CB7BFD200F87B94 /* en */,
+				A2EAAB0D2CB7BFDB00F87B94 /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -463,6 +480,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -526,6 +544,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

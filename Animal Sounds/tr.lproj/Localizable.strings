@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Animal Sounds
+
+  Created by Celil Çağatay Gedik on 10.10.2024.
+  
+*/
+"go_premium" = "Yükselt";
+"error_title" = "Hoppalaaa 😳";
+"animals" = "Hayvanlar";
+"instruments" = "Enstrümanlar";
+"nature" = "Doğa";
+"settings" = "Ayarlar";
+"continue" = "İlerle";
+"retry" = "Tekrar Dene";
+
+"onboarding_page_1" = "Kids Learn Sounds'a hoş geldiniz. Dünyadaki yüzlerce sesi öğrenmenize yardımcı olmak için buradayız.";
+"onboarding_page_2" = "Bize katılın ve seslerin dünyasını keşfedin.";
+
+"rate_app" = "Uygulamayı Değerlendir";
+"contact_developer" = "Bizlerle iletişime geç";
+"developer" = "Geliştirici";
+"privacy_policy" = "Gizlilik Politikası";
+
+
+"error_network_unavailable" = "Şu anda isteğinizi gerçekleştiremiyoruz. Lütfen daha sonra tekrar deneyiniz.";
+"error_invalid_url" = "Sağlanan URL geçersiz.";
+"error_request_failed" = "İstek başarısız: %@";
+"error_decoding_failed" = "Sunucudan gelen yanıt geçerli değil.";
+

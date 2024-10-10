@@ -59,7 +59,7 @@ final class KLSListViewController: UIViewController {
     
     private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
         DispatchQueue.main.async {
-            let alertViewController = KLSAlertViewController(title: "Oopsie Doopsie 😳", message: error.localizedDescription)
+            let alertViewController = KLSAlertViewController(title: NSLocalizedString("error_title", comment: "Error title for alert"), message: error.localizedDescription)
             alertViewController.retryAction = { [weak self] in
                 self?.viewModel.fetchItems(for: endpoint)
             }
@@ -72,7 +72,11 @@ final class KLSListViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let goPremiumButton = UIBarButtonItem(title: "Go Premium", style: .plain, target: self, action: #selector(goPremiumTapped))
+        let goPremiumButton = UIBarButtonItem(
+            title: NSLocalizedString("go_premium", comment: "Go Premium button title"),
+            style: .plain,
+            target: self,
+            action: #selector(goPremiumTapped))
         navigationItem.rightBarButtonItem = goPremiumButton
     }
     
