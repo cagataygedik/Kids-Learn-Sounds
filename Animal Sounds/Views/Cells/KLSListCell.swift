@@ -108,8 +108,9 @@ final class KLSListCell: UICollectionViewCell {
     }
     
     func showSkeletonLoading() {
-        avatarImageView.showAnimatedGradientSkeleton()
-        nameLabel.showAnimatedGradientSkeleton()
+        let gradient = SkeletonGradient(baseColor: UIColor.lightGray)
+        avatarImageView.showAnimatedGradientSkeleton(usingGradient: gradient)
+        nameLabel.showAnimatedGradientSkeleton(usingGradient: gradient)
     }
     
     func hideSkeletonLoading() {
