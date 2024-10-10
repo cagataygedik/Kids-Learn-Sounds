@@ -16,7 +16,7 @@ enum KLSError: Error {
     var localizedDescription: String {
         switch self {
         case .networkUnavailable:
-            return "We are not process your request at the moment. Please try again later."
+            return "We can not process your request at the moment. Please try again later."
         case .invalidURL:
             return "The URL provided was invalid."
         case .requestFailed(let description):

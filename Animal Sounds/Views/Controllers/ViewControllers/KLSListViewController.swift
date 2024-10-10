@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-final class KLSListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchResultsUpdating, SkeletonCollectionViewDataSource {
+final class KLSListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
@@ -95,6 +95,19 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
     }
+}
+
+extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.filteredItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSListCell.reuseID, for: indexPath) as! KLSListCell
+        let item = viewModel.filteredItems[indexPath.item]
+        cell.viewModel = KLSListCellViewModel(item: item)
+        return cell
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = viewModel.filteredItems[indexPath.item]
@@ -116,7 +129,16 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
             }
         }
     }
-    
+}
+
+extension KLSListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        viewModel.filterItems(with: searchText)
+    }
+}
+
+extension KLSListViewController: SkeletonCollectionViewDataSource {
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 15
     }
@@ -124,21 +146,4 @@ final class KLSListViewController: UIViewController, UICollectionViewDataSource,
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return KLSListCell.reuseID
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.filteredItems.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSListCell.reuseID, for: indexPath) as! KLSListCell
-        let item = viewModel.filteredItems[indexPath.item]
-        cell.viewModel = KLSListCellViewModel(item: item)
-        return cell
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
-        viewModel.filterItems(with: searchText)
-    }
 }
-
