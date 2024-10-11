@@ -32,6 +32,9 @@
 		A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B62CB69EAD008A8CA2 /* KLSError.swift */; };
 		A26025BA2CB6A862008A8CA2 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A26025B92CB6A862008A8CA2 /* SkeletonView */; };
 		A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */; };
+		A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26FCE1A2CB8489F0024726C /* StoreKit.framework */; };
+		A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1D2CB8495A0024726C /* RevenueCat */; };
+		A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1F2CB8495A0024726C /* RevenueCatUI */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
 		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
 		A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */; };
@@ -71,6 +74,7 @@
 		A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAlertViewController.swift; sourceTree = "<group>"; };
 		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		A26FCE1A2CB8489F0024726C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
 		A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsOption.swift; sourceTree = "<group>"; };
 		A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsCellViewModel.swift; sourceTree = "<group>"; };
@@ -100,7 +104,10 @@
 			files = (
 				A20C57F12CB00395000A7659 /* Kingfisher in Frameworks */,
 				A20C57EE2CB00382000A7659 /* Alamofire in Frameworks */,
+				A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */,
 				A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */,
+				A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */,
+				A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */,
 				A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */,
 				A26025BA2CB6A862008A8CA2 /* SkeletonView in Frameworks */,
 			);
@@ -152,6 +159,14 @@
 				A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		A26FCE192CB8489F0024726C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A26FCE1A2CB8489F0024726C /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A27B86302BEA3972008CE005 /* Managers */ = {
@@ -227,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				A29F61082BE6733F00165F0F /* Animal Sounds */,
+				A26FCE192CB8489F0024726C /* Frameworks */,
 				A29F61072BE6733F00165F0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -351,6 +367,8 @@
 				A20C57ED2CB00382000A7659 /* Alamofire */,
 				A20C57F02CB00395000A7659 /* Kingfisher */,
 				A26025B92CB6A862008A8CA2 /* SkeletonView */,
+				A26FCE1D2CB8495A0024726C /* RevenueCat */,
+				A26FCE1F2CB8495A0024726C /* RevenueCatUI */,
 			);
 			productName = "Animal Sounds";
 			productReference = A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */;
@@ -387,6 +405,7 @@
 				A20C57EC2CB00382000A7659 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A20C57EF2CB00395000A7659 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A26025B82CB6A862008A8CA2 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				A26FCE1C2CB8495A0024726C /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = A29F61072BE6733F00165F0F /* Products */;
 			projectDirPath = "";
@@ -722,6 +741,14 @@
 				minimumVersion = 1.31.0;
 			};
 		};
+		A26FCE1C2CB8495A0024726C /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -749,6 +776,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A26025B82CB6A862008A8CA2 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		A26FCE1D2CB8495A0024726C /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A26FCE1C2CB8495A0024726C /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		A26FCE1F2CB8495A0024726C /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A26FCE1C2CB8495A0024726C /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
