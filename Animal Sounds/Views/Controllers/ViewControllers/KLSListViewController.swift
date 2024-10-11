@@ -7,6 +7,9 @@
 
 import UIKit
 import SkeletonView
+import RevenueCat
+import RevenueCatUI
+import SwiftUI
 
 final class KLSListViewController: UIViewController {
     
@@ -50,7 +53,10 @@ final class KLSListViewController: UIViewController {
     }
     
     func startSkeletonLoading() {
-        collectionView.showAnimatedGradientSkeleton()
+        //This should've solved the bug, it solved a little bit, but not fully solved
+        DispatchQueue.main.async {
+            self.collectionView.showAnimatedGradientSkeleton()
+        }
     }
     
     private func stopSkeletonLoading() {
@@ -59,7 +65,9 @@ final class KLSListViewController: UIViewController {
     
     private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
         DispatchQueue.main.async {
-            let alertViewController = KLSAlertViewController(title: NSLocalizedString("error_title", comment: "Error title for alert"), message: error.localizedDescription)
+            let alertViewController = KLSAlertViewController(
+                title: NSLocalizedString("error_title", comment: "Error title for alert"),
+                message: error.localizedDescription)
             alertViewController.retryAction = { [weak self] in
                 self?.viewModel.fetchItems(for: endpoint)
             }
@@ -81,7 +89,25 @@ final class KLSListViewController: UIViewController {
     }
     
     @objc private func goPremiumTapped() {
-        print("Go Premium Tapped")
+        // Check for "premium" entitlement and show paywall if necessary
+        Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
+            guard error == nil else {
+                print("Failed to fetch customer info: \(error?.localizedDescription ?? "")")
+                return
+            }
+            
+            if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+                print("User already has the premium entitlement")
+            } else {
+                // Show the paywall UI if the entitlement is not active
+                self?.presentPaywall()
+            }
+        }
+    }
+    
+    private func presentPaywall() {
+        let paywall = RevenueCatUI.PaywallViewController()
+        self.present(paywall, animated: true, completion: nil)
     }
     
     private func configureCollectionView() {

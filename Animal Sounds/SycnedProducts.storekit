@@ -1,0 +1,169 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "D57A1919",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "119.99",
+      "familyShareable" : false,
+      "internalID" : "6736763099",
+      "localizations" : [
+        {
+          "description" : "Access to all premium feature for your life",
+          "displayName" : "Lifetime Premium Access",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.celilcagataygedik.KidsLearnSounds.lifetime",
+      "referenceName" : "Lifetime Premium Access",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6736398536",
+    "_developerTeamID" : "79CS75S5DL",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 750348297.59519804,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21557323",
+      "localizations" : [
+
+      ],
+      "name" : "Premium Access",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6736762260",
+          "introductoryOffer" : {
+            "internalID" : "0ABF8681",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Access to all premium features",
+              "displayName" : "Monthly Premium Access",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.celilcagataygedik.KidsLearnSounds.month",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Premium Access",
+          "subscriptionGroupID" : "21557323",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "29.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6736762160",
+          "introductoryOffer" : {
+            "internalID" : "630FAE50",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Access to all premium features",
+              "displayName" : "Yearly Premium Access",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.celilcagataygedik.KidsLearnSounds.year",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Premium Access",
+          "subscriptionGroupID" : "21557323",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

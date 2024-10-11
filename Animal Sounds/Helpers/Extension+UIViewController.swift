@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RevenueCat
+import RevenueCatUI
 
 extension UIViewController {
     func setupSearchController(searchBarPlaceholder: String, searchResultsUpdater: UISearchResultsUpdating) -> UISearchController {

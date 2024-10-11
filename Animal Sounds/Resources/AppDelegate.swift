@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //I was getting warning so I came up an with solution. If this encounter something in the future I will change that.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        Purchases.logLevel = .debug
         Purchases.configure(withAPIKey: "appl_iooFWWrxEFneojYqggeRccnCLgh")
+        
         DispatchQueue.global().async {
                     let fileManager = FileManager.default
                     do {

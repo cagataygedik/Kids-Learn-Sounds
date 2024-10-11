@@ -6,20 +6,48 @@
 //
 
 import UIKit
+import RevenueCat
+import RevenueCatUI
 
 final class KLSTabBarController: UITabBarController {
     let tabbarView = UIView()
     var buttons: [UIButton] = []
     let tabbarItemBackgroundView = UIView()
     var centerConstraint: NSLayoutConstraint?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.isHidden = true
         setView()
         setInitialTabState()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkAndShowPaywallIfNeeded()
+    }
+    
+    private func checkAndShowPaywallIfNeeded() {
+        Purchases.shared.getCustomerInfo { [weak self] customerInfo, error in
+            guard error == nil else {
+                print("Error fetching customer info: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            // Check if the user has the "premium" entitlement
+            if customerInfo?.entitlements["premium"]?.isActive != true {
+                // Show the paywall if the user does not have a premium entitlement
+                self?.presentPaywall()
+            }
+        }
+    }
+    
+    private func presentPaywall() {
+        let paywall = RevenueCatUI.PaywallViewController()
+    
+        self.present(paywall, animated: true, completion: nil)
+    }
+    
     private func setView() {
         view.addSubview(tabbarView)
         tabbarView.backgroundColor = Constants.tabBarBackgroundColor
@@ -29,9 +57,9 @@ final class KLSTabBarController: UITabBarController {
         tabbarView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         tabbarView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         tabbarView.layer.cornerRadius = 30
-
+        
         generateControllers()
-
+        
         for x in 0..<buttons.count {
             tabbarView.addSubview(buttons[x])
             buttons[x].tag = x
@@ -39,14 +67,14 @@ final class KLSTabBarController: UITabBarController {
             buttons[x].widthAnchor.constraint(equalTo: tabbarView.widthAnchor, multiplier: 1/CGFloat(buttons.count)).isActive = true
             buttons[x].heightAnchor.constraint(equalTo: tabbarView.heightAnchor).isActive = true
             buttons[x].addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-
+            
             if x == 0 {
                 buttons[x].leftAnchor.constraint(equalTo: tabbarView.leftAnchor).isActive = true
             } else {
                 buttons[x].leftAnchor.constraint(equalTo: buttons[x-1].rightAnchor).isActive = true
             }
         }
-
+        
         tabbarView.addSubview(tabbarItemBackgroundView)
         tabbarItemBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         tabbarItemBackgroundView.widthAnchor.constraint(equalTo: tabbarView.widthAnchor, multiplier: 1/CGFloat(buttons.count), constant: -10).isActive = true
@@ -54,20 +82,20 @@ final class KLSTabBarController: UITabBarController {
         tabbarItemBackgroundView.centerYAnchor.constraint(equalTo: tabbarView.centerYAnchor).isActive = true
         tabbarItemBackgroundView.layer.cornerRadius = 25
         tabbarItemBackgroundView.backgroundColor = Constants.tabBarSelectedBackgroundColor
-
+        
         centerConstraint = tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: buttons[0].centerXAnchor)
         centerConstraint?.isActive = true
     }
-
+    
     @objc private func buttonTapped(sender: UIButton) {
         selectedIndex = sender.tag
-
+        
         for button in buttons {
             button.tintColor = .systemGray2
         }
         
         tabbarView.bringSubviewToFront(sender)
-
+        
         UIView.animate(withDuration: 0.5, delay: 0, options: .beginFromCurrentState) {
             self.centerConstraint?.isActive = false
             self.centerConstraint = self.tabbarItemBackgroundView.centerXAnchor.constraint(equalTo: self.buttons[sender.tag].centerXAnchor)
@@ -86,7 +114,7 @@ final class KLSTabBarController: UITabBarController {
         self.centerConstraint?.isActive = true
         self.tabbarView.layoutIfNeeded()
     }
-
+    
     private func generateControllers() {
         let animals = generateViewControllers(image: UIImage(systemName: "pawprint.fill")!, viewController: KLSListViewController(endpoint: .animals), title: NSLocalizedString("animals", comment: "Animals Tab Title"))
         let instruments = generateViewControllers(image: UIImage(systemName: "music.note")!, viewController: KLSListViewController(endpoint: .instruments), title: NSLocalizedString("instruments", comment: "Instruments Tab Title"))
@@ -94,7 +122,7 @@ final class KLSTabBarController: UITabBarController {
         let settings = generateViewControllers(image: UIImage(systemName: "gear")!, viewController: KLSSettingsViewController(), title: NSLocalizedString("settings", comment: "Setting Tab Title"))
         viewControllers = [animals, instruments, nature, settings]
     }
-
+    
     private func generateViewControllers(image: UIImage, viewController: UIViewController, title: String) -> UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

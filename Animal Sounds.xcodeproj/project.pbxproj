@@ -35,6 +35,8 @@
 		A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26FCE1A2CB8489F0024726C /* StoreKit.framework */; };
 		A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1D2CB8495A0024726C /* RevenueCat */; };
 		A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1F2CB8495A0024726C /* RevenueCatUI */; };
+		A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A27D58882CB9680400DE385E /* SycnedProducts.storekit */; };
+		A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
 		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
 		A28BD55F2BF2871D000105A3 /* KLSSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */; };
@@ -75,6 +77,8 @@
 		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A26FCE1A2CB8489F0024726C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A27D58882CB9680400DE385E /* SycnedProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SycnedProducts.storekit; sourceTree = "<group>"; };
+		A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
 		A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsOption.swift; sourceTree = "<group>"; };
 		A28BD55E2BF2871D000105A3 /* KLSSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsCellViewModel.swift; sourceTree = "<group>"; };
@@ -270,6 +274,8 @@
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
 				A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */,
+				A27D58882CB9680400DE385E /* SycnedProducts.storekit */,
+				A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */,
 			);
 			path = "Animal Sounds";
 			sourceTree = "<group>";
@@ -421,8 +427,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */,
 				A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */,
 				A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */,
+				A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */,
 				A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */,
 				A29F61132BE6734000165F0F /* Assets.xcassets in Resources */,
 				A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */,
