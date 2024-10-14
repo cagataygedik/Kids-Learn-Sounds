@@ -77,6 +77,7 @@ final class KLSListViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = Constants.mainAppColor
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let upgradeButton = UIBarButtonItem(
