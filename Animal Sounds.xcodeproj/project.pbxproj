@@ -35,6 +35,7 @@
 		A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26FCE1A2CB8489F0024726C /* StoreKit.framework */; };
 		A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1D2CB8495A0024726C /* RevenueCat */; };
 		A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1F2CB8495A0024726C /* RevenueCatUI */; };
+		A27AF94E2CBCEFFA00E0B3E6 /* PenguinMusic.json in Resources */ = {isa = PBXBuildFile; fileRef = A27AF94D2CBCEFFA00E0B3E6 /* PenguinMusic.json */; };
 		A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A27D58882CB9680400DE385E /* SycnedProducts.storekit */; };
 		A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
@@ -47,7 +48,6 @@
 		A29F610C2BE6733F00165F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F610B2BE6733F00165F0F /* SceneDelegate.swift */; };
 		A29F61132BE6734000165F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A29F61122BE6734000165F0F /* Assets.xcassets */; };
 		A29F61162BE6734000165F0F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A29F61152BE6734000165F0F /* Base */; };
-		A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C742CAF039F0082E95B /* PenguinMusic.json */; };
 		A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */; };
 		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
 		A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */; };
@@ -77,6 +77,7 @@
 		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A26FCE1A2CB8489F0024726C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A27AF94D2CBCEFFA00E0B3E6 /* PenguinMusic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PenguinMusic.json; sourceTree = "<group>"; };
 		A27D58882CB9680400DE385E /* SycnedProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SycnedProducts.storekit; sourceTree = "<group>"; };
 		A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		A29F61152BE6734000165F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A29F61172BE6734000165F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimalsAnimation.json; sourceTree = "<group>"; };
-		A2A66C742CAF039F0082E95B /* PenguinMusic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PenguinMusic.json; sourceTree = "<group>"; };
 		A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		A2EAAB092CB7BFBB00F87B94 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A2EAAB0B2CB7BFD200F87B94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -171,6 +171,16 @@
 				A26FCE1A2CB8489F0024726C /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A27AF94C2CBCED3800E0B3E6 /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				A27AF94D2CBCEFFA00E0B3E6 /* PenguinMusic.json */,
+				A20C57FF2CB01024000A7659 /* LoadingAnimation.json */,
+				A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */,
+			);
+			path = LottieAnimations;
 			sourceTree = "<group>";
 		};
 		A27B86302BEA3972008CE005 /* Managers */ = {
@@ -283,9 +293,7 @@
 		A29F61212BE674B100165F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A20C57FF2CB01024000A7659 /* LoadingAnimation.json */,
-				A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */,
-				A2A66C742CAF039F0082E95B /* PenguinMusic.json */,
+				A27AF94C2CBCED3800E0B3E6 /* LottieAnimations */,
 				A29F610B2BE6733F00165F0F /* SceneDelegate.swift */,
 				A29F61092BE6733F00165F0F /* AppDelegate.swift */,
 				A29F61122BE6734000165F0F /* Assets.xcassets */,
@@ -427,8 +435,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27AF94E2CBCEFFA00E0B3E6 /* PenguinMusic.json in Resources */,
 				A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */,
-				A2A66C752CAF039F0082E95B /* PenguinMusic.json in Resources */,
 				A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */,
 				A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */,
 				A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */,
