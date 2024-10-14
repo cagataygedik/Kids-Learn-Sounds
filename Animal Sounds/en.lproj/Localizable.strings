@@ -5,7 +5,7 @@
   Created by Celil Çağatay Gedik on 10.10.2024.
   
 */
-"go_premium" = "Upgrade";
+"upgrade_button_title" = "Upgrade";
 "error_title" = "Oopsie Doopsie 😳";
 "animals" = "Animals";
 "instruments" = "Instruments";

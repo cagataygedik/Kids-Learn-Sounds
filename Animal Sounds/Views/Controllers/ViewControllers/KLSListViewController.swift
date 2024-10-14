@@ -9,7 +9,6 @@ import UIKit
 import SkeletonView
 import RevenueCat
 import RevenueCatUI
-import SwiftUI
 
 final class KLSListViewController: UIViewController {
     
@@ -80,34 +79,16 @@ final class KLSListViewController: UIViewController {
     private func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        let goPremiumButton = UIBarButtonItem(
-            title: NSLocalizedString("go_premium", comment: "Go Premium button title"),
+        let upgradeButton = UIBarButtonItem(
+            title: NSLocalizedString("upgrade_button_title", comment: "Upgrade button title"),
             style: .plain,
             target: self,
-            action: #selector(goPremiumTapped))
-        navigationItem.rightBarButtonItem = goPremiumButton
+            action: #selector(upgradeButtonTapped))
+        navigationItem.rightBarButtonItem = upgradeButton
     }
     
-    @objc private func goPremiumTapped() {
-        // Check for "premium" entitlement and show paywall if necessary
-        Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
-            guard error == nil else {
-                print("Failed to fetch customer info: \(error?.localizedDescription ?? "")")
-                return
-            }
-            
-            if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
-                print("User already has the premium entitlement")
-            } else {
-                // Show the paywall UI if the entitlement is not active
-                self?.presentPaywall()
-            }
-        }
-    }
-    
-    private func presentPaywall() {
-        let paywall = RevenueCatUI.PaywallViewController()
-        self.present(paywall, animated: true, completion: nil)
+    @objc private func upgradeButtonTapped() {
+        checkAndShowPaywallIfNeeded()
     }
     
     private func configureCollectionView() {

@@ -17,4 +17,25 @@ extension UIViewController {
         searchController.searchBar.placeholder = searchBarPlaceholder
         return searchController
     }
+    
+    func checkAndShowPaywallIfNeeded() {
+        Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
+            guard error == nil else {
+                print("Failed to fetch customer info: \(error?.localizedDescription ?? "")")
+                return
+            }
+            
+            if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+                print("User already has the premium entitlement")
+            } else {
+                // Show the paywall UI if the entitlement is not active
+                self?.presentPaywall()
+            }
+        }
+    }
+    
+    private func presentPaywall() {
+        let paywall = RevenueCatUI.PaywallViewController()
+        self.present(paywall, animated: true, completion: nil)
+    }
 }

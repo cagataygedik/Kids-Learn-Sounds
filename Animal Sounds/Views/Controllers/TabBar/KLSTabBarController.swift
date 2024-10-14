@@ -27,27 +27,6 @@ final class KLSTabBarController: UITabBarController {
         checkAndShowPaywallIfNeeded()
     }
     
-    private func checkAndShowPaywallIfNeeded() {
-        Purchases.shared.getCustomerInfo { [weak self] customerInfo, error in
-            guard error == nil else {
-                print("Error fetching customer info: \(error?.localizedDescription ?? "Unknown error")")
-                return
-            }
-            
-            // Check if the user has the "premium" entitlement
-            if customerInfo?.entitlements["premium"]?.isActive != true {
-                // Show the paywall if the user does not have a premium entitlement
-                self?.presentPaywall()
-            }
-        }
-    }
-    
-    private func presentPaywall() {
-        let paywall = RevenueCatUI.PaywallViewController()
-    
-        self.present(paywall, animated: true, completion: nil)
-    }
-    
     private func setView() {
         view.addSubview(tabbarView)
         tabbarView.backgroundColor = Constants.tabBarBackgroundColor
