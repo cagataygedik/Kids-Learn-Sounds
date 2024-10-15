@@ -24,6 +24,7 @@ final class KLSNameLabel: UILabel {
     }
     
     private func configure() {
+        numberOfLines = 0
         textColor = .black
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9
