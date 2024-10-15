@@ -9,7 +9,9 @@ import AVFoundation
 
 final class SoundManager {
     static let shared = SoundManager()
+    
     private var player: AVPlayer?
+    private var startTime: Date?
     
     private init() {}
     

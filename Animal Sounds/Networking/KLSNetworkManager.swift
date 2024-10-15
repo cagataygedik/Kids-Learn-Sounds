@@ -16,6 +16,8 @@ final class KLSNetworkManager {
     private init() {}
     
     func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], KLSError>) -> Void) {
+//        let languageCode = Locale.current.languageCode ?? "en"
+//        let url = "\(baseURL)/v1/\(endpoint.path)?lang=\(languageCode)"
         let url = baseURL + "/v1/" + endpoint.path
         AF.request(url).responseDecodable(of: [KLSModel].self) { response in
             switch response.result {

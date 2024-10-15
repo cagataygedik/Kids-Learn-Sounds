@@ -8,7 +8,9 @@
 import Foundation
 
 struct KLSModel: Decodable {
+    let id: Int
     let name: String
     let image: String?
     let sound: String?
+    let isPremium: Bool
 }

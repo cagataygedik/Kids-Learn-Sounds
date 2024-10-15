@@ -14,8 +14,9 @@ final class KLSListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
-    private var activeCell: KLSListCell?
+    private var activeCellId: Int?
     private var endpoint: KLSEndpoint
+    private var searchWorkItem: DispatchWorkItem?
     
     init(endpoint: KLSEndpoint) {
         self.endpoint = endpoint
@@ -124,20 +125,30 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedItem = viewModel.filteredItems[indexPath.item]
         
+        // Stop the previous sound and reset progress if a new item is selected
+        if let activeCellId = activeCellId, activeCellId != selectedItem.id {
+            SoundManager.shared.stopSound()
+            if let activeIndex = viewModel.items.firstIndex(where: { $0.id == activeCellId }),
+               let previousCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell {
+                previousCell.hideProgress()
+            }
+        }
+        
         if let soundPath = selectedItem.sound {
             SoundManager.shared.playSound(from: soundPath)
         }
         
+        // Store the active item id to track the currently playing sound
+        activeCellId = selectedItem.id
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSListCell {
-            activeCell?.hideProgress()
-            activeCell = cell
-            cell.showProgress(duration: SoundManager.shared.getSoundDuration(from: selectedItem.sound))
+            DispatchQueue.main.async {
+                cell.showProgress(duration: SoundManager.shared.getSoundDuration(from: selectedItem.sound))
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + SoundManager.shared.getSoundDuration(from: selectedItem.sound)) { [weak self] in
-                
                 cell.hideProgress()
-                self?.activeCell = nil
-                
+                self?.activeCellId = nil
             }
         }
     }
@@ -146,7 +157,14 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
 extension KLSListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        viewModel.filterItems(with: searchText)
+        searchWorkItem?.cancel()
+        
+        let newWorkItem = DispatchWorkItem { [weak self] in
+            self?.viewModel.filterItems(with: searchText)
+        }
+        
+        searchWorkItem = newWorkItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: newWorkItem)
     }
 }
 
