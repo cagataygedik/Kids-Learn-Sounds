@@ -17,10 +17,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = Constants.mainBackgroundColor
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let fontWeight: UIFont.Weight = .heavy
+//        let fontWeight: UIFont.Weight = .bold
+        
+        if let fontDescriptor = UIFont.systemFont(ofSize: 35, weight: fontWeight).fontDescriptor.withDesign(.rounded) {
+            // Create the font using the descriptor
+            let baseFont = UIFont(descriptor: fontDescriptor, size: 35)
+            // Use UIFontMetrics for Dynamic Type support
+            let font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: baseFont)
+            
+            appearance.titleTextAttributes = [
+                .foregroundColor: UIColor.black
+//                .font: font
+            ]
+            
+            appearance.largeTitleTextAttributes = [
+                .foregroundColor: UIColor.black,
+                .font: font
+            ]
+        } else {
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
