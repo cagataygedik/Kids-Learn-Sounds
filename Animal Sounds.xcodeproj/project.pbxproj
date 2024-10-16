@@ -649,7 +649,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -680,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
