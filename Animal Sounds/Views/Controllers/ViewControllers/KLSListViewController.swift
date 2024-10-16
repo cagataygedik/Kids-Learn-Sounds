@@ -16,7 +16,6 @@ final class KLSListViewController: UIViewController {
     private var viewModel = KLSListViewModel()
     private var activeCellId: Int?
     private var endpoint: KLSEndpoint
-    private var searchWorkItem: DispatchWorkItem?
     
     init(endpoint: KLSEndpoint) {
         self.endpoint = endpoint
