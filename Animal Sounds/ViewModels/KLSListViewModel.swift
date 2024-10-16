@@ -10,6 +10,7 @@ import Foundation
 final class KLSListViewModel {
     private(set) var items: [KLSModel] = []
     private(set) var filteredItems: [KLSModel] = []
+    private var searchWorkItem: DispatchWorkItem?
     
     var onItemsUpdated: (() -> Void)?
     var showError: ((KLSError, KLSEndpoint) -> Void)?
@@ -28,11 +29,15 @@ final class KLSListViewModel {
     }
     
     func filterItems(with searchText: String) {
-        if searchText.isEmpty {
-            filteredItems = items
-        } else {
-            filteredItems = items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        searchWorkItem?.cancel()
+        let newWorkItem = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            self.filteredItems = searchText.isEmpty
+            ? self.items
+            : self.items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            self.onItemsUpdated?()
         }
-        onItemsUpdated?()
+        searchWorkItem = newWorkItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: newWorkItem)
     }
 }

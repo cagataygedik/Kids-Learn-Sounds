@@ -60,7 +60,9 @@ final class KLSListViewController: UIViewController {
     }
     
     private func stopSkeletonLoading() {
-        collectionView.hideSkeleton()
+        DispatchQueue.main.async {
+            self.collectionView.hideSkeleton()
+        }
     }
     
     private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
@@ -179,15 +181,7 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
 extension KLSListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
-        searchWorkItem?.cancel()
-        
-        let newWorkItem = DispatchWorkItem { [weak self] in
-            self?.viewModel.filterItems(with: searchText)
-            self?.updateProgressForActiveSound()
-        }
-        
-        searchWorkItem = newWorkItem
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: newWorkItem)
+        viewModel.filterItems(with: searchText)
     }
 }
 
