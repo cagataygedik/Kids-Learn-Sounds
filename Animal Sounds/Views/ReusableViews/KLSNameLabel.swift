@@ -27,8 +27,8 @@ final class KLSNameLabel: UILabel {
         numberOfLines = 0
         textColor = .black
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.9
-        lineBreakMode = .byTruncatingHead
+        minimumScaleFactor = 0.5
+        lineBreakMode = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

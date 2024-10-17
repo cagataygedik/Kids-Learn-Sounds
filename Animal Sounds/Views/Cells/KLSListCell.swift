@@ -79,7 +79,7 @@ final class KLSListCell: UICollectionViewCell {
             make.top.equalTo(avatarImageView.snp.bottom).offset(12)
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
-            make.height.equalTo(20)
+            make.height.greaterThanOrEqualTo(20)
         }
         
         progressView.snp.makeConstraints { make in
