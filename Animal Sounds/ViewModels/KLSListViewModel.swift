@@ -15,6 +15,8 @@ final class KLSListViewModel {
     var onItemsUpdated: (() -> Void)?
     var showError: ((KLSError, KLSEndpoint) -> Void)?
     
+    var activeItemId: Int?
+    
     func fetchItems(for endpoint: KLSEndpoint) {
         KLSNetworkManager.shared.getItems(for: endpoint) { [weak self] result in
             switch result {
@@ -35,6 +37,11 @@ final class KLSListViewModel {
             self.filteredItems = searchText.isEmpty
             ? self.items
             : self.items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            
+            if let activeItemId = self.activeItemId,
+               !self.filteredItems.contains(where: { $0.id == activeItemId}) {
+                self.activeItemId = nil
+            }
             self.onItemsUpdated?()
         }
         searchWorkItem = newWorkItem

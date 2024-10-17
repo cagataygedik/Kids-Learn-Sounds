@@ -1,0 +1,32 @@
+/*
+  Localizable.strings
+  Animal Sounds
+
+  Created by Celil Çağatay Gedik on 10.10.2024.
+
+*/
+"upgrade_button_title" = "升级";
+"premium_button_title" = "高级版";
+"error_title" = "哎呀 😳";
+"animals" = "动物";
+"instruments" = "乐器";
+"nature" = "自然";
+"settings" = "设置";
+"continue" = "继续";
+"retry" = "重试";
+"search" = "搜索";
+
+"onboarding_page_1" = "欢迎使用 Kids Learn Sounds。我们将在这里帮助您学习世界上的数百种声音。";
+"onboarding_page_2" = "快来加入我们，探索声音的世界。";
+
+"rate_app" = "评价应用";
+"contact_developer" = "在 X（推特）上联系我";
+"developer" = "开发者";
+"privacy_policy" = "隐私政策";
+
+"error_network_unavailable" = "我们暂时无法处理您的请求。请稍后再试。";
+"error_invalid_url" = "提供的 URL 无效。";
+"error_request_failed" = "请求失败：%@";
+"error_decoding_failed" = "无法解码服务器的响应。";
+
+

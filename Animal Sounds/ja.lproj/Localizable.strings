@@ -1,0 +1,30 @@
+/*
+  Localizable.strings
+  Animal Sounds
+
+  Created by Celil Çağatay Gedik on 10.10.2024.
+  
+*/
+"upgrade_button_title" = "アップグレード";
+"premium_button_title" = "プレミアム";
+"error_title" = "おっと 😳";
+"animals" = "動物";
+"instruments" = "楽器";
+"nature" = "自然";
+"settings" = "設定";
+"continue" = "続ける";
+"retry" = "再試行";
+"search" = "検索";
+
+"onboarding_page_1" = "Kids Learn Soundsへようこそ。世界中の何百もの音を学ぶお手伝いをします。";
+"onboarding_page_2" = "一緒に音の世界を探検しましょう。";
+
+"rate_app" = "アプリを評価する";
+"contact_developer" = "X（Twitter）で私に連絡";
+"developer" = "開発者";
+"privacy_policy" = "プライバシーポリシー";
+
+"error_network_unavailable" = "現在リクエストを処理できません。後で再度お試しください。";
+"error_invalid_url" = "提供されたURLが無効です。";
+"error_request_failed" = "リクエストが失敗しました：%@";
+"error_decoding_failed" = "サーバーからのレスポンスをデコードできませんでした。";

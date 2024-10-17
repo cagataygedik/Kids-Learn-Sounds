@@ -16,6 +16,7 @@ final class KLSListViewController: UIViewController {
     private var viewModel = KLSListViewModel()
     private var activeCellId: Int?
     private var endpoint: KLSEndpoint
+    private let searchBar = UISearchBar()
     
     init(endpoint: KLSEndpoint) {
         self.endpoint = endpoint
@@ -36,7 +37,8 @@ final class KLSListViewController: UIViewController {
     private func setupViewController() {
         configureNavigationBar()
         configureCollectionView()
-        addSearchController()
+        addSearchBar()
+        //        addSearchController()
         viewModel.fetchItems(for: endpoint)
     }
     
@@ -104,31 +106,11 @@ final class KLSListViewController: UIViewController {
         collectionView.register(KLSListCell.self, forCellWithReuseIdentifier: KLSListCell.reuseID)
     }
     
-    private func addSearchController() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        navigationItem.searchController = searchController
+    private func addSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = NSLocalizedString("search", comment: "Search placeholder text")
+        navigationItem.titleView = searchBar
     }
-    
-    private func updateProgressForActiveSound() {
-        if let activeSoundId = SoundManager.shared.getActiveSoundId(),
-           let activeIndex = viewModel.filteredItems.firstIndex(where: { $0.id == activeSoundId }),
-           let activeCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell,
-           let soundPath = viewModel.filteredItems[activeIndex].sound {
-            
-            let remainingDuration = SoundManager.shared.getRemainingTime(for: activeSoundId, from: soundPath)
-            
-            activeCell.showProgress(duration: remainingDuration)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + remainingDuration) { [weak self] in
-                if self?.activeCellId == activeSoundId {
-                    activeCell.hideProgress()
-                    self?.activeCellId = nil
-                }
-            }
-        }
-    }
-
 }
 
 extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -140,48 +122,76 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSListCell.reuseID, for: indexPath) as! KLSListCell
         let item = viewModel.filteredItems[indexPath.item]
         cell.viewModel = KLSListCellViewModel(item: item)
+        
+        if item.id == viewModel.activeItemId {
+            let remainingDuration = SoundManager.shared.getRemainingTime(for: item.id, from: item.sound)
+            DispatchQueue.main.async {
+                cell.showProgress(duration: remainingDuration)
+            }
+        } else {
+            DispatchQueue.main.async {
+                cell.hideProgress()
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
         let selectedItem = viewModel.filteredItems[indexPath.item]
         
-        if let activeCellId = activeCellId, activeCellId != selectedItem.id {
+        if let activeItemId = viewModel.activeItemId, activeItemId != selectedItem.id {
             SoundManager.shared.stopSound()
             
-            if let activeIndex = viewModel.items.firstIndex(where: { $0.id == activeCellId }),
-               let previousCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell {
-                DispatchQueue.main.async {
-                    previousCell.hideProgress()
+            if let activeIndex = viewModel.filteredItems.firstIndex(where: { $0.id == activeItemId }) {
+                if let previousCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell {
+                    DispatchQueue.main.async {
+                        previousCell.hideProgress()
+                    }
                 }
+            } else {
+                collectionView.reloadData()
             }
         }
-        
         if let soundPath = selectedItem.sound {
             SoundManager.shared.playSound(for: selectedItem.id, from: soundPath)
         }
         
-        activeCellId = selectedItem.id
+        viewModel.activeItemId = selectedItem.id
         
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSListCell {
             let duration = SoundManager.shared.getSoundDuration(from: selectedItem.sound)
-            cell.showProgress(duration: duration)
-            
+            DispatchQueue.main.async {
+                cell.showProgress(duration: duration)
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + duration) { [weak self] in
-                if self?.activeCellId == selectedItem.id {  // Confirm it's still the active cell
+                if self?.viewModel.activeItemId == selectedItem.id {
                     cell.hideProgress()
-                    self?.activeCellId = nil
+                    self?.viewModel.activeItemId = nil
                 }
             }
         }
     }
 }
 
-extension KLSListViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
+extension KLSListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.filterItems(with: searchText)
+        collectionView.reloadData()
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        viewModel.filterItems(with: "")
+        collectionView.reloadData()
+    }
+    
 }
 
 extension KLSListViewController: SkeletonCollectionViewDataSource {
