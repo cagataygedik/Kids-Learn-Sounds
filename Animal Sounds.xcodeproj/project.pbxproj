@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A20A74272BF745B900679788 /* KLSCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A74262BF745B900679788 /* KLSCircularProgressView.swift */; };
-		A20C57EB2CAFF8F2000A7659 /* Extension+UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57EA2CAFF8E5000A7659 /* Extension+UISearchBar.swift */; };
 		A20C57EE2CB00382000A7659 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A20C57ED2CB00382000A7659 /* Alamofire */; };
 		A20C57F12CB00395000A7659 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A20C57F02CB00395000A7659 /* Kingfisher */; };
 		A20C57F42CB003D7000A7659 /* KLSNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */; };
@@ -57,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
-		A20C57EA2CAFF8E5000A7659 /* Extension+UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UISearchBar.swift"; sourceTree = "<group>"; };
 		A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNetworkManager.swift; sourceTree = "<group>"; };
 		A20C57F52CB0041C000A7659 /* KLSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSModel.swift; sourceTree = "<group>"; };
 		A20C57F72CB0048D000A7659 /* KLSListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListViewModel.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 		A2BE9E432BE8EEF1004B28FE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A20C57EA2CAFF8E5000A7659 /* Extension+UISearchBar.swift */,
 				A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */,
 				A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */,
 				A20A74262BF745B900679788 /* KLSCircularProgressView.swift */,
@@ -484,7 +481,6 @@
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
 				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,
-				A20C57EB2CAFF8F2000A7659 /* Extension+UISearchBar.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,
 				A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */,

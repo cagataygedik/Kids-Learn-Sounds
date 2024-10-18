@@ -44,13 +44,17 @@ final class KLSListViewController: UIViewController {
     
     private func bindViewModels() {
         viewModel.onItemsUpdated = { [weak self] in
-            self?.stopSkeletonLoading()
-            self?.collectionView.reloadData()
+            self?.reloadData()
         }
         
         viewModel.showError = { [weak self] error, endpoint in
-            self?.showErrorAlert(with: error, for: endpoint)
+            self?.presentErrorAlert(with: error, for: endpoint)
         }
+    }
+    
+    private func reloadData() {
+        stopSkeletonLoading()
+        collectionView.reloadData()
     }
     
     func startSkeletonLoading() {
@@ -66,18 +70,17 @@ final class KLSListViewController: UIViewController {
         }
     }
     
-    private func showErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
-        DispatchQueue.main.async {
-            let alertViewController = KLSAlertViewController(
-                title: NSLocalizedString("error_title", comment: "Error title for alert"),
-                message: error.localizedDescription)
-            alertViewController.retryAction = { [weak self] in
-                self?.viewModel.fetchItems(for: endpoint)
-            }
-            alertViewController.modalPresentationStyle = .overFullScreen
-            alertViewController.modalTransitionStyle = .crossDissolve
-            self.present(alertViewController, animated: true, completion: nil)
+    private func presentErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
+        let alertViewController = KLSAlertViewController(
+            title: NSLocalizedString("error_title", comment: "Error title for alert"),
+            message: error.localizedDescription)
+        alertViewController.retryAction = { [weak self] in
+            self?.viewModel.fetchItems(for: endpoint)
         }
+        alertViewController.modalPresentationStyle = .overFullScreen
+        alertViewController.modalTransitionStyle = .crossDissolve
+        self.present(alertViewController, animated: true)
+        
     }
     
     private func configureNavigationBar() {
@@ -123,6 +126,11 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
         let item = viewModel.filteredItems[indexPath.item]
         cell.viewModel = KLSListCellViewModel(item: item)
         
+        updateCellProgress(cell, for: item)
+        return cell
+    }
+    
+    private func updateCellProgress(_ cell: KLSListCell, for item: KLSModel) {
         if item.id == viewModel.activeItemId {
             let remainingDuration = SoundManager.shared.getRemainingTime(for: item.id, from: item.sound)
             DispatchQueue.main.async {
@@ -133,43 +141,56 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.hideProgress()
             }
         }
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
         let selectedItem = viewModel.filteredItems[indexPath.item]
-        
+        handleItemSelection(for: selectedItem, at: indexPath)
+    }
+    
+    private func handleItemSelection(for selectedItem: KLSModel, at indexPath: IndexPath) {
         if let activeItemId = viewModel.activeItemId, activeItemId != selectedItem.id {
             SoundManager.shared.stopSound()
-            
-            if let activeIndex = viewModel.filteredItems.firstIndex(where: { $0.id == activeItemId }) {
-                if let previousCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell {
-                    DispatchQueue.main.async {
-                        previousCell.hideProgress()
-                    }
+            resetPreviousActiveItem()
+        }
+        playSound(for: selectedItem, at: indexPath)
+    }
+    
+    private func resetPreviousActiveItem() {
+        if let activeItemId = viewModel.activeItemId,
+           let activeIndex = viewModel.filteredItems.firstIndex(where: { $0.id == activeItemId }) {
+            if let previousCell = collectionView.cellForItem(at: IndexPath(item: activeIndex, section: 0)) as? KLSListCell {
+                DispatchQueue.main.async {
+                    previousCell.hideProgress()
                 }
-            } else {
-                collectionView.reloadData()
             }
+        } else {
+            collectionView.reloadData()
         }
-        if let soundPath = selectedItem.sound {
-            SoundManager.shared.playSound(for: selectedItem.id, from: soundPath)
+    }
+    
+    private func playSound(for item: KLSModel, at indexPath: IndexPath) {
+        if let soundPath = item.sound {
+            SoundManager.shared.playSound(for: item.id, from: soundPath)
         }
         
-        viewModel.activeItemId = selectedItem.id
-        
+        viewModel.activeItemId = item.id
         if let cell = collectionView.cellForItem(at: indexPath) as? KLSListCell {
-            let duration = SoundManager.shared.getSoundDuration(from: selectedItem.sound)
+            let duration = SoundManager.shared.getSoundDuration(from: item.sound)
             DispatchQueue.main.async {
                 cell.showProgress(duration: duration)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + duration) { [weak self] in
-                if self?.viewModel.activeItemId == selectedItem.id {
-                    cell.hideProgress()
-                    self?.viewModel.activeItemId = nil
-                }
+                self?.finalizeSoundProgress(for: item, cell: cell)
             }
+        }
+    }
+    
+    private func finalizeSoundProgress(for item: KLSModel, cell: KLSListCell) {
+        if viewModel.activeItemId == item.id {
+            cell.hideProgress()
+            viewModel.activeItemId = nil
         }
     }
 }

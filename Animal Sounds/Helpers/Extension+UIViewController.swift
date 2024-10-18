@@ -10,13 +10,6 @@ import RevenueCat
 import RevenueCatUI
 
 extension UIViewController {
-    func setupSearchController(searchBarPlaceholder: String, searchResultsUpdater: UISearchResultsUpdating) -> UISearchController {
-        let searchController = UISearchController()
-        searchController.searchResultsUpdater = searchResultsUpdater
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = searchBarPlaceholder
-        return searchController
-    }
     
     func checkAndShowPaywallIfNeeded() {
         Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
