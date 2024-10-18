@@ -72,9 +72,9 @@ final class KLSSettingsViewController: UIViewController {
             present(vc, animated: true)
             
         } else if option == .developer {
-            let alert = UIAlertController(title: "Made in 🇹🇷", message: "by Celil Cagatay Gedik", preferredStyle: .alert)
-            alert.view.tintColor = .cyan
-            let perfectButton = UIAlertAction(title: "God Bless Him", style: .default, handler: nil)
+            let alert = UIAlertController(title: "Made in 🇹🇷", message: "by Gedik, Efe and Korkut", preferredStyle: .alert)
+            alert.view.tintColor = Constants.mainAppColor
+            let perfectButton = UIAlertAction(title: "God Bless Them", style: .default, handler: nil)
             alert.addAction(perfectButton)
             present(alert, animated: true, completion: nil)
             

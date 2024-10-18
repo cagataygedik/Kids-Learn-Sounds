@@ -50,7 +50,6 @@
 		A29F61162BE6734000165F0F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A29F61152BE6734000165F0F /* Base */; };
 		A2A66C762CAF039F0082E95B /* AnimalsAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A66C732CAF039F0082E95B /* AnimalsAnimation.json */; };
 		A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BE9E412BE8EEEE004B28FE /* UIHelper.swift */; };
-		A2E1A17A2CC10C7A003803C0 /* KLSSearchBarCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E1A1792CC10C7A003803C0 /* KLSSearchBarCollectionReusableView.swift */; };
 		A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */; };
 		A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A622CAD30A100CCEB05 /* KLSTabBarController.swift */; };
 		A2F59A652CAD339300CCEB05 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F59A642CAD339300CCEB05 /* Extension+UIImage.swift */; };
@@ -103,7 +102,6 @@
 		A2E1A1762CC0F4B4003803C0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A2E1A1772CC0F4CC003803C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A2E1A1782CC0F4CC003803C0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A2E1A1792CC10C7A003803C0 /* KLSSearchBarCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSearchBarCollectionReusableView.swift; sourceTree = "<group>"; };
 		A2E1A17B2CC11A82003803C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A2E1A17C2CC11A82003803C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A2E1A17D2CC11A87003803C0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 				A247A67C2CAEA86200F6EEEE /* KLSButton.swift */,
 				A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */,
-				A2E1A1792CC10C7A003803C0 /* KLSSearchBarCollectionReusableView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -486,7 +483,6 @@
 				A20C57F62CB0041C000A7659 /* KLSModel.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
-				A2E1A17A2CC10C7A003803C0 /* KLSSearchBarCollectionReusableView.swift in Sources */,
 				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,
 				A20C57EB2CAFF8F2000A7659 /* Extension+UISearchBar.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,

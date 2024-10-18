@@ -18,6 +18,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KLSAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-fF-li4">
                                 <rect key="frame" x="-3.6666666666666572" y="238.66666666666663" width="400.33333333333326" height="400"/>
+                                <color key="backgroundColor" red="0.77243691680000004" green="0.49463617799999998" blue="0.99454122779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="qMc-BT-BLm"/>
                                     <constraint firstAttribute="width" constant="400" id="r7b-Pi-Wwp"/>
