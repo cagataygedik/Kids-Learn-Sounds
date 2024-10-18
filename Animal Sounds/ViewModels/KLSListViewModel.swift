@@ -21,7 +21,7 @@ final class KLSListViewModel {
         KLSNetworkManager.shared.getItems(for: endpoint) { [weak self] result in
             switch result {
             case .success(let items):
-                self?.items = items
+                self?.items = items.sorted { $0.name.lowercased() < $1.name.lowercased() }
                 self?.filteredItems = self?.items ?? []
                 self?.onItemsUpdated?()
             case .failure(let error):
@@ -37,6 +37,8 @@ final class KLSListViewModel {
             self.filteredItems = searchText.isEmpty
             ? self.items
             : self.items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            
+            self.filteredItems.sort { $0.name.lowercased() < $1.name.lowercased() }
             
             if let activeItemId = self.activeItemId,
                !self.filteredItems.contains(where: { $0.id == activeItemId}) {

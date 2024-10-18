@@ -130,6 +130,12 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchBar.resignFirstResponder()
+        let selectedItem = viewModel.filteredItems[indexPath.item]
+        handleItemSelection(for: selectedItem, at: indexPath)
+    }
+    
     private func updateCellProgress(_ cell: KLSListCell, for item: KLSModel) {
         if item.id == viewModel.activeItemId {
             let remainingDuration = SoundManager.shared.getRemainingTime(for: item.id, from: item.sound)
@@ -141,12 +147,6 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
                 cell.hideProgress()
             }
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        searchBar.resignFirstResponder()
-        let selectedItem = viewModel.filteredItems[indexPath.item]
-        handleItemSelection(for: selectedItem, at: indexPath)
     }
     
     private func handleItemSelection(for selectedItem: KLSModel, at indexPath: IndexPath) {

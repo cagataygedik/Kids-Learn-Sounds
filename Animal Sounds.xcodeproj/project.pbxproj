@@ -56,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
+		A20BB83A2CC27AF900773C71 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A20BB83B2CC27AFA00773C71 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A20C57F32CB003D7000A7659 /* KLSNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNetworkManager.swift; sourceTree = "<group>"; };
 		A20C57F52CB0041C000A7659 /* KLSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSModel.swift; sourceTree = "<group>"; };
 		A20C57F72CB0048D000A7659 /* KLSListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListViewModel.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				ja,
 				it,
 				ru,
+				ko,
 			);
 			mainGroup = A29F60FD2BE6733F00165F0F;
 			packageReferences = (
@@ -522,6 +525,7 @@
 				A2E1A1812CC11AA5003803C0 /* ja */,
 				A28D0D9E2CC12EFD00C2EEFB /* it */,
 				A28D0DA02CC12F1B00C2EEFB /* ru */,
+				A20BB83A2CC27AF900773C71 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -539,6 +543,7 @@
 				A2E1A1822CC11AA5003803C0 /* ja */,
 				A28D0D9F2CC12EFD00C2EEFB /* it */,
 				A28D0DA12CC12F1B00C2EEFB /* ru */,
+				A20BB83B2CC27AFA00773C71 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
