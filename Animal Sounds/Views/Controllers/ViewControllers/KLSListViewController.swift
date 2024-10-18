@@ -38,7 +38,6 @@ final class KLSListViewController: UIViewController {
         configureNavigationBar()
         configureCollectionView()
         addSearchBar()
-        //        addSearchController()
         viewModel.fetchItems(for: endpoint)
     }
     
@@ -212,7 +211,6 @@ extension KLSListViewController: UISearchBarDelegate {
         viewModel.filterItems(with: "")
         collectionView.reloadData()
     }
-    
 }
 
 extension KLSListViewController: SkeletonCollectionViewDataSource {
