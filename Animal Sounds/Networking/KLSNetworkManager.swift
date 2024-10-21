@@ -15,13 +15,13 @@ final class KLSNetworkManager {
     
     private init() {}
     
-    func getItems(for endpoint: KLSEndpoint, completion: @escaping (Result<[KLSModel], KLSError>) -> Void) {
+    func getItems(for endpoint: KLSEndpoint, page: Int = 1, completion: @escaping (Result<KLSResponse, KLSError>) -> Void) {
         let languageCode = Locale.current.languageCode ?? "en"
-        let url = "\(baseURL)/v1/\(endpoint.path)?lang=\(languageCode)"
-        AF.request(url).responseDecodable(of: [KLSModel].self) { response in
+        let url = "\(baseURL)/v1/\(endpoint.path)?lang=\(languageCode)&page=\(page)"
+        AF.request(url).responseDecodable(of: KLSResponse.self) { response in
             switch response.result {
-            case .success(let items):
-                completion(.success(items))
+            case .success(let paginatedRespone):
+                completion(.success(paginatedRespone))
             case .failure(let error):
                 if let afError = error.asAFError, afError.isSessionTaskError {
                     completion(.failure(.networkUnavailable))

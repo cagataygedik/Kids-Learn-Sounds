@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KLSModel: Decodable {
+struct KLSModel: Decodable, Hashable {
     let id: Int
     let name: String
     let image: String?
