@@ -8,7 +8,6 @@
 import UIKit
 import Kingfisher
 import Lottie
-import SkeletonView
 
 final class KLSListCell: UICollectionViewCell {
     static let reuseID = "ListCell"
@@ -41,7 +40,6 @@ final class KLSListCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        showSkeletonLoading()
     }
     
     required init?(coder: NSCoder) {
@@ -52,17 +50,12 @@ final class KLSListCell: UICollectionViewCell {
         super.prepareForReuse()
         avatarImageView.image = nil
         nameLabel.text = nil
-        showSkeletonLoading()
         progressView.setProgress(0)
         progressView.isHidden = true
         darkenAvatarImageView.isHidden = true
     }
     
     private func configure() {
-//        isSkeletonable = true //ONUR ABIYE SOR
-        avatarImageView.isSkeletonable = true
-        nameLabel.isSkeletonable = true
-        
         addSubview(avatarImageView)
         addSubview(nameLabel)
         avatarImageView.addSubview(darkenAvatarImageView)
@@ -98,25 +91,11 @@ final class KLSListCell: UICollectionViewCell {
     }
     
     func bindViewModel() {
-        showSkeletonLoading()
-        
         viewModel.onImageLoad = { [weak self] image in
             self?.avatarImageView.image = image
-            self?.hideSkeletonLoading()
             self?.nameLabel.text = self?.viewModel.name
         }
         viewModel.fetchImage()
-    }
-    
-    func showSkeletonLoading() {
-        let gradient = SkeletonGradient(baseColor: UIColor.lightGray)
-        avatarImageView.showAnimatedGradientSkeleton(usingGradient: gradient)
-        nameLabel.showAnimatedGradientSkeleton(usingGradient: gradient)
-    }
-    
-    func hideSkeletonLoading() {
-        avatarImageView.hideSkeleton()
-        nameLabel.hideSkeleton()
     }
     
     func showProgress(duration: TimeInterval) {

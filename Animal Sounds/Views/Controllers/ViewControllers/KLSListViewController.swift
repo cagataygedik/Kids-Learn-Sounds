@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SkeletonView
 import RevenueCat
 import RevenueCatUI
 
@@ -17,6 +16,8 @@ final class KLSListViewController: UIViewController {
     private var activeCellId: Int?
     private var endpoint: KLSEndpoint
     private let searchBar = UISearchBar()
+    
+    private var dataSource: UICollectionViewDiffableDataSource<Int, KLSModel>!
     
     init(endpoint: KLSEndpoint) {
         self.endpoint = endpoint
@@ -31,18 +32,18 @@ final class KLSListViewController: UIViewController {
         super.viewDidLoad()
         setupViewController()
         bindViewModels()
-        startSkeletonLoading()
+        viewModel.fetchItems(for: endpoint)
     }
     
     private func setupViewController() {
         configureNavigationBar()
         configureCollectionView()
+        configureDataSource()
         addSearchBar()
-        viewModel.fetchItems(for: endpoint)
     }
     
     private func bindViewModels() {
-        viewModel.onItemsUpdated = { [weak self] in
+        viewModel.onItemsUpdated = { [weak self] newItemsCount in
             self?.reloadData()
         }
         
@@ -51,22 +52,17 @@ final class KLSListViewController: UIViewController {
         }
     }
     
+    func applySnapshot(animatingDifferences: Bool = true) {
+        guard !viewModel.filteredItems.isEmpty else { return }
+
+        var snapshot = NSDiffableDataSourceSnapshot<Int, KLSModel>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.filteredItems)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+    
     private func reloadData() {
-        stopSkeletonLoading()
-        collectionView.reloadData()
-    }
-    
-    func startSkeletonLoading() {
-        //This should've solved the bug, it solved a little bit, but not fully solved
-        DispatchQueue.main.async {
-            self.collectionView.showAnimatedGradientSkeleton()
-        }
-    }
-    
-    private func stopSkeletonLoading() {
-        DispatchQueue.main.async {
-            self.collectionView.hideSkeleton()
-        }
+        applySnapshot(animatingDifferences: true)
     }
     
     private func presentErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
@@ -101,11 +97,18 @@ final class KLSListViewController: UIViewController {
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
-        collectionView.isSkeletonable = true
-        collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.register(KLSListCell.self, forCellWithReuseIdentifier: KLSListCell.reuseID)
+        configureDataSource()
+    }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Int, KLSModel>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSListCell.reuseID, for: indexPath) as! KLSListCell
+            cell.viewModel = KLSListCellViewModel(item: item)
+            return cell
+        }
     }
     
     private func addSearchBar() {
@@ -133,6 +136,16 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
         searchBar.resignFirstResponder()
         let selectedItem = viewModel.filteredItems[indexPath.item]
         handleItemSelection(for: selectedItem, at: indexPath)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let frameHeight = scrollView.frame.height
+        
+        if offsetY >= contentHeight - frameHeight - 200 {
+            viewModel.loadMoreItems(for: endpoint)
+        }
     }
     
     private func updateCellProgress(_ cell: KLSListCell, for item: KLSModel) {
@@ -197,7 +210,7 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
 extension KLSListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.filterItems(with: searchText)
-        collectionView.reloadData()
+        applySnapshot(animatingDifferences: true)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -209,16 +222,6 @@ extension KLSListViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.resignFirstResponder()
         viewModel.filterItems(with: "")
-        collectionView.reloadData()
-    }
-}
-
-extension KLSListViewController: SkeletonCollectionViewDataSource {
-    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
-    }
-    
-    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return KLSListCell.reuseID
+        applySnapshot(animatingDifferences: true)
     }
 }
