@@ -18,6 +18,8 @@
 		A20C57FE2CB008BE000A7659 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57FD2CB008BE000A7659 /* SoundManager.swift */; };
 		A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A20C57FF2CB01024000A7659 /* LoadingAnimation.json */; };
 		A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */; };
+		A23E0DA52CC694BA0066D77E /* KLSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA42CC694BA0066D77E /* KLSResponse.swift */; };
+		A23E0DA72CC695000066D77E /* KLSPaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */; };
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
 		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
@@ -66,6 +68,8 @@
 		A20C57FD2CB008BE000A7659 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A20C57FF2CB01024000A7659 /* LoadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCellViewModel.swift; sourceTree = "<group>"; };
+		A23E0DA42CC694BA0066D77E /* KLSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSResponse.swift; sourceTree = "<group>"; };
+		A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSPaginationInfo.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
 		A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSEndpoint.swift; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		A23E0DA22CC6946C0066D77E /* ResponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				A23E0DA42CC694BA0066D77E /* KLSResponse.swift */,
+				A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */,
+			);
+			path = ResponseTypes;
+			sourceTree = "<group>";
+		};
 		A247A6792CAEA04000F6EEEE /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +224,7 @@
 		A2887FDB2BE799B6001DA96A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A23E0DA22CC6946C0066D77E /* ResponseTypes */,
 				A20C57F52CB0041C000A7659 /* KLSModel.swift */,
 			);
 			path = Models;
@@ -494,8 +508,10 @@
 				A26025B32CB694D3008A8CA2 /* KLSAlertViewController.swift in Sources */,
 				A2BE9E422BE8EEEE004B28FE /* UIHelper.swift in Sources */,
 				A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */,
+				A23E0DA52CC694BA0066D77E /* KLSResponse.swift in Sources */,
 				A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */,
 				A20C57FA2CB0055E000A7659 /* KLSListViewController.swift in Sources */,
+				A23E0DA72CC695000066D77E /* KLSPaginationInfo.swift in Sources */,
 				A20C57F82CB0048D000A7659 /* KLSListViewModel.swift in Sources */,
 				A28BD5642BF28980000105A3 /* Constants.swift in Sources */,
 				A29F610A2BE6733F00165F0F /* AppDelegate.swift in Sources */,
