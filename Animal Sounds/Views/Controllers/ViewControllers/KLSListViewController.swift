@@ -8,9 +8,9 @@
 import UIKit
 import RevenueCat
 import RevenueCatUI
+import SkeletonView
 
-final class KLSListViewController: UIViewController {
-    
+final class KLSListViewController: UIViewController{
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
     private var activeCellId: Int?
@@ -32,7 +32,6 @@ final class KLSListViewController: UIViewController {
         super.viewDidLoad()
         setupViewController()
         bindViewModels()
-        viewModel.fetchItems(for: endpoint)
     }
     
     private func setupViewController() {
@@ -40,11 +39,12 @@ final class KLSListViewController: UIViewController {
         configureCollectionView()
         configureDataSource()
         addSearchBar()
+        viewModel.fetchItems(for: endpoint)
     }
     
     private func bindViewModels() {
         viewModel.onItemsUpdated = { [weak self] newItemsCount in
-            self?.reloadData()
+            self?.applySnapshot(animatingDifferences: true)
         }
         
         viewModel.showError = { [weak self] error, endpoint in
@@ -59,10 +59,6 @@ final class KLSListViewController: UIViewController {
         snapshot.appendSections([0])
         snapshot.appendItems(viewModel.filteredItems)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
-    }
-    
-    private func reloadData() {
-        applySnapshot(animatingDifferences: true)
     }
     
     private func presentErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
@@ -114,6 +110,11 @@ final class KLSListViewController: UIViewController {
     private func addSearchBar() {
         searchBar.delegate = self
         searchBar.placeholder = NSLocalizedString("search", comment: "Search placeholder text")
+        searchBar.searchTextField.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("search", comment: "Search placeholder text"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        searchBar.searchTextField.leftView?.tintColor = .lightGray
+        searchBar.searchTextField.textColor = .black
+        //TODO: UISearchBar clear button color change
         navigationItem.titleView = searchBar
     }
 }

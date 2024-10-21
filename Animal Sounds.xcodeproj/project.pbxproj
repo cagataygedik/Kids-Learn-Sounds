@@ -18,6 +18,7 @@
 		A20C57FE2CB008BE000A7659 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20C57FD2CB008BE000A7659 /* SoundManager.swift */; };
 		A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A20C57FF2CB01024000A7659 /* LoadingAnimation.json */; };
 		A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */; };
+		A218CC052CC6D07A00DC715D /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A218CC042CC6D07A00DC715D /* SkeletonView */; };
 		A23E0DA52CC694BA0066D77E /* KLSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA42CC694BA0066D77E /* KLSResponse.swift */; };
 		A23E0DA72CC695000066D77E /* KLSPaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */; };
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
@@ -129,6 +130,7 @@
 				A20C57EE2CB00382000A7659 /* Alamofire in Frameworks */,
 				A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */,
 				A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */,
+				A218CC052CC6D07A00DC715D /* SkeletonView in Frameworks */,
 				A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */,
 				A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */,
 				A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */,
@@ -409,6 +411,7 @@
 				A20C57F02CB00395000A7659 /* Kingfisher */,
 				A26FCE1D2CB8495A0024726C /* RevenueCat */,
 				A26FCE1F2CB8495A0024726C /* RevenueCatUI */,
+				A218CC042CC6D07A00DC715D /* SkeletonView */,
 			);
 			productName = "Animal Sounds";
 			productReference = A29F61062BE6733F00165F0F /* Kids Learn Sounds.app */;
@@ -454,6 +457,7 @@
 				A20C57EC2CB00382000A7659 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				A20C57EF2CB00395000A7659 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A26FCE1C2CB8495A0024726C /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				A218CC032CC6D07A00DC715D /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = A29F61072BE6733F00165F0F /* Products */;
 			projectDirPath = "";
@@ -786,6 +790,14 @@
 				minimumVersion = 8.0.3;
 			};
 		};
+		A218CC032CC6D07A00DC715D /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.31.0;
+			};
+		};
 		A247A6762CAEA03A00F6EEEE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -822,6 +834,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A20C57EF2CB00395000A7659 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		A218CC042CC6D07A00DC715D /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A218CC032CC6D07A00DC715D /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		A247A6772CAEA03A00F6EEEE /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
