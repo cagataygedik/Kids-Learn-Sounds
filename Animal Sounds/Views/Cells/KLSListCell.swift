@@ -31,6 +31,15 @@ final class KLSListCell: UICollectionViewCell {
         return view
     }()
     
+    private let premiumImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = .yellow
+        imageView.image = UIImage(systemName: "crown.fill")
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     var viewModel: KLSListCellViewModel! {
         didSet {
             bindViewModel()
@@ -53,12 +62,14 @@ final class KLSListCell: UICollectionViewCell {
         progressView.setProgress(0)
         progressView.isHidden = true
         darkenAvatarImageView.isHidden = true
+        premiumImageView.isHidden = true
     }
     
     private func configure() {
         addSubview(avatarImageView)
         addSubview(nameLabel)
         avatarImageView.addSubview(darkenAvatarImageView)
+        darkenAvatarImageView.addSubview(premiumImageView)
         avatarImageView.addSubview(progressView)
         
         avatarImageView.snp.makeConstraints { make in
@@ -88,6 +99,12 @@ final class KLSListCell: UICollectionViewCell {
         }
         darkenAvatarImageView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         darkenAvatarImageView.isHidden = true
+        
+        premiumImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
+            make.width.height.equalTo(20) // Adjust size as needed
+        }
     }
     
     func bindViewModel() {
@@ -99,6 +116,7 @@ final class KLSListCell: UICollectionViewCell {
         viewModel.onPremiumStatus = { [weak self] isPremium in
             DispatchQueue.main.async {
                 self?.darkenAvatarImageView.isHidden = !isPremium
+                self?.premiumImageView.isHidden = !isPremium
             }
         }
         
