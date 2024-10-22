@@ -10,7 +10,7 @@ import RevenueCat
 import RevenueCatUI
 import SkeletonView
 
-final class KLSListViewController: UIViewController{
+final class KLSListViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var viewModel = KLSListViewModel()
     private var activeCellId: Int?
@@ -30,8 +30,10 @@ final class KLSListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Purchases.shared.delegate = self
         setupViewController()
         bindViewModels()
+        observeEntitlementChanges()
     }
     
     private func setupViewController() {
@@ -100,9 +102,11 @@ final class KLSListViewController: UIViewController{
     }
     
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Int, KLSModel>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Int, KLSModel>(collectionView: collectionView) { [weak self] (collectionView, indexPath, item) -> UICollectionViewCell? in
+            guard let self = self else { return nil }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KLSListCell.reuseID, for: indexPath) as! KLSListCell
-            cell.viewModel = KLSListCellViewModel(item: item)
+            let viewModel = KLSListCellViewModel(item: item, customerInfo: self.viewModel.customerInfo)
+            cell.viewModel = viewModel
             return cell
         }
     }
@@ -136,7 +140,33 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         searchBar.resignFirstResponder()
         let selectedItem = viewModel.filteredItems[indexPath.item]
-        handleItemSelection(for: selectedItem, at: indexPath)
+        
+        if selectedItem.isPremium {
+            Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
+                guard let self = self else { return }
+                guard error == nil else {
+                    print("Error fetching customer info: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+                
+                // Update the ViewModel with the latest customer info
+                if let info = customerInfo {
+                    self.viewModel.updateCustomerInfo(info)
+                }
+                
+                // Check if user has premium entitlement
+                if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+                    // User has premium, allow sound playback
+                    handleItemSelection(for: selectedItem, at: indexPath)
+                } else {
+                    // User does not have premium, show paywall
+                    self.presentPaywall()
+                }
+            }
+        } else {
+            // Non-premium item: Play sound
+            handleItemSelection(for: selectedItem, at: indexPath)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -206,6 +236,20 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
             viewModel.activeItemId = nil
         }
     }
+    
+    private func observeEntitlementChanges() {
+        Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
+            guard let self = self else { return }
+            guard error == nil else {
+                print("Error fetching customer info: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+                self.viewModel.updateCustomerInfo(customerInfo)
+                self.viewModel.fetchItems(for: self.endpoint)
+            }
+        }
+    }
 }
 
 extension KLSListViewController: UISearchBarDelegate {
@@ -224,5 +268,16 @@ extension KLSListViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         viewModel.filterItems(with: "")
         applySnapshot(animatingDifferences: true)
+    }
+}
+
+extension KLSListViewController: PurchasesDelegate {
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.updateCustomerInfo(customerInfo)
+            self.applySnapshot(animatingDifferences: true)
+            collectionView.reloadData()
+        }
     }
 }

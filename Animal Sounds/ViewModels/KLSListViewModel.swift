@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RevenueCat
 
 final class KLSListViewModel {
     private(set) var items: [KLSModel] = []
@@ -19,6 +20,28 @@ final class KLSListViewModel {
     var showError: ((KLSError, KLSEndpoint) -> Void)?
     
     var activeItemId: Int?
+    
+    var customerInfo: CustomerInfo?
+    
+    init() {
+        fetchInitialCustomerInfo()
+    }
+    
+    private func fetchInitialCustomerInfo() {
+        Purchases.shared.getCustomerInfo { [weak self] (customerInfo, error) in
+            guard let self = self else { return }
+            if let info = customerInfo, error == nil {
+                self.updateCustomerInfo(info)
+            } else {
+                print("Failed to fetch initial customer info: \(error?.localizedDescription ?? "No error")")
+            }
+        }
+    }
+    
+    func updateCustomerInfo(_ info: CustomerInfo) {
+        self.customerInfo = info
+        onItemsUpdated?(filteredItems.count)
+    }
     
     func fetchItems(for endpoint: KLSEndpoint, page: Int = 1, isPagination: Bool = false) {
         guard !isLoading else { return }
@@ -37,11 +60,10 @@ final class KLSListViewModel {
                     newItems = self?.items ?? []
                 }
                 
-                self?.filteredItems = self?.items ?? [] // Always ensure filteredItems is not nil
+                self?.filteredItems = self?.items ?? []
                 self?.currentPage = page
                 self?.totalPages = paginatedResponse.info.pages
                 
-                // Notify new item count
                 self?.onItemsUpdated?(newItems.count)
             case .failure(let error):
                 self?.showError?(error, endpoint)
@@ -62,8 +84,6 @@ final class KLSListViewModel {
             self.filteredItems = searchText.isEmpty
             ? self.items
             : self.items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-            
-//            self.filteredItems.sort { $0.name.lowercased() < $1.name.lowercased() }
             
             if let activeItemId = self.activeItemId,
                !self.filteredItems.contains(where: { $0.id == activeItemId}) {

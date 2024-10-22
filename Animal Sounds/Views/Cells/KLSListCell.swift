@@ -95,6 +95,13 @@ final class KLSListCell: UICollectionViewCell {
             self?.avatarImageView.image = image
             self?.nameLabel.text = self?.viewModel.name
         }
+        
+        viewModel.onPremiumStatus = { [weak self] isPremium in
+            DispatchQueue.main.async {
+                self?.darkenAvatarImageView.isHidden = !isPremium
+            }
+        }
+        
         viewModel.fetchImage()
     }
     

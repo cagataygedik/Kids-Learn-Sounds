@@ -27,7 +27,7 @@ extension UIViewController {
         }
     }
     
-    private func presentPaywall() {
+    func presentPaywall() {
         let paywall = RevenueCatUI.PaywallViewController()
         self.present(paywall, animated: true, completion: nil)
     }

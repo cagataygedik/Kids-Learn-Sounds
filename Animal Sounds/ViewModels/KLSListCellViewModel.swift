@@ -8,19 +8,33 @@
 import UIKit
 import Kingfisher
 import Lottie
+import RevenueCat
 
 final class KLSListCellViewModel {
     private let item: KLSModel
+    private var customerInfo: CustomerInfo?
+    
     var onImageLoad: ((UIImage?) -> Void)?
     var onAnimationStart: (() -> Void)?
     var onAnimationStop: (() -> Void)?
+    var onPremiumStatus: ((Bool) -> Void)?
     
-    init (item: KLSModel) {
+    init (item: KLSModel, customerInfo: CustomerInfo? = nil) {
         self.item = item
+        self.customerInfo = customerInfo
+    }
+    
+    func updateCustomerInfo(_ info: CustomerInfo) {
+        self.customerInfo = info
+        determinePremiumStatus()
     }
     
     var name: String {
         return item.name
+    }
+    
+    var isPremium: Bool {
+        return item.isPremium
     }
     
     func fetchImage() {
@@ -39,6 +53,17 @@ final class KLSListCellViewModel {
         } else {
             onImageLoad?(UIImage(systemName: "questionmark.circle.fill"))
             onAnimationStop?()
+        }
+        determinePremiumStatus()
+    }
+    
+    private func determinePremiumStatus() {
+        if isPremium, let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+            onPremiumStatus?(false)
+        } else if isPremium {
+            onPremiumStatus?(true)
+        } else {
+            onPremiumStatus?(false)
         }
     }
 }
