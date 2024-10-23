@@ -73,7 +73,6 @@ final class KLSListViewController: UIViewController {
         alertViewController.modalPresentationStyle = .overFullScreen
         alertViewController.modalTransitionStyle = .crossDissolve
         self.present(alertViewController, animated: true)
-        
     }
     
     private func configureNavigationBar() {
@@ -276,7 +275,7 @@ extension KLSListViewController: PurchasesDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.viewModel.updateCustomerInfo(customerInfo)
-            self.applySnapshot(animatingDifferences: true) //???? her zaman hepsi darkenligi kaldirmiyor,
+//            self.applySnapshot(animatingDifferences: true) //???? her zaman hepsi darkenligi kaldirmiyor,
             collectionView.reloadData() // o yuzden buralara bakmaya devam et.
         }
     }

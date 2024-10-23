@@ -69,7 +69,7 @@ final class KLSListCell: UICollectionViewCell {
         addSubview(avatarImageView)
         addSubview(nameLabel)
         avatarImageView.addSubview(darkenAvatarImageView)
-        darkenAvatarImageView.addSubview(premiumImageView)
+        avatarImageView.addSubview(premiumImageView)
         avatarImageView.addSubview(progressView)
         
         avatarImageView.snp.makeConstraints { make in
@@ -115,7 +115,6 @@ final class KLSListCell: UICollectionViewCell {
         
         viewModel.onPremiumStatus = { [weak self] isPremium in
             DispatchQueue.main.async {
-                self?.darkenAvatarImageView.isHidden = !isPremium
                 self?.premiumImageView.isHidden = !isPremium
             }
         }
