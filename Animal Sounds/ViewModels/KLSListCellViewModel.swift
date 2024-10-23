@@ -12,7 +12,8 @@ import RevenueCat
 
 final class KLSListCellViewModel {
     private let item: KLSModel
-    private var customerInfo: CustomerInfo?
+    var customerInfo: CustomerInfo?
+    private var lastPremiumStatus: Bool?
     
     var onImageLoad: ((UIImage?) -> Void)?
     var onAnimationStart: (() -> Void)?
@@ -22,6 +23,7 @@ final class KLSListCellViewModel {
     init (item: KLSModel, customerInfo: CustomerInfo? = nil) {
         self.item = item
         self.customerInfo = customerInfo
+        determinePremiumStatus()
     }
     
     func updateCustomerInfo(_ info: CustomerInfo) {
@@ -33,7 +35,7 @@ final class KLSListCellViewModel {
         return item.name
     }
     
-    var isPremium: Bool {
+    var isItemPremium: Bool {
         return item.isPremium
     }
     
@@ -58,9 +60,9 @@ final class KLSListCellViewModel {
     }
     
     private func determinePremiumStatus() {
-        if isPremium, let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
+        if isItemPremium, let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
             onPremiumStatus?(false)
-        } else if isPremium {
+        } else if isItemPremium {
             onPremiumStatus?(true)
         } else {
             onPremiumStatus?(false)

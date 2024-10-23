@@ -63,6 +63,13 @@ final class KLSListViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
+    private func reloadItem(for item: KLSModel) {
+        guard let index = viewModel.filteredItems.firstIndex(of: item) else { return }
+        var snapshot = dataSource.snapshot()
+        snapshot.reloadItems([viewModel.filteredItems[index]])
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
     private func presentErrorAlert(with error: KLSError, for endpoint: KLSEndpoint) {
         let alertViewController = KLSAlertViewController(
             title: NSLocalizedString("error_title", comment: "Error title for alert"),
@@ -148,22 +155,17 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
                     return
                 }
                 
-                // Update the ViewModel with the latest customer info
                 if let info = customerInfo {
                     self.viewModel.updateCustomerInfo(info)
                 }
                 
-                // Check if user has premium entitlement
                 if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
-                    // User has premium, allow sound playback
                     handleItemSelection(for: selectedItem, at: indexPath)
                 } else {
-                    // User does not have premium, show paywall
                     self.presentPaywall()
                 }
             }
         } else {
-            // Non-premium item: Play sound
             handleItemSelection(for: selectedItem, at: indexPath)
         }
     }
@@ -246,6 +248,10 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
             if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
                 self.viewModel.updateCustomerInfo(customerInfo)
                 self.viewModel.fetchItems(for: self.endpoint)
+                
+                for item in self.viewModel.filteredItems {
+                    self.reloadItem(for: item)
+                }
             }
         }
     }
@@ -272,11 +278,15 @@ extension KLSListViewController: UISearchBarDelegate {
 
 extension KLSListViewController: PurchasesDelegate {
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+        DispatchQueue.main.async {
             self.viewModel.updateCustomerInfo(customerInfo)
-//            self.applySnapshot(animatingDifferences: true) //???? her zaman hepsi darkenligi kaldirmiyor,
-            collectionView.reloadData() // o yuzden buralara bakmaya devam et.
+            for item in self.viewModel.filteredItems {
+                self.reloadItem(for: item)
+            }
         }
+        
+        
+        //            self.applySnapshot(animatingDifferences: true) //???? her zaman hepsi darkenligi kaldirmiyor,
+        //            collectionView.reloadData() // o yuzden buralara bakmaya devam et.
     }
 }

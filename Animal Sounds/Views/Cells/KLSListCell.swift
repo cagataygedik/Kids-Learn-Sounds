@@ -108,17 +108,19 @@ final class KLSListCell: UICollectionViewCell {
     }
     
     func bindViewModel() {
+        nameLabel.text = viewModel.name
+        
         viewModel.onImageLoad = { [weak self] image in
             self?.avatarImageView.image = image
-            self?.nameLabel.text = self?.viewModel.name
         }
         
-        viewModel.onPremiumStatus = { [weak self] isPremium in
+        viewModel.onPremiumStatus = { [weak self] isItemPremium in
             DispatchQueue.main.async {
-                self?.premiumImageView.isHidden = !isPremium
+                self?.premiumImageView.isHidden = !isItemPremium
             }
         }
         
+        viewModel.updateCustomerInfo(viewModel.customerInfo!)
         viewModel.fetchImage()
     }
     

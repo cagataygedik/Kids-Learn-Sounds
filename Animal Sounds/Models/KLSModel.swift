@@ -7,10 +7,26 @@
 
 import Foundation
 
-struct KLSModel: Decodable, Hashable {
+class KLSModel: Decodable, Hashable {
     let id: Int
     let name: String
     let image: String?
     let sound: String?
-    let isPremium: Bool
+    var isPremium: Bool
+    
+    init(id: Int, name: String, image: String?, sound: String?, isPremium: Bool) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.sound = sound
+        self.isPremium = isPremium
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: KLSModel, rhs: KLSModel) -> Bool {
+        return lhs.id == rhs.id && lhs.isPremium == rhs.isPremium
+    }
 }
