@@ -16,6 +16,7 @@ final class KLSListViewController: UIViewController {
     private var activeCellId: Int?
     private var endpoint: KLSEndpoint
     private let searchBar = UISearchBar()
+    private var activityIndicator: UIActivityIndicatorView?
     
     private var dataSource: UICollectionViewDiffableDataSource<Int, KLSModel>!
     
@@ -49,9 +50,38 @@ final class KLSListViewController: UIViewController {
             self?.applySnapshot(animatingDifferences: true)
         }
         
+        viewModel.onLoadingStateChanged = { [weak self] isLoading in
+            if isLoading {
+                self?.showLoadingView()
+            } else {
+                self?.hideLoadingView()
+            }
+        }
+        
         viewModel.showError = { [weak self] error, endpoint in
             self?.presentErrorAlert(with: error, for: endpoint)
         }
+    }
+    
+    private func showLoadingView() {
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        guard let activityIndicator = activityIndicator else { return }
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .darkGray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.center.equalTo(view)
+        }
+        
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideLoadingView() {
+        guard let activityIndicator = activityIndicator else { return }
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
+        self.activityIndicator = nil
     }
     
     func applySnapshot(animatingDifferences: Bool = true) {

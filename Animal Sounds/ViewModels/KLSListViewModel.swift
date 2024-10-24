@@ -18,6 +18,7 @@ final class KLSListViewModel {
     
     var onItemsUpdated: ((_ newItemsCount: Int) -> Void)?
     var showError: ((KLSError, KLSEndpoint) -> Void)?
+    var onLoadingStateChanged: ((Bool) -> Void)?
     
     var activeItemId: Int?
     
@@ -46,6 +47,7 @@ final class KLSListViewModel {
     func fetchItems(for endpoint: KLSEndpoint, page: Int = 1, isPagination: Bool = false) {
         guard !isLoading else { return }
         isLoading = true
+        onLoadingStateChanged?(true)
         
         KLSNetworkManager.shared.getItems(for: endpoint, page: page) { [weak self] result in
             switch result {
@@ -69,6 +71,7 @@ final class KLSListViewModel {
                 self?.showError?(error, endpoint)
             }
             self?.isLoading = false
+            self?.onLoadingStateChanged?(false)
         }
     }
     

@@ -21,7 +21,6 @@ extension UIViewController {
             if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
                 print("User already has the premium entitlement")
             } else {
-                // Show the paywall UI if the entitlement is not active
                 self?.presentPaywall()
             }
         }

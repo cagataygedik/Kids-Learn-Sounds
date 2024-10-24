@@ -16,8 +16,8 @@ final class KLSListCellViewModel {
     private var lastPremiumStatus: Bool?
     
     var onImageLoad: ((UIImage?) -> Void)?
-    var onAnimationStart: (() -> Void)?
-    var onAnimationStop: (() -> Void)?
+//    var onAnimationStart: (() -> Void)?
+//    var onAnimationStop: (() -> Void)?
     var onPremiumStatus: ((Bool) -> Void)?
     
     init (item: KLSModel, customerInfo: CustomerInfo? = nil) {
@@ -41,20 +41,16 @@ final class KLSListCellViewModel {
     
     func fetchImage() {
         if let imagePath = item.image, let imageUrl = URL(string: "https://kids-learn-sounds-api.onrender.com" + imagePath) {
-            onAnimationStart?()
             KingfisherManager.shared.retrieveImage(with: imageUrl) { [weak self] result in
                 switch result {
                 case .success(let value):
                     self?.onImageLoad?(value.image)
-                    self?.onAnimationStop?()
                 case .failure:
                     self?.onImageLoad?(UIImage(systemName: "questionmark.circle.fill"))
-                    self?.onAnimationStop?()
                 }
             }
         } else {
             onImageLoad?(UIImage(systemName: "questionmark.circle.fill"))
-            onAnimationStop?()
         }
         determinePremiumStatus()
     }
