@@ -13,7 +13,7 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
     
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
-    private let lottieAnimations = ["AnimalsAnimation", "PenguinMusic"]
+    private let lottieAnimations = ["AnimalsAnimation", "AnimatioTwoMain"]
     private let pageLabels = [
         NSLocalizedString("onboarding_page_1", comment: "Onboarding first page description"),
         NSLocalizedString("onboarding_page_2", comment: "Onboarding second page description")
@@ -49,8 +49,8 @@ final class KLSOnboardingViewController: UIViewController, UIScrollViewDelegate 
         switch animationName {
         case "AnimalsAnimation":
             animationView = AnimationManager.sharedOnboardingAnimalsAnimation
-        case "PenguinMusic":
-            animationView = AnimationManager.sharedOnboardingPenguinMusicAnimation
+        case "AnimatioTwoMain":
+            animationView = AnimationManager.sharedOnboardingAnimationTwoMainAnimation
         default:
             animationView = LottieAnimationView(name: "LoadingAnimation")
         }

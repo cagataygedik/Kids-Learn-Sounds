@@ -103,7 +103,7 @@ final class KLSListCell: UICollectionViewCell {
         premiumImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
-            make.width.height.equalTo(20) // Adjust size as needed
+            make.width.height.equalTo(20)
         }
     }
     

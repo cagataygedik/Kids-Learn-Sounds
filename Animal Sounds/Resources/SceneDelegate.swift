@@ -46,7 +46,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = KLSOnboardingViewController()
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "hasLaunchedBefore") {
+            window?.rootViewController = KLSTabBarController()
+        } else {
+            window?.rootViewController = KLSOnboardingViewController()
+            userDefaults.set(true, forKey: "hasLaunchedBefore")
+        }
         window?.makeKeyAndVisible()
     }
 

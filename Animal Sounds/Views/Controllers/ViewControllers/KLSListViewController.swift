@@ -85,7 +85,10 @@ final class KLSListViewController: UIViewController {
     }
     
     func applySnapshot(animatingDifferences: Bool = true) {
-        guard !viewModel.filteredItems.isEmpty else { return }
+        guard !viewModel.filteredItems.isEmpty else {
+//            showLoadingView()
+            return
+        }
 
         var snapshot = NSDiffableDataSourceSnapshot<Int, KLSModel>()
         snapshot.appendSections([0])
@@ -93,9 +96,10 @@ final class KLSListViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
     
-    private func reloadItem(for item: KLSModel) {
+    private func reloadItems(for item: KLSModel) {
         guard let index = viewModel.filteredItems.firstIndex(of: item) else { return }
         var snapshot = dataSource.snapshot()
+        viewModel.updateCustomerInfo(viewModel.customerInfo!)
         snapshot.reloadItems([viewModel.filteredItems[index]])
         dataSource.apply(snapshot, animatingDifferences: true)
     }
@@ -280,7 +284,7 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
                 self.viewModel.fetchItems(for: self.endpoint)
                 
                 for item in self.viewModel.filteredItems {
-                    self.reloadItem(for: item)
+                    self.reloadItems(for: item)
                 }
             }
         }
@@ -310,13 +314,11 @@ extension KLSListViewController: PurchasesDelegate {
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         DispatchQueue.main.async {
             self.viewModel.updateCustomerInfo(customerInfo)
+            
             for item in self.viewModel.filteredItems {
-                self.reloadItem(for: item)
+                self.reloadItems(for: item)
             }
+//            self.applySnapshot(animatingDifferences: true)
         }
-        
-        
-        //            self.applySnapshot(animatingDifferences: true) //???? her zaman hepsi darkenligi kaldirmiyor,
-        //            collectionView.reloadData() // o yuzden buralara bakmaya devam et.
     }
 }

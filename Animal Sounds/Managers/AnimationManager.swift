@@ -22,8 +22,8 @@ final class AnimationManager {
         return animation
     }()
     
-    static let sharedOnboardingPenguinMusicAnimation: LottieAnimationView = {
-        let animation = LottieAnimationView(name: "PenguinMusic")
+    static let sharedOnboardingAnimationTwoMainAnimation: LottieAnimationView = {
+        let animation = LottieAnimationView(name: "AnimatioTwoMain")
         animation.loopMode = .loop
         animation.contentMode = .scaleAspectFit
         return animation
