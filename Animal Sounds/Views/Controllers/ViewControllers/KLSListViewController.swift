@@ -50,50 +50,37 @@ final class KLSListViewController: UIViewController {
             self?.applySnapshot(animatingDifferences: true)
         }
         
-        viewModel.onLoadingStateChanged = { [weak self] isLoading in
-            if isLoading {
-                self?.showLoadingView()
-            } else {
-                self?.hideLoadingView()
-            }
-        }
         
         viewModel.showError = { [weak self] error, endpoint in
             self?.presentErrorAlert(with: error, for: endpoint)
         }
     }
     
-    private func showLoadingView() {
-        activityIndicator = UIActivityIndicatorView(style: .large)
-        guard let activityIndicator = activityIndicator else { return }
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.color = .darkGray
-        view.addSubview(activityIndicator)
-        
-        activityIndicator.snp.makeConstraints { make in
-            make.center.equalTo(view)
-        }
-        
-        activityIndicator.startAnimating()
-    }
-    
-    private func hideLoadingView() {
-        guard let activityIndicator = activityIndicator else { return }
-        activityIndicator.stopAnimating()
-        activityIndicator.removeFromSuperview()
-        self.activityIndicator = nil
-    }
-    
     func applySnapshot(animatingDifferences: Bool = true) {
-        guard !viewModel.filteredItems.isEmpty else {
-//            showLoadingView()
-            return
-        }
-
         var snapshot = NSDiffableDataSourceSnapshot<Int, KLSModel>()
         snapshot.appendSections([0])
-        snapshot.appendItems(viewModel.filteredItems)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+        
+        if !viewModel.filteredItems.isEmpty {
+            snapshot.appendItems(viewModel.filteredItems)
+        }
+        
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences) { [weak self] in
+            self?.updateFooterLoadingState()
+        }
+    }
+    
+    private func updateFooterLoadingState() {
+        guard let footerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionFooter, at: IndexPath(item: 0, section: 0)) as? KLSFooterLoadingReusableView else {
+            return
+        }
+        
+        if viewModel.hasReachedEnd {
+            footerView.stopFooterLoading()
+        } else if viewModel.isLoadingMore {
+            footerView.startFooterloading()
+        } else {
+            footerView.stopFooterLoading()
+        }
     }
     
     private func reloadItems(for item: KLSModel) {
@@ -138,6 +125,12 @@ final class KLSListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.register(KLSListCell.self, forCellWithReuseIdentifier: KLSListCell.reuseID)
+        collectionView.register(KLSFooterLoadingReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: KLSFooterLoadingReusableView.reuseID)
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.footerReferenceSize = CGSize(width: collectionView.bounds.width, height: 50)
+        }
+        
         configureDataSource()
     }
     
@@ -148,6 +141,27 @@ final class KLSListViewController: UIViewController {
             let viewModel = KLSListCellViewModel(item: item, customerInfo: self.viewModel.customerInfo)
             cell.viewModel = viewModel
             return cell
+        }
+        
+        dataSource.supplementaryViewProvider = { [weak self] (collectionView, kind, indexPath) -> UICollectionReusableView? in
+            guard let self = self else { return nil }
+            
+            if kind == UICollectionView.elementKindSectionFooter {
+                let footer = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: KLSFooterLoadingReusableView.reuseID,
+                    for: indexPath
+                ) as! KLSFooterLoadingReusableView
+                
+                if  self.viewModel.hasMorePages {
+                    footer.startFooterloading()
+                } else {
+                    footer.stopFooterLoading()
+                }
+                
+                return footer
+            }
+            return nil
         }
     }
     
@@ -205,12 +219,17 @@ extension KLSListViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        let frameHeight = scrollView.frame.height
+        guard !viewModel.isLoading && !viewModel.hasReachedEnd else { return }
         
-        if offsetY >= contentHeight - frameHeight - 200 {
+        let threshold: CGFloat = 200.0
+        
+        let contentOffsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.bounds.size.height
+        
+        if contentOffsetY > contentHeight - scrollViewHeight - threshold {
             viewModel.loadMoreItems(for: endpoint)
+            updateFooterLoadingState()
         }
     }
     
@@ -318,7 +337,7 @@ extension KLSListViewController: PurchasesDelegate {
             for item in self.viewModel.filteredItems {
                 self.reloadItems(for: item)
             }
-//            self.applySnapshot(animatingDifferences: true)
+            //            self.applySnapshot(animatingDifferences: true)
         }
     }
 }

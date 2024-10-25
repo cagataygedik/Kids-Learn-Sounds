@@ -15,6 +15,7 @@
 "continue" = "Continuar";
 "retry" = "Reintentar";
 "search" = "Buscar";
+"no_more_items_to_load" = "🥳 No hay más elementos para cargar 🥳";
 
 "onboarding_page_1" = "Bienvenido a Kids Learn Sounds. Estamos aquí para ayudarte a aprender cientos de sonidos en el mundo.";
 "onboarding_page_2" = "Ven y únete a nosotros y explora el mundo de los sonidos.";

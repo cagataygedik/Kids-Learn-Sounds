@@ -19,6 +19,7 @@
 		A20C58002CB01024000A7659 /* LoadingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = A20C57FF2CB01024000A7659 /* LoadingAnimation.json */; };
 		A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */; };
 		A218CC052CC6D07A00DC715D /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = A218CC042CC6D07A00DC715D /* SkeletonView */; };
+		A23868A32CCB777900300EEC /* KLSFooterLoadingReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23868A22CCB777900300EEC /* KLSFooterLoadingReusableView.swift */; };
 		A23E0DA52CC694BA0066D77E /* KLSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA42CC694BA0066D77E /* KLSResponse.swift */; };
 		A23E0DA72CC695000066D77E /* KLSPaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */; };
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
@@ -68,6 +69,7 @@
 		A20C57FD2CB008BE000A7659 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A20C57FF2CB01024000A7659 /* LoadingAnimation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoadingAnimation.json; sourceTree = "<group>"; };
 		A20E5B3F2CB0336C006D515E /* KLSListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSListCellViewModel.swift; sourceTree = "<group>"; };
+		A23868A22CCB777900300EEC /* KLSFooterLoadingReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSFooterLoadingReusableView.swift; sourceTree = "<group>"; };
 		A23E0DA42CC694BA0066D77E /* KLSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSResponse.swift; sourceTree = "<group>"; };
 		A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSPaginationInfo.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 				A247A67C2CAEA86200F6EEEE /* KLSButton.swift */,
 				A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */,
+				A23868A22CCB777900300EEC /* KLSFooterLoadingReusableView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -313,7 +316,6 @@
 				A28BD5622BF28973000105A3 /* Utilities */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
-				A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */,
 				A27D58882CB9680400DE385E /* SycnedProducts.storekit */,
 				A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */,
 			);
@@ -323,6 +325,7 @@
 		A29F61212BE674B100165F0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A2AA4FD72CCBB9C0009CFDD5 /* Languages */,
 				A27AF94C2CBCED3800E0B3E6 /* LottieAnimations */,
 				A29F610B2BE6733F00165F0F /* SceneDelegate.swift */,
 				A29F61092BE6733F00165F0F /* AppDelegate.swift */,
@@ -340,6 +343,14 @@
 				A2BE9E472BE908E0004B28FE /* TabBar */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A2AA4FD72CCBB9C0009CFDD5 /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				A2EAAB0A2CB7BFD200F87B94 /* Localizable.strings */,
+			);
+			path = Languages;
 			sourceTree = "<group>";
 		};
 		A2BE9E432BE8EEF1004B28FE /* Helpers */ = {
@@ -501,6 +512,7 @@
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,
 				A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */,
+				A23868A32CCB777900300EEC /* KLSFooterLoadingReusableView.swift in Sources */,
 				A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */,
 				A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */,
 				A2F59A652CAD339300CCEB05 /* Extension+UIImage.swift in Sources */,

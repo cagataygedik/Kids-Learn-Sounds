@@ -11,14 +11,18 @@ import RevenueCat
 final class KLSListViewModel {
     private(set) var items: [KLSModel] = []
     private(set) var filteredItems: [KLSModel] = []
+    private(set) var isLoadingMore = false
+    private(set) var hasReachedEnd = false
+    
     private var searchWorkItem: DispatchWorkItem?
     private var currentPage: Int = 1
     private var totalPages: Int = 1
-    private var isLoading: Bool = false
+    var isLoading: Bool = false
+    
+    var hasMorePages: Bool { return !hasReachedEnd && currentPage < totalPages }
     
     var onItemsUpdated: ((_ newItemsCount: Int) -> Void)?
     var showError: ((KLSError, KLSEndpoint) -> Void)?
-    var onLoadingStateChanged: ((Bool) -> Void)?
     
     var activeItemId: Int?
     
@@ -46,37 +50,51 @@ final class KLSListViewModel {
     
     func fetchItems(for endpoint: KLSEndpoint, page: Int = 1, isPagination: Bool = false) {
         guard !isLoading else { return }
+        
         isLoading = true
-        onLoadingStateChanged?(true)
         
         KLSNetworkManager.shared.getItems(for: endpoint, page: page) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let paginatedResponse):
-                let newItems: [KLSModel]
+                let newItems = paginatedResponse.results
                 
                 if isPagination {
-                    newItems = paginatedResponse.results
-                    self?.items.append(contentsOf: newItems)
+                    if newItems.isEmpty {
+                        self.hasReachedEnd = true
+                    } else {
+                        self.items.append(contentsOf: newItems)
+                    }
                 } else {
-                    self?.items = paginatedResponse.results
-                    newItems = self?.items ?? []
+                    self.items = newItems
+                    self.hasReachedEnd = newItems.isEmpty
                 }
                 
-                self?.filteredItems = self?.items ?? []
-                self?.currentPage = page
-                self?.totalPages = paginatedResponse.info.pages
+                self.filteredItems = self.items
+                self.currentPage = page
+                self.totalPages = paginatedResponse.info.pages
                 
-                self?.onItemsUpdated?(newItems.count)
+                self.hasReachedEnd = paginatedResponse.info.next == nil
+                
+                self.onItemsUpdated?(newItems.count)
+                
+                
+                
             case .failure(let error):
-                self?.showError?(error, endpoint)
+                self.showError?(error, endpoint)
+                self.hasReachedEnd = true
             }
-            self?.isLoading = false
-            self?.onLoadingStateChanged?(false)
+            
+            self.isLoading = false
+            self.isLoadingMore = false
         }
     }
     
     func loadMoreItems(for endpoint: KLSEndpoint) {
-        guard currentPage < totalPages else { return }
+        guard !isLoading && !isLoadingMore && hasMorePages else { return }
+        
+        isLoadingMore = true
         fetchItems(for: endpoint, page: currentPage + 1, isPagination: true)
     }
     

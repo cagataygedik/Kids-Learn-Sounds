@@ -20,6 +20,7 @@ extension UIViewController {
             
             if let customerInfo = customerInfo, customerInfo.entitlements["premium"]?.isActive == true {
                 print("User already has the premium entitlement")
+                print(Purchases.shared.appUserID)
             } else {
                 self?.presentPaywall()
             }

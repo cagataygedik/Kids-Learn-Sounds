@@ -15,6 +15,7 @@
 "continue" = "İlerle";
 "retry" = "Tekrar Dene";
 "search" = "Arama Yap";
+"no_more_items_to_load" = "🥳 Yüklenecek başka öğe yok 🥳";
 
 "onboarding_page_1" = "Kids Learn Sounds'a hoş geldiniz. Dünyadaki yüzlerce sesi öğrenmenize yardımcı olmak için buradayız.";
 "onboarding_page_2" = "Bize katılın ve seslerin dünyasını keşfedin.";
