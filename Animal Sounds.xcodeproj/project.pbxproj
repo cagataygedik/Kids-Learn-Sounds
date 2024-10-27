@@ -25,6 +25,7 @@
 		A247A6782CAEA03A00F6EEEE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A247A6772CAEA03A00F6EEEE /* Lottie */; };
 		A247A67B2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */; };
 		A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A247A67C2CAEA86200F6EEEE /* KLSButton.swift */; };
+		A25090E02CCE386F0050AC61 /* KLSParentalGateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25090DF2CCE386F0050AC61 /* KLSParentalGateViewController.swift */; };
 		A255B9D62CB4392E00C93AB8 /* KLSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */; };
 		A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255B9D72CB447B700C93AB8 /* AnimationManager.swift */; };
 		A25DDD032CCA7E3900DCACA5 /* AnimatioTwoMain.json in Resources */ = {isa = PBXBuildFile; fileRef = A25DDD022CCA7E3900DCACA5 /* AnimatioTwoMain.json */; };
@@ -74,6 +75,7 @@
 		A23E0DA62CC695000066D77E /* KLSPaginationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSPaginationInfo.swift; sourceTree = "<group>"; };
 		A247A67A2CAEA05A00F6EEEE /* KLSOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSOnboardingViewController.swift; sourceTree = "<group>"; };
 		A247A67C2CAEA86200F6EEEE /* KLSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSButton.swift; sourceTree = "<group>"; };
+		A25090DF2CCE386F0050AC61 /* KLSParentalGateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSParentalGateViewController.swift; sourceTree = "<group>"; };
 		A255B9D52CB4392E00C93AB8 /* KLSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSEndpoint.swift; sourceTree = "<group>"; };
 		A255B9D72CB447B700C93AB8 /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		A25DDD022CCA7E3900DCACA5 /* AnimatioTwoMain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimatioTwoMain.json; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				A20C57F92CB0055E000A7659 /* KLSListViewController.swift */,
+				A25090DF2CCE386F0050AC61 /* KLSParentalGateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				A20C57F62CB0041C000A7659 /* KLSModel.swift in Sources */,
 				A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */,
 				A2F59A632CAD30A100CCEB05 /* KLSTabBarController.swift in Sources */,
+				A25090E02CCE386F0050AC61 /* KLSParentalGateViewController.swift in Sources */,
 				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,

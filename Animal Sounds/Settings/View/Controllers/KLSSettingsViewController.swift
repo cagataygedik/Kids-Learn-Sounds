@@ -53,16 +53,7 @@ final class KLSSettingsViewController: UIViewController {
             return
         }
         
-        if let url = option.twitterTargetUrl {
-            let twitterUrl = Constants.twitterUrl
-            if UIApplication.shared.canOpenURL(twitterUrl!) {
-                UIApplication.shared.open(twitterUrl!, options: [:], completionHandler: nil)
-                return
-            }
-            let vc = SFSafariViewController(url: url)
-            present(vc, animated: true)
-            
-        } else if let url = option.rateAppTargetUrl {
+        if let url = option.rateAppTargetUrl {
             let rateAppUrl = Constants.rateAppUrl
             if UIApplication.shared.canOpenURL(rateAppUrl!) {
                 UIApplication.shared.open(rateAppUrl!, options: [:], completionHandler: nil)

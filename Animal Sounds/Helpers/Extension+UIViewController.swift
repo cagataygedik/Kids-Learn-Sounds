@@ -28,7 +28,32 @@ extension UIViewController {
     }
     
     func presentPaywall() {
-        let paywall = RevenueCatUI.PaywallViewController()
-        self.present(paywall, animated: true, completion: nil)
+        // Present the parental gate before showing the paywall
+        presentParentalGate { [weak self] success in
+            if success {
+                let paywall = RevenueCatUI.PaywallViewController()
+                self?.present(paywall, animated: true, completion: nil)
+            } else {
+                // Optionally handle parental gate failure (e.g., show an alert)
+                self?.showParentalGateFailedAlert()
+            }
+        }
     }
+    
+    func presentParentalGate(completion: @escaping (Bool) -> Void) {
+        let parentalGateVC = KLSParentalGateViewController()
+        parentalGateVC.modalPresentationStyle = .overFullScreen
+        parentalGateVC.onGateSuccess = {
+            // Call the completion block if parental gate is passed
+            completion(true)
+        }
+        
+        self.present(parentalGateVC, animated: true, completion: nil)
+    }
+    
+    private func showParentalGateFailedAlert() {
+            let alert = UIAlertController(title: "Access Denied", message: "You must pass the parental gate to proceed.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
 }

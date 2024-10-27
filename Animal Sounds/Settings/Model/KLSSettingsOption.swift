@@ -9,31 +9,13 @@ import UIKit
 
 enum KLSSettingsOption: CaseIterable {
     case rateApp
-    case contactUs
     case developer
     case privacyPolicy
     case termsOfUse
     
-    var twitterTargetUrl: URL? {
-        switch self {
-        case .rateApp:
-            return nil
-        case .contactUs:
-           return Constants.twitterUrl
-        case .developer:
-            return nil
-        case .privacyPolicy:
-            return nil
-        case .termsOfUse:
-            return nil
-        }
-    }
-    
     var privacyPolicyTargetUrl: URL? {
         switch self {
         case .rateApp:
-            return nil
-        case .contactUs:
             return nil
         case .developer:
             return nil
@@ -48,8 +30,6 @@ enum KLSSettingsOption: CaseIterable {
         switch self {
         case .rateApp:
             return Constants.rateAppUrl
-        case .contactUs:
-            return nil
         case .developer:
             return nil
         case .privacyPolicy:
@@ -62,8 +42,6 @@ enum KLSSettingsOption: CaseIterable {
     var termsOfUseTargetUrl: URL? {
         switch self {
         case .rateApp:
-            return nil
-        case .contactUs:
             return nil
         case .developer:
             return nil
@@ -78,8 +56,6 @@ enum KLSSettingsOption: CaseIterable {
         switch self {
         case .rateApp:
             return NSLocalizedString("rate_app", comment: "Rate App cell")
-        case .contactUs:
-            return NSLocalizedString("contact_developer", comment: "Contact Developer ce;;")
         case .developer:
             return NSLocalizedString("developer", comment: "Developer cell")
         case .privacyPolicy:
@@ -93,8 +69,6 @@ enum KLSSettingsOption: CaseIterable {
         switch self {
         case .rateApp:
             return UIImage(systemName: "star")
-        case .contactUs:
-            return UIImage(systemName: "paperplane")
         case .developer:
             return UIImage(systemName: "hammer")
         case .privacyPolicy:
@@ -107,8 +81,6 @@ enum KLSSettingsOption: CaseIterable {
     var iconContainerColor: UIColor {
         switch self {
         case .rateApp:
-            return Constants.mainAppColor!
-        case .contactUs:
             return Constants.mainAppColor!
         case .developer:
             return Constants.mainAppColor!
