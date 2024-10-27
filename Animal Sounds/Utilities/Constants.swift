@@ -15,4 +15,5 @@ struct Constants {
     static let mainAppColor = UIColor(named: "MainAppColor")
     static let mainBackgroundColor = UIColor(named: "MainBackgroundColor")
     static let tabBarSelectedBackgroundColor = UIColor(named: "TabBarSelectedBackgroundColor")
+    static let termsOfUseUrl = URL(string: "https://sites.google.com/view/kls-terms-of-use/ana-sayfa")
 }

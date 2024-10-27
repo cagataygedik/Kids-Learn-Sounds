@@ -82,5 +82,9 @@ final class KLSSettingsViewController: UIViewController {
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true)
         }
+        else if let url = option.termsOfUseTargetUrl {
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true)
+        }
     }
 }

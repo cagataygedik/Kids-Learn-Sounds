@@ -12,6 +12,7 @@ enum KLSSettingsOption: CaseIterable {
     case contactUs
     case developer
     case privacyPolicy
+    case termsOfUse
     
     var twitterTargetUrl: URL? {
         switch self {
@@ -22,6 +23,8 @@ enum KLSSettingsOption: CaseIterable {
         case .developer:
             return nil
         case .privacyPolicy:
+            return nil
+        case .termsOfUse:
             return nil
         }
     }
@@ -36,6 +39,8 @@ enum KLSSettingsOption: CaseIterable {
             return nil
         case .privacyPolicy:
             return Constants.privacyPolicyUrl
+        case .termsOfUse:
+            return nil
         }
     }
     
@@ -49,6 +54,23 @@ enum KLSSettingsOption: CaseIterable {
             return nil
         case .privacyPolicy:
             return nil
+        case .termsOfUse:
+            return nil
+        }
+    }
+    
+    var termsOfUseTargetUrl: URL? {
+        switch self {
+        case .rateApp:
+            return nil
+        case .contactUs:
+            return nil
+        case .developer:
+            return nil
+        case .privacyPolicy:
+            return nil
+        case .termsOfUse:
+            return Constants.termsOfUseUrl
         }
     }
     
@@ -62,6 +84,8 @@ enum KLSSettingsOption: CaseIterable {
             return NSLocalizedString("developer", comment: "Developer cell")
         case .privacyPolicy:
             return NSLocalizedString("privacy_policy", comment: "Privacy Policy cell")
+        case .termsOfUse:
+            return NSLocalizedString("terms_of_use", comment: "Terms of Use cell")
         }
     }
     
@@ -75,6 +99,8 @@ enum KLSSettingsOption: CaseIterable {
             return UIImage(systemName: "hammer")
         case .privacyPolicy:
             return UIImage(systemName: "doc.text")
+        case .termsOfUse:
+            return UIImage(systemName: "text.rectangle.page")
         }
     }
     
@@ -87,6 +113,8 @@ enum KLSSettingsOption: CaseIterable {
         case .developer:
             return Constants.mainAppColor!
         case .privacyPolicy:
+            return Constants.mainAppColor!
+        case .termsOfUse:
             return Constants.mainAppColor!
         }
     }
