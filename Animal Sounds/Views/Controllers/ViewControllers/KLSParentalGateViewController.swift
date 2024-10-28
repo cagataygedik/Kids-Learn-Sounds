@@ -51,6 +51,7 @@ final class KLSParentalGateViewController: UIViewController {
 
         // Configure answer text field
         answerTextField.borderStyle = .roundedRect
+        answerTextField.tintColor = Constants.mainAppColor
         answerTextField.keyboardType = .numberPad
         answerTextField.textAlignment = .center
         answerTextField.font = .systemFont(ofSize: 20)
@@ -64,6 +65,7 @@ final class KLSParentalGateViewController: UIViewController {
         // Configure submit button
         submitButton.setTitle("Submit", for: .normal)
         submitButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
+        submitButton.tintColor = Constants.mainAppColor
         view.addSubview(submitButton)
         submitButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -97,12 +99,15 @@ final class KLSParentalGateViewController: UIViewController {
     }
 
     private func playVoiceOverPrompt() {
-        
         let currentLocale = Locale.current
         let prompt = NSLocalizedString("ask_your_presents", comment: "Prompt for the parental gate")
         let utterance = AVSpeechUtterance(string: prompt)
         
-        if let voice = AVSpeechSynthesisVoice(language: currentLocale.identifier) {
+        
+        if currentLocale.languageCode == "en" {
+            // Specify a different voice for English
+            utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Samantha-compact") // Example for UK English voice
+        } else if let voice = AVSpeechSynthesisVoice(language: currentLocale.identifier) {
             utterance.voice = voice
         } else {
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")

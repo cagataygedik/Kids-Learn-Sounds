@@ -22,10 +22,12 @@ final class KLSTabBarController: UITabBarController {
         setInitialTabState()
     }
     
+    /*
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkAndShowPaywallIfNeeded()
     }
+     */
     
     private func setView() {
         view.addSubview(tabbarView)
