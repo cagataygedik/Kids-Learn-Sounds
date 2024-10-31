@@ -49,7 +49,6 @@ final class KLSParentalGateViewController: UIViewController {
             make.leading.trailing.equalToSuperview().inset(20)
         }
 
-        // Configure answer text field
         answerTextField.borderStyle = .roundedRect
         answerTextField.tintColor = Constants.mainAppColor
         answerTextField.keyboardType = .numberPad
@@ -62,7 +61,6 @@ final class KLSParentalGateViewController: UIViewController {
             make.width.equalTo(100)
         }
 
-        // Configure submit button
         submitButton.setTitle("Submit", for: .normal)
         submitButton.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
         submitButton.tintColor = Constants.mainAppColor
@@ -74,7 +72,6 @@ final class KLSParentalGateViewController: UIViewController {
     }
 
     private func generateQuestion() {
-        // Simple math question generation
         let number1 = Int.random(in: 1...10)
         let number2 = Int.random(in: 1...10)
         questionLabel.text = "What is \(number1) + \(number2)?"
@@ -105,15 +102,13 @@ final class KLSParentalGateViewController: UIViewController {
         
         
         if currentLocale.languageCode == "en" {
-            // Specify a different voice for English
-            utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Samantha-compact") // Example for UK English voice
+            utterance.voice = AVSpeechSynthesisVoice(identifier: "com.apple.ttsbundle.Samantha-compact")
         } else if let voice = AVSpeechSynthesisVoice(language: currentLocale.identifier) {
             utterance.voice = voice
         } else {
             utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         }
         
-        // Speak the utterance
         speechSynthesizer.speak(utterance)
     }
 }
