@@ -14,7 +14,18 @@ final class SoundManager {
     private var activeSoundId: Int?
     private var startTime: Date?
     
-    private init() {}
+    private init() {
+        configureAudioSession()
+    }
+    
+    private func configureAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("failed to set audio")
+        }
+    }
     
     func playSound(for id: Int, from soundPath: String?) {
         guard let soundPath = soundPath,
