@@ -18,6 +18,10 @@
 "no_more_items_to_load" = "🥳 Keine weiteren Elemente zu laden 🥳";
 "terms_of_use" = "Nutzungsbedingungen";
 "ask_your_presents" = "Bitte deine Eltern, dir bei der Beantwortung der Frage zu helfen.";
+"incorrect" = "Falsche Antwort";
+"try_again_or_ask_parent" = "Versuche es erneut oder frage deine Eltern";
+"submit" = "Absenden";
+
 
 "onboarding_page_1" = "Willkommen bei Kids Learn Sounds. Wir sind hier, um Ihnen zu helfen, Hunderte von Geräuschen auf der Welt zu lernen.";
 "onboarding_page_2" = "Kommen Sie zu uns und erkunden Sie die Welt der Geräusche.";

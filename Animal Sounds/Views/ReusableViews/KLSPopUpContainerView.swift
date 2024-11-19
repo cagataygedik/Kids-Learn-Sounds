@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class KLSAlertContainerView: UIView {
+final class KLSPopUpContainerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

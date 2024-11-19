@@ -18,6 +18,9 @@
 "no_more_items_to_load" = "🥳 No more items to load 🥳";
 "terms_of_use" = "Terms of Use";
 "ask_your_presents" = "Ask your parents to help you answer the question.";
+"incorrect" = "Incorrect Answer";
+"try_again_or_ask_parent" = "Try again or ask your parent";
+"submit" = "Submit";
 
 "onboarding_page_1" = "Welcome to Kids Learn Sounds. We're here to help you learn hundreds of sounds in the world.";
 "onboarding_page_2" = "Come and join us and explore the world of sounds.";

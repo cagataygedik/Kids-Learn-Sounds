@@ -32,7 +32,7 @@
 		A25F6A162BE79DAB00B1B877 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A25F6A152BE79DAB00B1B877 /* SnapKit */; };
 		A25F6A192BE7A04700B1B877 /* KLSNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */; };
 		A25F6A1B2BE7A12600B1B877 /* KLSAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */; };
-		A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */; };
+		A26025B02CB69494008A8CA2 /* KLSPopUpContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025AF2CB69494008A8CA2 /* KLSPopUpContainerView.swift */; };
 		A26025B32CB694D3008A8CA2 /* KLSAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */; };
 		A26025B72CB69EAD008A8CA2 /* KLSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26025B62CB69EAD008A8CA2 /* KLSError.swift */; };
 		A26090C12BEE60CD00A05FD8 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */; };
@@ -81,7 +81,7 @@
 		A25DDD022CCA7E3900DCACA5 /* AnimatioTwoMain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimatioTwoMain.json; sourceTree = "<group>"; };
 		A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSNameLabel.swift; sourceTree = "<group>"; };
 		A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAvatarImageView.swift; sourceTree = "<group>"; };
-		A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAlertContainerView.swift; sourceTree = "<group>"; };
+		A26025AF2CB69494008A8CA2 /* KLSPopUpContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSPopUpContainerView.swift; sourceTree = "<group>"; };
 		A26025B22CB694D3008A8CA2 /* KLSAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSAlertViewController.swift; sourceTree = "<group>"; };
 		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				A25F6A182BE7A04700B1B877 /* KLSNameLabel.swift */,
 				A25F6A1A2BE7A12600B1B877 /* KLSAvatarImageView.swift */,
 				A247A67C2CAEA86200F6EEEE /* KLSButton.swift */,
-				A26025AF2CB69494008A8CA2 /* KLSAlertContainerView.swift */,
+				A26025AF2CB69494008A8CA2 /* KLSPopUpContainerView.swift */,
 				A23868A22CCB777900300EEC /* KLSFooterLoadingReusableView.swift */,
 			);
 			path = ReusableViews;
@@ -515,7 +515,7 @@
 				A255B9D82CB447B700C93AB8 /* AnimationManager.swift in Sources */,
 				A28BD5612BF28757000105A3 /* KLSSettingsViewModel.swift in Sources */,
 				A20C57FC2CB0057A000A7659 /* KLSListCell.swift in Sources */,
-				A26025B02CB69494008A8CA2 /* KLSAlertContainerView.swift in Sources */,
+				A26025B02CB69494008A8CA2 /* KLSPopUpContainerView.swift in Sources */,
 				A23868A32CCB777900300EEC /* KLSFooterLoadingReusableView.swift in Sources */,
 				A20E5B402CB0336C006D515E /* KLSListCellViewModel.swift in Sources */,
 				A247A67D2CAEA86200F6EEEE /* KLSButton.swift in Sources */,
@@ -722,7 +722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -753,7 +753,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.celilcagataygedik.Kids-Learn-Sounds";
 				PRODUCT_NAME = "Kids Learn Sounds";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

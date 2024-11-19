@@ -18,6 +18,10 @@
 "no_more_items_to_load" = "🥳 No hay más elementos para cargar 🥳";
 "terms_of_use" = "Términos de uso";
 "ask_your_presents" = " Pide a tus padres que te ayuden a responder la pregunta.";
+"incorrect" = "Respuesta incorrecta";
+"try_again_or_ask_parent" = "Intenta nuevamente o pregunta a tu padre/madre";
+"submit" = "Enviar";
+
 
 "onboarding_page_1" = "Bienvenido a Kids Learn Sounds. Estamos aquí para ayudarte a aprender cientos de sonidos en el mundo.";
 "onboarding_page_2" = "Ven y únete a nosotros y explora el mundo de los sonidos.";

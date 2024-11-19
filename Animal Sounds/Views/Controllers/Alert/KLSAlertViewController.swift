@@ -8,7 +8,7 @@
 import UIKit
 
 final class KLSAlertViewController: UIViewController {
-    private let containerView = KLSAlertContainerView()
+    private let containerView = KLSPopUpContainerView()
     private let titleLabel = KLSNameLabel(textAlignment: .center, fontSize: 20)
     private let errorImageView: UIImageView = {
         let image = UIImageView()
