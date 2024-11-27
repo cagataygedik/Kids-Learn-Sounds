@@ -9,23 +9,9 @@
       }
     ]
   },
-  "identifier" : "D57A1919",
+  "identifier" : "86B68E74",
   "nonRenewingSubscriptions" : [
-    {
-      "displayPrice" : "119.99",
-      "familyShareable" : false,
-      "internalID" : "6736763099",
-      "localizations" : [
-        {
-          "description" : "Access to all premium feature for your life",
-          "displayName" : "Lifetime Premium Access",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.celilcagataygedik.KidsLearnSounds.lifetime",
-      "referenceName" : "Lifetime Premium Access",
-      "type" : "NonRenewingSubscription"
-    }
+
   ],
   "products" : [
 
@@ -34,7 +20,7 @@
     "_applicationInternalID" : "6736398536",
     "_developerTeamID" : "79CS75S5DL",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 750348297.59519804,
+    "_lastSynchronizedDate" : 754426397.45005202,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -100,12 +86,12 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "2.99",
+          "displayPrice" : "12.99",
           "familyShareable" : false,
-          "groupNumber" : 2,
-          "internalID" : "6736762260",
+          "groupNumber" : 1,
+          "internalID" : "6736762160",
           "introductoryOffer" : {
-            "internalID" : "0ABF8681",
+            "internalID" : "CACCCDA0",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
@@ -113,13 +99,13 @@
           "localizations" : [
             {
               "description" : "Access to all premium features",
-              "displayName" : "Monthly Premium Access",
+              "displayName" : "Annual",
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.celilcagataygedik.KidsLearnSounds.month",
-          "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly Premium Access",
+          "productID" : "com.celilcagataygedik.KidsLearnSounds.year",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Annual",
           "subscriptionGroupID" : "21557323",
           "type" : "RecurringSubscription",
           "winbackOffers" : [
@@ -133,12 +119,12 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "29.99",
+          "displayPrice" : "1.49",
           "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "6736762160",
+          "groupNumber" : 2,
+          "internalID" : "6736762260",
           "introductoryOffer" : {
-            "internalID" : "630FAE50",
+            "internalID" : "D16B0DB6",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"
@@ -146,13 +132,13 @@
           "localizations" : [
             {
               "description" : "Access to all premium features",
-              "displayName" : "Yearly Premium Access",
+              "displayName" : "Monthly",
               "locale" : "en_US"
             }
           ],
-          "productID" : "com.celilcagataygedik.KidsLearnSounds.year",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly Premium Access",
+          "productID" : "com.celilcagataygedik.KidsLearnSounds.month",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly",
           "subscriptionGroupID" : "21557323",
           "type" : "RecurringSubscription",
           "winbackOffers" : [

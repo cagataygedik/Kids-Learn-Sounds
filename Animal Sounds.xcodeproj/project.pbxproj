@@ -39,7 +39,6 @@
 		A26FCE1B2CB8489F0024726C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26FCE1A2CB8489F0024726C /* StoreKit.framework */; };
 		A26FCE1E2CB8495A0024726C /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1D2CB8495A0024726C /* RevenueCat */; };
 		A26FCE202CB8495A0024726C /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A26FCE1F2CB8495A0024726C /* RevenueCatUI */; };
-		A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A27D58882CB9680400DE385E /* SycnedProducts.storekit */; };
 		A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */; };
 		A28BD5572BF285CC000105A3 /* KLSSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */; };
 		A28BD55D2BF286B0000105A3 /* KLSSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */; };
@@ -59,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A20038922CF7A21A0019D5C5 /* Kids Learn Sounds.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Kids Learn Sounds.storekit"; sourceTree = "<group>"; };
 		A20A74262BF745B900679788 /* KLSCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSCircularProgressView.swift; sourceTree = "<group>"; };
 		A20BB83A2CC27AF900773C71 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A20BB83B2CC27AFA00773C71 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 		A26025B62CB69EAD008A8CA2 /* KLSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSError.swift; sourceTree = "<group>"; };
 		A26090C02BEE60CD00A05FD8 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		A26FCE1A2CB8489F0024726C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		A27D58882CB9680400DE385E /* SycnedProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SycnedProducts.storekit; sourceTree = "<group>"; };
 		A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		A28BD5562BF285CC000105A3 /* KLSSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsView.swift; sourceTree = "<group>"; };
 		A28BD55C2BF286B0000105A3 /* KLSSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLSSettingsOption.swift; sourceTree = "<group>"; };
@@ -290,6 +289,7 @@
 		A29F60FD2BE6733F00165F0F = {
 			isa = PBXGroup;
 			children = (
+				A20038922CF7A21A0019D5C5 /* Kids Learn Sounds.storekit */,
 				A29F61082BE6733F00165F0F /* Animal Sounds */,
 				A26FCE192CB8489F0024726C /* Frameworks */,
 				A29F61072BE6733F00165F0F /* Products */,
@@ -318,7 +318,6 @@
 				A28BD5622BF28973000105A3 /* Utilities */,
 				A29F61212BE674B100165F0F /* Resources */,
 				A29F61172BE6734000165F0F /* Info.plist */,
-				A27D58882CB9680400DE385E /* SycnedProducts.storekit */,
 				A27D588A2CB969D100DE385E /* StoreKitTestCertificate.cer */,
 			);
 			path = "Animal Sounds";
@@ -487,7 +486,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27D58892CB9680400DE385E /* SycnedProducts.storekit in Resources */,
 				A2EAAB0C2CB7BFD200F87B94 /* Localizable.strings in Resources */,
 				A27D588B2CB969D100DE385E /* StoreKitTestCertificate.cer in Resources */,
 				A25DDD032CCA7E3900DCACA5 /* AnimatioTwoMain.json in Resources */,
