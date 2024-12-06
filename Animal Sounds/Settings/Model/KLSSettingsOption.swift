@@ -72,9 +72,9 @@ enum KLSSettingsOption: CaseIterable {
         case .developer:
             return UIImage(systemName: "hammer")
         case .privacyPolicy:
-            return UIImage(systemName: "doc.text")
+            return UIImage(systemName: "hand.raised")
         case .termsOfUse:
-            return UIImage(systemName: "text.rectangle.page")
+            return UIImage(systemName: "doc.text")
         }
     }
     
